@@ -12,12 +12,17 @@
     :root {
       --bg: #05090f;
       --bg-soft: #0a111b;
-      --panel: rgba(11, 19, 30, 0.78);
+      --panel: rgba(11, 19, 30, 0.82);
+
       --line: rgba(122, 192, 255, 0.16);
+
       --blue: #63b8ff;
-      --blue-bright: #91d2ff;
+      --blue-bright: #9bd7ff;
+
       --white: #eef7ff;
       --muted: #8796a8;
+
+      --header-height: 82px;
     }
 
     * {
@@ -32,608 +37,1730 @@
 
     body {
       background:
-        radial-gradient(circle at top, rgba(28, 75, 122, 0.16), transparent 35%),
+        radial-gradient(
+          circle at top,
+          rgba(28, 75, 122, 0.16),
+          transparent 35%
+        ),
         var(--bg);
+
       color: var(--white);
+
       font-family: 'Noto Sans KR', sans-serif;
+
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body.menu-open {
+      overflow: hidden;
     }
 
-    /* =========================
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* =========================================
        HEADER
-    ========================= */
+    ========================================= */
 
     header {
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
-      height: 82px;
+      height: var(--header-height);
+
       z-index: 1000;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding: 0 5%;
+
       background: rgba(4, 8, 14, 0.76);
+
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
       border-bottom: 1px solid rgba(130, 194, 255, 0.12);
     }
+
 
     .brand {
       display: flex;
       align-items: center;
+
       gap: 14px;
+
+      min-width: 0;
     }
+
 
     .brand img {
       width: 46px;
       height: 46px;
+
       object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(98, 181, 255, 0.25));
+
+      border-radius: 7px;
+
+      filter:
+        drop-shadow(
+          0 0 10px rgba(98, 181, 255, 0.25)
+        );
     }
+
 
     .brand-text {
       display: flex;
       flex-direction: column;
+
       line-height: 1.15;
     }
 
+
     .brand-text strong {
       font-family: 'Orbitron', sans-serif;
+
       font-size: 17px;
+
       letter-spacing: 2px;
     }
 
+
     .brand-text span {
       margin-top: 5px;
+
       font-size: 10px;
+
       letter-spacing: 1.5px;
+
       color: var(--muted);
     }
+
+
+    /* =========================================
+       DESKTOP NAVIGATION
+    ========================================= */
 
     nav {
       display: flex;
       align-items: center;
+
       gap: 7px;
     }
+
 
     .nav-item {
       position: relative;
     }
 
+
     .nav-title {
       display: block;
+
       padding: 30px 15px;
+
       font-size: 13px;
+
       color: #c5d2df;
-      transition: 0.25s;
+
       cursor: pointer;
+
+      transition: 0.25s;
     }
+
 
     .nav-title:hover {
       color: var(--blue-bright);
     }
 
+
     .dropdown {
       position: absolute;
+
       top: 72px;
       left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      width: 210px;
+
+      transform:
+        translateX(-50%)
+        translateY(8px);
+
+      width: 215px;
+
       padding: 9px;
+
       background: rgba(7, 14, 23, 0.97);
+
       border: 1px solid rgba(99, 184, 255, 0.18);
+
       border-radius: 10px;
+
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
       opacity: 0;
+
       visibility: hidden;
+
       transition: 0.22s;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.38);
+
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.38);
     }
+
 
     .nav-item:hover .dropdown {
       opacity: 1;
+
       visibility: visible;
-      transform: translateX(-50%) translateY(0);
+
+      transform:
+        translateX(-50%)
+        translateY(0);
     }
+
 
     .dropdown a {
       display: block;
+
       padding: 12px 14px;
+
       font-size: 12px;
+
       color: #aebdcc;
+
       border-radius: 6px;
+
       transition: 0.2s;
     }
 
+
     .dropdown a:hover {
       color: white;
-      background: rgba(92, 175, 255, 0.09);
+
+      background:
+        rgba(92, 175, 255, 0.09);
     }
 
-    /* =========================
+
+    /* =========================================
+       MENU BUTTON
+    ========================================= */
+
+    .menu-toggle {
+      display: none;
+
+      width: 45px;
+      height: 45px;
+
+      border: 1px solid rgba(119, 191, 255, 0.17);
+
+      border-radius: 8px;
+
+      background:
+        rgba(16, 28, 42, 0.56);
+
+      color: white;
+
+      font-size: 23px;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+
+    .menu-toggle:hover {
+      border-color:
+        rgba(119, 191, 255, 0.4);
+
+      background:
+        rgba(27, 54, 79, 0.7);
+    }
+
+
+    /* =========================================
+       MOBILE FULL MENU
+    ========================================= */
+
+    .mobile-menu {
+      position: fixed;
+
+      top: 0;
+      right: -100%;
+
+      width: min(430px, 92%);
+      height: 100dvh;
+
+      z-index: 2100;
+
+      padding: 28px;
+
+      overflow-y: auto;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(7, 14, 23, 0.99),
+          rgba(4, 9, 15, 0.995)
+        );
+
+      border-left:
+        1px solid rgba(100, 180, 255, 0.16);
+
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+
+      transition:
+        right 0.35s cubic-bezier(.2, .8, .2, 1);
+
+      box-shadow:
+        -20px 0 80px rgba(0, 0, 0, 0.55);
+    }
+
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+
+    .menu-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      background:
+        rgba(0, 0, 0, 0.62);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: 0.3s;
+
+      backdrop-filter: blur(4px);
+    }
+
+
+    .menu-overlay.active {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 20px;
+
+      padding-bottom: 26px;
+
+      border-bottom:
+        1px solid rgba(100, 180, 255, 0.12);
+    }
+
+
+    .mobile-menu-brand {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+    }
+
+
+    .mobile-menu-brand img {
+      width: 44px;
+      height: 44px;
+
+      object-fit: contain;
+
+      border-radius: 6px;
+    }
+
+
+    .mobile-menu-header strong {
+      display: block;
+
+      font-family: 'Orbitron', sans-serif;
+
+      font-size: 18px;
+
+      letter-spacing: 2px;
+    }
+
+
+    .mobile-menu-header span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: #73869a;
+
+      font-size: 9px;
+
+      letter-spacing: 1px;
+    }
+
+
+    .menu-close {
+      width: 42px;
+      height: 42px;
+
+      border:
+        1px solid rgba(120, 191, 255, 0.15);
+
+      border-radius: 50%;
+
+      background:
+        rgba(20, 34, 48, 0.6);
+
+      color: white;
+
+      font-size: 18px;
+
+      cursor: pointer;
+    }
+
+
+    .mobile-menu-content {
+      padding-bottom: 60px;
+    }
+
+
+    .mobile-category {
+      padding: 27px 0;
+
+      border-bottom:
+        1px solid rgba(100, 180, 255, 0.08);
+    }
+
+
+    .mobile-category-number {
+      font-family: 'Orbitron', sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 2px;
+
+      color: #526d82;
+    }
+
+
+    .mobile-category h4 {
+      margin:
+        7px 0 15px;
+
+      color: #82c7ff;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.3px;
+    }
+
+
+    .mobile-category a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 10px 0;
+
+      color: #b2c0cd;
+
+      font-size: 13px;
+
+      transition: 0.2s;
+    }
+
+
+    .mobile-category a::after {
+      content: '→';
+
+      color: #536b80;
+
+      font-size: 12px;
+
+      transition: 0.2s;
+    }
+
+
+    .mobile-category a:hover {
+      color: white;
+
+      padding-left: 6px;
+    }
+
+
+    .mobile-category a:hover::after {
+      color: var(--blue);
+    }
+
+
+    /* =========================================
        HERO
-    ========================= */
+    ========================================= */
 
     .hero {
       position: relative;
+
       min-height: 100vh;
+
       display: flex;
       align-items: flex-end;
+
       overflow: hidden;
     }
 
+
     .hero-bg {
       position: absolute;
+
       inset: 0;
-      background-image: url('https://i.ifh.cc/8mhmpO.jpg');
+
+      background-image:
+        url('https://i.ifh.cc/8mhmpO.jpg');
+
       background-size: cover;
+
       background-position: center;
-      transform: scale(1.03);
+
+      transform: scale(1.035);
     }
 
-    .hero-overlay {
+
+    .hero-bg::after {
+      content: '';
+
       position: absolute;
+
       inset: 0;
+
       background:
-        linear-gradient(
-          to top,
-          #05090f 3%,
-          rgba(5, 9, 15, 0.75) 28%,
-          rgba(5, 9, 15, 0.25) 58%,
-          rgba(5, 9, 15, 0.4) 100%
-        ),
-        linear-gradient(
-          90deg,
-          rgba(5, 9, 15, 0.72),
-          rgba(5, 9, 15, 0.04) 60%
+        radial-gradient(
+          circle at 72% 45%,
+          rgba(53, 133, 202, 0.07),
+          transparent 30%
         );
     }
 
+
+    .hero-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        linear-gradient(
+          to top,
+          #05090f 2%,
+          rgba(5, 9, 15, 0.76) 27%,
+          rgba(5, 9, 15, 0.27) 58%,
+          rgba(5, 9, 15, 0.42) 100%
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(5, 9, 15, 0.78),
+          rgba(5, 9, 15, 0.04) 63%
+        );
+    }
+
+
     .hero-content {
       position: relative;
+
       z-index: 5;
+
       width: 100%;
+
       max-width: 1450px;
+
       margin: 0 auto;
-      padding: 0 7% 90px;
+
+      padding:
+        0 7% 90px;
     }
+
 
     .classification {
       display: inline-flex;
       align-items: center;
+
       gap: 8px;
+
       margin-bottom: 19px;
+
       padding: 8px 12px;
-      border: 1px solid rgba(111, 188, 255, 0.25);
-      background: rgba(27, 82, 131, 0.12);
+
+      border:
+        1px solid rgba(111, 188, 255, 0.25);
+
+      background:
+        rgba(27, 82, 131, 0.12);
+
       color: #a6d8ff;
-      font-family: 'Orbitron', sans-serif;
+
+      font-family:
+        'Orbitron', sans-serif;
+
       font-size: 9px;
+
       letter-spacing: 2px;
     }
 
+
     .classification::before {
       content: '';
+
       width: 6px;
       height: 6px;
+
       border-radius: 50%;
+
       background: #68c2ff;
-      box-shadow: 0 0 12px #68c2ff;
+
+      box-shadow:
+        0 0 12px #68c2ff;
     }
+
 
     .hero-logo {
-      width: 95px;
-      height: 95px;
+      width: 96px;
+      height: 96px;
+
       object-fit: contain;
+
       margin-bottom: 20px;
-      filter: drop-shadow(0 0 22px rgba(81, 175, 255, 0.28));
+
+      border-radius: 9px;
+
+      filter:
+        drop-shadow(
+          0 0 22px rgba(81, 175, 255, 0.28)
+        );
     }
 
+
     .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(54px, 8vw, 105px);
+      font-family:
+        'Orbitron', sans-serif;
+
+      font-size:
+        clamp(54px, 8vw, 105px);
+
       letter-spacing: 7px;
+
       line-height: 0.95;
+
       font-weight: 600;
     }
 
+
     .hero h2 {
       margin-top: 18px;
-      font-size: clamp(17px, 2.4vw, 28px);
+
+      font-size:
+        clamp(17px, 2.4vw, 28px);
+
       font-weight: 400;
-      letter-spacing: 4px;
+
+      letter-spacing: 3px;
+
       color: #b9cad8;
     }
 
+
     .hero h2 span {
+      display: inline-block;
+
+      margin-left: 8px;
+
       color: var(--blue-bright);
     }
 
+
     .hero-description {
-      max-width: 680px;
+      max-width: 700px;
+
       margin-top: 28px;
+
       color: #97a9ba;
+
       font-size: 14px;
-      line-height: 1.9;
+
+      line-height: 1.95;
+
       font-weight: 300;
     }
 
+
     .hero-actions {
       display: flex;
+
       gap: 12px;
+
       margin-top: 32px;
     }
 
+
     .btn {
-      padding: 14px 22px;
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding: 0 22px;
+
       font-size: 11px;
-      letter-spacing: 1px;
-      border: 1px solid rgba(121, 194, 255, 0.25);
+
+      letter-spacing: 0.8px;
+
+      border:
+        1px solid rgba(121, 194, 255, 0.25);
+
       transition: 0.25s;
     }
 
+
     .btn-primary {
-      background: rgba(76, 164, 239, 0.17);
+      background:
+        rgba(76, 164, 239, 0.17);
+
       color: #d9efff;
     }
 
+
     .btn-primary:hover {
-      background: rgba(76, 164, 239, 0.3);
+      background:
+        rgba(76, 164, 239, 0.3);
+
+      border-color:
+        rgba(121, 194, 255, 0.42);
     }
+
 
     .btn-secondary {
       color: #9babba;
+
+      background:
+        rgba(5, 10, 17, 0.26);
     }
+
 
     .btn-secondary:hover {
       color: white;
-      border-color: rgba(151, 210, 255, 0.4);
+
+      border-color:
+        rgba(151, 210, 255, 0.4);
     }
 
-    /* =========================
-       INTRO
-    ========================= */
+
+    /* =========================================
+       MAIN INTRODUCTION
+    ========================================= */
 
     .section {
       padding: 120px 7%;
     }
 
+
     .section-inner {
       max-width: 1280px;
+
       margin: 0 auto;
     }
 
+
     .section-label {
-      font-family: 'Orbitron', sans-serif;
+      font-family:
+        'Orbitron', sans-serif;
+
       color: var(--blue);
+
       font-size: 10px;
+
       letter-spacing: 3px;
+
       margin-bottom: 16px;
     }
 
+
     .section h3 {
-      font-size: clamp(30px, 4vw, 48px);
+      font-size:
+        clamp(30px, 4vw, 48px);
+
       font-weight: 500;
+
       letter-spacing: -1px;
+
+      line-height: 1.4;
     }
+
 
     .section-lead {
       margin-top: 22px;
-      max-width: 710px;
+
+      max-width: 720px;
+
       color: #8191a0;
+
       font-size: 14px;
+
       line-height: 2;
     }
 
+
+    /* =========================================
+       INTRO CARDS
+    ========================================= */
+
     .intro-grid {
       margin-top: 65px;
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 14px;
     }
 
+
     .intro-card {
-      min-height: 190px;
+      min-height: 205px;
+
       padding: 28px;
+
       background:
+
         linear-gradient(
           150deg,
           rgba(15, 27, 42, 0.8),
           rgba(8, 15, 25, 0.75)
         );
-      border: 1px solid rgba(122, 190, 255, 0.11);
+
+      border:
+        1px solid rgba(122, 190, 255, 0.11);
+
       transition: 0.3s;
     }
 
+
     .intro-card:hover {
-      border-color: rgba(120, 194, 255, 0.32);
-      transform: translateY(-4px);
+      border-color:
+        rgba(120, 194, 255, 0.32);
+
+      transform:
+        translateY(-4px);
+
+      background:
+
+        linear-gradient(
+          150deg,
+          rgba(18, 34, 53, 0.92),
+          rgba(8, 15, 25, 0.78)
+        );
     }
+
 
     .card-number {
-      font-family: 'Orbitron', sans-serif;
+      font-family:
+        'Orbitron', sans-serif;
+
       font-size: 10px;
+
       color: var(--blue);
-    }
 
-    .intro-card h4 {
-      margin-top: 35px;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .intro-card p {
-      margin-top: 12px;
-      color: #758696;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    /* =========================
-       CONTENT PLACEHOLDERS
-    ========================= */
-
-    .content-section {
-      padding: 110px 7%;
-      border-top: 1px solid rgba(120, 190, 255, 0.07);
-    }
-
-    .content-section:nth-of-type(even) {
-      background: rgba(8, 15, 23, 0.48);
-    }
-
-    .content-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .content-section h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 30px;
-      letter-spacing: 2px;
-      font-weight: 500;
-    }
-
-    .content-section p {
-      margin-top: 18px;
-      color: #7d8c9a;
-      line-height: 1.9;
-      font-size: 13px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 50px 7%;
-      border-top: 1px solid rgba(120, 190, 255, 0.1);
-      color: #5f6e7c;
-      font-size: 10px;
       letter-spacing: 1px;
     }
 
+
+    .intro-card h4 {
+      margin-top: 35px;
+
+      font-size: 17px;
+
+      font-weight: 500;
+    }
+
+
+    .intro-card p {
+      margin-top: 12px;
+
+      color: #758696;
+
+      font-size: 12px;
+
+      line-height: 1.75;
+    }
+
+
+    /* =========================================
+       CONTENT SECTIONS
+    ========================================= */
+
+    .content-section {
+      padding: 110px 7%;
+
+      border-top:
+        1px solid rgba(120, 190, 255, 0.07);
+
+      scroll-margin-top:
+        calc(var(--header-height) + 10px);
+    }
+
+
+    .content-section:nth-of-type(even) {
+      background:
+        rgba(8, 15, 23, 0.48);
+    }
+
+
+    .content-inner {
+      max-width: 1280px;
+
+      margin: 0 auto;
+    }
+
+
+    .content-section h3 {
+      font-family:
+        'Orbitron', sans-serif;
+
+      font-size:
+        clamp(26px, 4vw, 34px);
+
+      letter-spacing: 2px;
+
+      font-weight: 500;
+    }
+
+
+    .content-section p {
+      margin-top: 18px;
+
+      max-width: 850px;
+
+      color: #7d8c9a;
+
+      line-height: 1.95;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding: 50px 7%;
+
+      border-top:
+        1px solid rgba(120, 190, 255, 0.1);
+
+      color: #5f6e7c;
+
+      font-size: 10px;
+
+      letter-spacing: 1px;
+    }
+
+
     .footer-inner {
       max-width: 1280px;
+
       margin: 0 auto;
+
       display: flex;
+
       justify-content: space-between;
+
       gap: 20px;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
 
-    @media (max-width: 900px) {
+    /* =========================================
+       TABLET
+    ========================================= */
 
-      header {
-        height: 70px;
-        padding: 0 20px;
-      }
-
-      .brand-text span {
-        display: none;
-      }
+    @media (max-width: 1000px) {
 
       nav {
         display: none;
       }
 
-      .hero-content {
-        padding: 0 28px 70px;
+
+      .menu-toggle {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
       }
 
-      .hero-logo {
-        width: 75px;
-        height: 75px;
-      }
-
-      .hero-description {
-        font-size: 13px;
-      }
 
       .intro-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+          repeat(2, 1fr);
       }
+
     }
 
-    @media (max-width: 540px) {
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 700px) {
+
+      :root {
+        --header-height: 70px;
+      }
+
+
+      header {
+        height: 70px;
+
+        padding:
+          0 18px;
+      }
+
+
+      .brand {
+        gap: 10px;
+      }
+
 
       .brand img {
         width: 38px;
         height: 38px;
       }
 
+
       .brand-text strong {
         font-size: 14px;
+
+        letter-spacing: 1.5px;
       }
+
+
+      .brand-text span {
+        display: none;
+      }
+
+
+      .menu-toggle {
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+      }
+
+
+      .hero {
+        min-height: 100svh;
+      }
+
+
+      .hero-bg {
+        background-position:
+          58% center;
+      }
+
+
+      .hero-content {
+        padding:
+          0 24px 62px;
+      }
+
+
+      .classification {
+        font-size: 8px;
+
+        letter-spacing: 1.4px;
+      }
+
+
+      .hero-logo {
+        width: 74px;
+        height: 74px;
+      }
+
 
       .hero h1 {
         font-size: 51px;
+
+        letter-spacing: 5px;
       }
+
 
       .hero h2 {
         font-size: 15px;
-        letter-spacing: 2px;
+
+        line-height: 1.65;
+
+        letter-spacing: 1.5px;
       }
 
-      .intro-grid {
-        grid-template-columns: 1fr;
+
+      .hero h2 span {
+        display: block;
+
+        margin:
+          2px 0 0;
       }
 
-      .section {
-        padding: 85px 25px;
+
+      .hero-description {
+        font-size: 13px;
+
+        line-height: 1.85;
       }
+
 
       .hero-actions {
         flex-direction: column;
-        max-width: 230px;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        max-width: 280px;
       }
+
+
+      .section {
+        padding:
+          85px 24px;
+      }
+
+
+      .section h3 {
+        font-size: 30px;
+      }
+
+
+      .section-lead {
+        font-size: 13px;
+      }
+
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 45px;
+      }
+
+
+      .intro-card {
+        min-height: auto;
+
+        padding: 24px;
+      }
+
+
+      .intro-card h4 {
+        margin-top: 24px;
+      }
+
+
+      .content-section {
+        padding:
+          80px 24px;
+      }
+
+
+      .content-section h3 {
+        font-size: 25px;
+      }
+
+
+      footer {
+        padding:
+          35px 24px;
+      }
+
 
       .footer-inner {
         flex-direction: column;
+
+        gap: 8px;
       }
+
+
+      .mobile-menu {
+        padding:
+          24px 22px;
+      }
+
+    }
+
+
+    /* =========================================
+       VERY SMALL MOBILE
+    ========================================= */
+
+    @media (max-width: 390px) {
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+
+      .hero h2 {
+        font-size: 14px;
+      }
+
+
+      .hero-description {
+        font-size: 12px;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
 <header>
 
   <a class="brand" href="#home">
-    <img src="https://i.ifh.cc/xnwlTn.jpg" alt="T.E.D. Logo">
+
+    <img
+      src="https://i.ifh.cc/xnwlTn.jpg"
+      alt="T.E.D. Logo"
+    >
 
     <div class="brand-text">
-      <strong>T.E.D.</strong>
-      <span>TEMPORAL ENFORCEMENT DIVISION</span>
+
+      <strong>
+        T.E.D.
+      </strong>
+
+      <span>
+        TEMPORAL ENFORCEMENT DIVISION
+      </span>
+
     </div>
+
   </a>
 
 
+
+  <!-- DESKTOP NAV -->
+
   <nav>
 
+
     <!-- 정보 -->
+
     <div class="nav-item">
-      <span class="nav-title">정보</span>
+
+      <span class="nav-title">
+        정보
+      </span>
 
       <div class="dropdown">
-        <a href="#purpose">설립목적</a>
-        <a href="#location">위치정보</a>
-        <a href="#agency">기관안내</a>
+
+        <a href="#purpose">
+          설립목적
+        </a>
+
+        <a href="#location">
+          위치정보
+        </a>
+
+        <a href="#agency">
+          기관안내
+        </a>
+
       </div>
+
     </div>
+
 
 
     <!-- 시간여행 장치 -->
+
     <div class="nav-item">
-      <span class="nav-title">시간여행 장치 설명</span>
+
+      <span class="nav-title">
+        시간여행 장치 설명
+      </span>
 
       <div class="dropdown">
-        <a href="#developer">개발자</a>
-        <a href="#development">개발 완료 시기</a>
-        <a href="#principle">작동 원리</a>
-        <a href="#structure">구조</a>
+
+        <a href="#developer">
+          개발자
+        </a>
+
+        <a href="#development">
+          개발 완료 시기
+        </a>
+
+        <a href="#principle">
+          작동 원리
+        </a>
+
+        <a href="#structure">
+          구조
+        </a>
+
       </div>
+
     </div>
+
 
 
     <!-- 부서 안내 -->
+
     <div class="nav-item">
-      <span class="nav-title">부서안내</span>
+
+      <span class="nav-title">
+        부서안내
+      </span>
 
       <div class="dropdown">
-        <a href="#commissioner">단속 총감</a>
-        <a href="#enforcement">시간집행과</a>
-        <a href="#investigation">시간수사과</a>
-        <a href="#inspection">시간감찰과</a>
-        <a href="#restoration">시간복구과</a>
+
+        <a href="#commissioner">
+          단속 총감
+        </a>
+
+        <a href="#enforcement">
+          시간집행과
+        </a>
+
+        <a href="#investigation">
+          시간수사과
+        </a>
+
+        <a href="#inspection">
+          시간감찰과
+        </a>
+
+        <a href="#restoration">
+          시간복구과
+        </a>
+
       </div>
+
     </div>
+
 
 
     <!-- 시설 안내 -->
+
     <div class="nav-item">
-      <span class="nav-title">시설안내</span>
+
+      <span class="nav-title">
+        시설안내
+      </span>
 
       <div class="dropdown">
-        <a href="#civil">민원실</a>
-        <a href="#dormitory">기숙사</a>
-        <a href="#training">교육실</a>
-        <a href="#cafeteria">식당</a>
-        <a href="#archive">자료실</a>
-        <a href="#supplies">비품실</a>
-        <a href="#security">보안실</a>
-        <a href="#broadcast">방송실</a>
-        <a href="#interrogation">조사실</a>
-        <a href="#lounge">휴게실</a>
-        <a href="#power">전기실</a>
+
+        <a href="#civil">
+          민원실
+        </a>
+
+        <a href="#dormitory">
+          기숙사
+        </a>
+
+        <a href="#training">
+          교육실
+        </a>
+
+        <a href="#cafeteria">
+          식당
+        </a>
+
+        <a href="#archive">
+          자료실
+        </a>
+
+        <a href="#supplies">
+          비품실
+        </a>
+
+        <a href="#security">
+          보안실
+        </a>
+
+        <a href="#broadcast">
+          방송실
+        </a>
+
+        <a href="#interrogation">
+          조사실
+        </a>
+
+        <a href="#lounge">
+          휴게실
+        </a>
+
+        <a href="#power">
+          전기실
+        </a>
+
       </div>
+
     </div>
 
+
   </nav>
+
+
+
+  <!-- MOBILE MENU BUTTON -->
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="전체 메뉴 열기"
+  >
+    ☰
+  </button>
 
 </header>
 
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- =========================================
+     MOBILE MENU OVERLAY
+========================================= -->
 
-<section class="hero" id="home">
+<div
+  class="menu-overlay"
+  id="menuOverlay"
+></div>
+
+
+
+<!-- =========================================
+     MOBILE MENU
+========================================= -->
+
+<aside
+  class="mobile-menu"
+  id="mobileMenu"
+>
+
+  <div class="mobile-menu-header">
+
+
+    <div class="mobile-menu-brand">
+
+      <img
+        src="https://i.ifh.cc/xnwlTn.jpg"
+        alt="T.E.D. Logo"
+      >
+
+      <div>
+
+        <strong>
+          T.E.D.
+        </strong>
+
+        <span>
+          TEMPORAL ENFORCEMENT DIVISION
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="menu-close"
+      id="menuClose"
+      aria-label="메뉴 닫기"
+    >
+      ✕
+    </button>
+
+
+  </div>
+
+
+
+  <div class="mobile-menu-content">
+
+
+    <!-- INFORMATION -->
+
+    <section class="mobile-category">
+
+      <div class="mobile-category-number">
+        01 · INFORMATION
+      </div>
+
+      <h4>
+        정보
+      </h4>
+
+      <a href="#purpose">
+        설립목적
+      </a>
+
+      <a href="#location">
+        위치정보
+      </a>
+
+      <a href="#agency">
+        기관안내
+      </a>
+
+    </section>
+
+
+
+    <!-- TEMPORAL DEVICE -->
+
+    <section class="mobile-category">
+
+      <div class="mobile-category-number">
+        02 · TEMPORAL DEVICE
+      </div>
+
+      <h4>
+        시간여행 장치 설명
+      </h4>
+
+      <a href="#developer">
+        개발자
+      </a>
+
+      <a href="#development">
+        개발 완료 시기
+      </a>
+
+      <a href="#principle">
+        작동 원리
+      </a>
+
+      <a href="#structure">
+        구조
+      </a>
+
+    </section>
+
+
+
+    <!-- DIVISIONS -->
+
+    <section class="mobile-category">
+
+      <div class="mobile-category-number">
+        03 · DIVISIONS
+      </div>
+
+      <h4>
+        부서안내
+      </h4>
+
+      <a href="#commissioner">
+        단속 총감
+      </a>
+
+      <a href="#enforcement">
+        시간집행과
+      </a>
+
+      <a href="#investigation">
+        시간수사과
+      </a>
+
+      <a href="#inspection">
+        시간감찰과
+      </a>
+
+      <a href="#restoration">
+        시간복구과
+      </a>
+
+    </section>
+
+
+
+    <!-- FACILITIES -->
+
+    <section class="mobile-category">
+
+      <div class="mobile-category-number">
+        04 · FACILITIES
+      </div>
+
+      <h4>
+        시설안내
+      </h4>
+
+      <a href="#civil">
+        민원실
+      </a>
+
+      <a href="#dormitory">
+        기숙사
+      </a>
+
+      <a href="#training">
+        교육실
+      </a>
+
+      <a href="#cafeteria">
+        식당
+      </a>
+
+      <a href="#archive">
+        자료실
+      </a>
+
+      <a href="#supplies">
+        비품실
+      </a>
+
+      <a href="#security">
+        보안실
+      </a>
+
+      <a href="#broadcast">
+        방송실
+      </a>
+
+      <a href="#interrogation">
+        조사실
+      </a>
+
+      <a href="#lounge">
+        휴게실
+      </a>
+
+      <a href="#power">
+        전기실
+      </a>
+
+    </section>
+
+
+  </div>
+
+</aside>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+  class="hero"
+  id="home"
+>
 
   <div class="hero-bg"></div>
+
   <div class="hero-overlay"></div>
+
 
   <div class="hero-content">
 
+
     <div class="classification">
+
       TEMPORAL AUTHORITY · OFFICIAL NETWORK
+
     </div>
+
+
 
     <img
       class="hero-logo"
       src="https://i.ifh.cc/xnwlTn.jpg"
-      alt="T.E.D. emblem"
+      alt="T.E.D. Emblem"
     >
 
-    <h1>T.E.D.</h1>
+
+
+    <h1>
+      T.E.D.
+    </h1>
+
+
 
     <h2>
+
       시간질서단속반
-      <span>Temporal Enforcement Division</span>
+
+      <span>
+        Temporal Enforcement Division
+      </span>
+
     </h2>
 
+
+
     <p class="hero-description">
-      시간질서단속반 T.E.D.는 시간선의 안정과 역사적 연속성을 보호하기 위해
-      설립된 시간관리국 산하 특수 집행기관입니다.
-      승인되지 않은 시간 이동, 시간범죄, 역사 개입 및 시간선 변조를 감시하며
-      발생한 시간 이상 현상을 조사·단속·복구합니다.
+
+      시간질서단속반 T.E.D.는 시간선의 안정과
+      역사적 연속성을 보호하기 위해 설립된
+      시간관리국 산하 특수 집행기관입니다.
+
+      승인되지 않은 시간 이동,
+      시간범죄, 역사 개입 및 시간선 변조를 감시하며
+      발생한 시간 이상 현상을
+      조사·단속·복구합니다.
+
     </p>
 
+
+
     <div class="hero-actions">
-      <a href="#introduction" class="btn btn-primary">
+
+      <a
+        href="#introduction"
+        class="btn btn-primary"
+      >
         기관 소개
       </a>
 
-      <a href="#purpose" class="btn btn-secondary">
+
+      <a
+        href="#purpose"
+        class="btn btn-secondary"
+      >
         공식 정보 열람
       </a>
+
     </div>
+
 
   </div>
 
@@ -641,332 +1768,944 @@
 
 
 
-<!-- =========================
+<!-- =========================================
      INTRODUCTION
-========================= -->
+========================================= -->
 
-<section class="section" id="introduction">
+<section
+  class="section"
+  id="introduction"
+>
 
   <div class="section-inner">
+
 
     <div class="section-label">
       TEMPORAL ENFORCEMENT DIVISION
     </div>
 
+
     <h3>
+
       시간의 흐름을 보호하고<br>
       역사의 질서를 유지합니다.
+
     </h3>
 
+
     <p class="section-lead">
-      시간여행 기술의 상용화 이후 발생한 불법 시간 이동과
-      역사 개입 사건에 대응하기 위해 창설된 시간질서단속반은
-      시간관리국의 현장 집행 및 수사를 담당하는 핵심 기관입니다.
-      모든 시대의 안정성과 시간선의 지속성을 최우선 가치로 삼습니다.
+
+      시간여행 기술의 상용화 이후 발생한
+      불법 시간 이동과 역사 개입 사건에 대응하기 위해
+      창설된 시간질서단속반은
+      시간관리국의 현장 집행 및 수사를 담당하는
+      핵심 기관입니다.
+
+      모든 시대의 안정성과
+      시간선의 지속성을 최우선 가치로 삼습니다.
+
     </p>
+
 
 
     <div class="intro-grid">
 
-      <a href="#purpose" class="intro-card">
-        <span class="card-number">01</span>
-        <h4>기관 정보</h4>
+
+      <a
+        href="#purpose"
+        class="intro-card"
+      >
+
+        <span class="card-number">
+          01
+        </span>
+
+        <h4>
+          기관 정보
+        </h4>
+
         <p>
-          설립 목적, 위치 정보 및
-          시간질서단속반의 주요 임무를 확인합니다.
+
+          설립 목적,
+          위치 정보 및
+          시간질서단속반의 주요 임무를
+          확인합니다.
+
         </p>
+
       </a>
 
 
-      <a href="#developer" class="intro-card">
-        <span class="card-number">02</span>
-        <h4>시간여행 장치</h4>
+
+      <a
+        href="#developer"
+        class="intro-card"
+      >
+
+        <span class="card-number">
+          02
+        </span>
+
+        <h4>
+          시간여행 장치
+        </h4>
+
         <p>
+
           시간 이동 기술의 개발 과정,
-          작동 원리와 내부 구조를 열람합니다.
+          작동 원리와 내부 구조를
+          열람합니다.
+
         </p>
+
       </a>
 
 
-      <a href="#commissioner" class="intro-card">
-        <span class="card-number">03</span>
-        <h4>부서 안내</h4>
+
+      <a
+        href="#commissioner"
+        class="intro-card"
+      >
+
+        <span class="card-number">
+          03
+        </span>
+
+        <h4>
+          부서 안내
+        </h4>
+
         <p>
-          단속총감 및 T.E.D. 산하
-          4개 핵심 부서의 업무를 확인합니다.
+
+          단속총감 및
+          T.E.D. 산하 4개 핵심 부서의
+          업무를 확인합니다.
+
         </p>
+
       </a>
 
 
-      <a href="#civil" class="intro-card">
-        <span class="card-number">04</span>
-        <h4>시설 안내</h4>
+
+      <a
+        href="#civil"
+        class="intro-card"
+      >
+
+        <span class="card-number">
+          04
+        </span>
+
+        <h4>
+          시설 안내
+        </h4>
+
         <p>
+
           본부 내부의 업무시설,
-          생활시설 및 보안시설을 안내합니다.
+          생활시설 및 보안시설을
+          안내합니다.
+
         </p>
+
       </a>
+
 
     </div>
 
+
   </div>
 
 </section>
 
 
 
-<!-- =========================
+<!-- =========================================
      INFORMATION
-========================= -->
+========================================= -->
 
-<section class="content-section" id="purpose">
+<section
+  class="content-section"
+  id="purpose"
+>
+
   <div class="content-inner">
-    <div class="section-label">INFORMATION · 01</div>
-    <h3>설립목적</h3>
+
+    <div class="section-label">
+      INFORMATION · 01
+    </div>
+
+    <h3>
+      설립목적
+    </h3>
+
     <p>
-      시간질서단속반의 설립 목적과 법적 임무에 관한 내용이 이곳에 표시됩니다.
+
+      시간질서단속반의 설립 목적과
+      법적 임무에 관한 내용이
+      이곳에 표시됩니다.
+
     </p>
+
   </div>
+
 </section>
 
 
-<section class="content-section" id="location">
+
+<section
+  class="content-section"
+  id="location"
+>
+
   <div class="content-inner">
-    <div class="section-label">INFORMATION · 02</div>
-    <h3>위치정보</h3>
+
+    <div class="section-label">
+      INFORMATION · 02
+    </div>
+
+    <h3>
+      위치정보
+    </h3>
+
     <p>
-      시간관리국 및 T.E.D. 본부 위치 정보가 이곳에 표시됩니다.
+
+      시간관리국 및
+      T.E.D. 본부 위치 정보가
+      이곳에 표시됩니다.
+
     </p>
+
   </div>
+
 </section>
 
 
-<section class="content-section" id="agency">
+
+<section
+  class="content-section"
+  id="agency"
+>
+
   <div class="content-inner">
-    <div class="section-label">INFORMATION · 03</div>
-    <h3>기관안내</h3>
+
+    <div class="section-label">
+      INFORMATION · 03
+    </div>
+
+    <h3>
+      기관안내
+    </h3>
+
     <p>
-      기관의 역사, 역할 및 운영 체계에 관한 내용이 이곳에 표시됩니다.
+
+      기관의 역사,
+      역할 및 운영 체계에 관한
+      내용이 이곳에 표시됩니다.
+
     </p>
+
   </div>
+
 </section>
 
 
 
-<!-- =========================
-     DEVICE
-========================= -->
+<!-- =========================================
+     TEMPORAL DEVICE
+========================================= -->
 
-<section class="content-section" id="developer">
+<section
+  class="content-section"
+  id="developer"
+>
+
   <div class="content-inner">
-    <div class="section-label">TEMPORAL DEVICE · 01</div>
-    <h3>개발자</h3>
-    <p>시간여행 장치 개발자 정보가 표시됩니다.</p>
+
+    <div class="section-label">
+      TEMPORAL DEVICE · 01
+    </div>
+
+    <h3>
+      개발자
+    </h3>
+
+    <p>
+
+      시간여행 장치 개발자 정보가
+      표시됩니다.
+
+    </p>
+
   </div>
+
 </section>
 
 
-<section class="content-section" id="development">
+
+<section
+  class="content-section"
+  id="development"
+>
+
   <div class="content-inner">
-    <div class="section-label">TEMPORAL DEVICE · 02</div>
-    <h3>개발 완료 시기</h3>
-    <p>시간여행 장치 개발 연혁이 표시됩니다.</p>
+
+    <div class="section-label">
+      TEMPORAL DEVICE · 02
+    </div>
+
+    <h3>
+      개발 완료 시기
+    </h3>
+
+    <p>
+
+      시간여행 장치의 개발 연혁 및
+      완성 시기가 표시됩니다.
+
+    </p>
+
   </div>
+
 </section>
 
 
-<section class="content-section" id="principle">
+
+<section
+  class="content-section"
+  id="principle"
+>
+
   <div class="content-inner">
-    <div class="section-label">TEMPORAL DEVICE · 03</div>
-    <h3>작동 원리</h3>
-    <p>시간 이동 기술의 작동 원리가 표시됩니다.</p>
+
+    <div class="section-label">
+      TEMPORAL DEVICE · 03
+    </div>
+
+    <h3>
+      작동 원리
+    </h3>
+
+    <p>
+
+      시간 이동 기술의 작동 원리가
+      표시됩니다.
+
+    </p>
+
   </div>
+
 </section>
 
 
-<section class="content-section" id="structure">
+
+<section
+  class="content-section"
+  id="structure"
+>
+
   <div class="content-inner">
-    <div class="section-label">TEMPORAL DEVICE · 04</div>
-    <h3>구조</h3>
-    <p>시간여행 장치의 내부 및 외부 구조가 표시됩니다.</p>
+
+    <div class="section-label">
+      TEMPORAL DEVICE · 04
+    </div>
+
+    <h3>
+      구조
+    </h3>
+
+    <p>
+
+      시간여행 장치의
+      내부 및 외부 구조가
+      표시됩니다.
+
+    </p>
+
   </div>
+
 </section>
 
 
 
-<!-- =========================
+<!-- =========================================
      DIVISIONS
-========================= -->
+========================================= -->
 
-<section class="content-section" id="commissioner">
+<section
+  class="content-section"
+  id="commissioner"
+>
+
   <div class="content-inner">
-    <div class="section-label">COMMAND · 01</div>
-    <h3>단속총감</h3>
-    <p>T.E.D. 최고 책임자인 단속총감에 관한 정보가 표시됩니다.</p>
+
+    <div class="section-label">
+      COMMAND · 01
+    </div>
+
+    <h3>
+      단속 총감
+    </h3>
+
+    <p>
+
+      T.E.D. 최고 책임자인
+      단속총감에 관한 정보가
+      표시됩니다.
+
+    </p>
+
   </div>
-</section>
 
-
-<section class="content-section" id="enforcement">
-  <div class="content-inner">
-    <div class="section-label">DIVISION · 01</div>
-    <h3>시간집행과</h3>
-    <p>시간집행과의 업무 및 조직 정보가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="investigation">
-  <div class="content-inner">
-    <div class="section-label">DIVISION · 02</div>
-    <h3>시간수사과</h3>
-    <p>시간수사과의 업무 및 조직 정보가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="inspection">
-  <div class="content-inner">
-    <div class="section-label">DIVISION · 03</div>
-    <h3>시간감찰과</h3>
-    <p>시간감찰과의 업무 및 조직 정보가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="restoration">
-  <div class="content-inner">
-    <div class="section-label">DIVISION · 04</div>
-    <h3>시간복구과</h3>
-    <p>시간복구과의 업무 및 조직 정보가 표시됩니다.</p>
-  </div>
 </section>
 
 
 
-<!-- =========================
+<section
+  class="content-section"
+  id="enforcement"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      DIVISION · 01
+    </div>
+
+    <h3>
+      시간집행과
+    </h3>
+
+    <p>
+
+      시간집행과의
+      주요 업무 및 조직 정보가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="investigation"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      DIVISION · 02
+    </div>
+
+    <h3>
+      시간수사과
+    </h3>
+
+    <p>
+
+      시간수사과의
+      주요 업무 및 조직 정보가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="inspection"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      DIVISION · 03
+    </div>
+
+    <h3>
+      시간감찰과
+    </h3>
+
+    <p>
+
+      시간감찰과의
+      주요 업무 및 조직 정보가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="restoration"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      DIVISION · 04
+    </div>
+
+    <h3>
+      시간복구과
+    </h3>
+
+    <p>
+
+      시간복구과의
+      주요 업무 및 조직 정보가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
      FACILITIES
-========================= -->
+========================================= -->
 
-<section class="content-section" id="civil">
+<section
+  class="content-section"
+  id="civil"
+>
+
   <div class="content-inner">
-    <div class="section-label">FACILITY · 01</div>
-    <h3>민원실</h3>
-    <p>시간관리국 민원실 시설 안내가 표시됩니다.</p>
+
+    <div class="section-label">
+      FACILITY · 01
+    </div>
+
+    <h3>
+      민원실
+    </h3>
+
+    <p>
+
+      시간관리국 민원실
+      시설 안내가 표시됩니다.
+
+    </p>
+
   </div>
-</section>
 
-
-<section class="content-section" id="dormitory">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 02</div>
-    <h3>기숙사</h3>
-    <p>T.E.D. 요원 기숙시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="training">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 03</div>
-    <h3>교육실</h3>
-    <p>교육 및 훈련시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="cafeteria">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 04</div>
-    <h3>식당</h3>
-    <p>직원 식당 시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="archive">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 05</div>
-    <h3>자료실</h3>
-    <p>시간 기록 및 자료 보관시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="supplies">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 06</div>
-    <h3>비품실</h3>
-    <p>장비 및 업무 비품 보관시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="security">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 07</div>
-    <h3>보안실</h3>
-    <p>본부 보안 관제시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="broadcast">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 08</div>
-    <h3>방송실</h3>
-    <p>본부 내부 방송 및 비상통신 시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="interrogation">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 09</div>
-    <h3>조사실</h3>
-    <p>시간범죄자 조사 및 진술 확보 시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="lounge">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 10</div>
-    <h3>휴게실</h3>
-    <p>직원 휴식시설 안내가 표시됩니다.</p>
-  </div>
-</section>
-
-
-<section class="content-section" id="power">
-  <div class="content-inner">
-    <div class="section-label">FACILITY · 11</div>
-    <h3>전기실</h3>
-    <p>본부 전력 및 시간장치 보조 전원시설 안내가 표시됩니다.</p>
-  </div>
 </section>
 
 
 
-<!-- =========================
+<section
+  class="content-section"
+  id="dormitory"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 02
+    </div>
+
+    <h3>
+      기숙사
+    </h3>
+
+    <p>
+
+      T.E.D. 요원
+      기숙시설 안내가 표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="training"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 03
+    </div>
+
+    <h3>
+      교육실
+    </h3>
+
+    <p>
+
+      요원 교육 및
+      훈련시설 안내가 표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="cafeteria"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 04
+    </div>
+
+    <h3>
+      식당
+    </h3>
+
+    <p>
+
+      직원 식당 시설 안내가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="archive"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 05
+    </div>
+
+    <h3>
+      자료실
+    </h3>
+
+    <p>
+
+      시간 기록 및
+      자료 보관시설 안내가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="supplies"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 06
+    </div>
+
+    <h3>
+      비품실
+    </h3>
+
+    <p>
+
+      장비 및 업무 비품
+      보관시설 안내가 표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="security"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 07
+    </div>
+
+    <h3>
+      보안실
+    </h3>
+
+    <p>
+
+      본부 보안 관제시설
+      안내가 표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="broadcast"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 08
+    </div>
+
+    <h3>
+      방송실
+    </h3>
+
+    <p>
+
+      본부 내부 방송 및
+      비상통신 시설 안내가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="interrogation"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 09
+    </div>
+
+    <h3>
+      조사실
+    </h3>
+
+    <p>
+
+      시간범죄자 조사 및
+      진술 확보 시설 안내가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="lounge"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 10
+    </div>
+
+    <h3>
+      휴게실
+    </h3>
+
+    <p>
+
+      직원 및 현장 요원의
+      휴식시설 안내가
+      표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="content-section"
+  id="power"
+>
+
+  <div class="content-inner">
+
+    <div class="section-label">
+      FACILITY · 11
+    </div>
+
+    <h3>
+      전기실
+    </h3>
+
+    <p>
+
+      본부 전력 및
+      시간여행 장치 보조 전원시설
+      안내가 표시됩니다.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
   <div class="footer-inner">
 
     <div>
+
       T.E.D. · TEMPORAL ENFORCEMENT DIVISION
+
     </div>
 
+
     <div>
-      TIME MANAGEMENT BUREAU · INTERNAL NETWORK
+
+      TIME MANAGEMENT BUREAU · OFFICIAL NETWORK
+
     </div>
 
   </div>
 
 </footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+  const menuToggle =
+    document.getElementById('menuToggle');
+
+  const mobileMenu =
+    document.getElementById('mobileMenu');
+
+  const menuClose =
+    document.getElementById('menuClose');
+
+  const menuOverlay =
+    document.getElementById('menuOverlay');
+
+
+  function openMenu() {
+
+    mobileMenu.classList.add('active');
+
+    menuOverlay.classList.add('active');
+
+    document.body.classList.add('menu-open');
+
+  }
+
+
+  function closeMenu() {
+
+    mobileMenu.classList.remove('active');
+
+    menuOverlay.classList.remove('active');
+
+    document.body.classList.remove('menu-open');
+
+  }
+
+
+  menuToggle.addEventListener(
+    'click',
+    openMenu
+  );
+
+
+  menuClose.addEventListener(
+    'click',
+    closeMenu
+  );
+
+
+  menuOverlay.addEventListener(
+    'click',
+    closeMenu
+  );
+
+
+  document
+    .querySelectorAll('.mobile-menu a')
+    .forEach(link => {
+
+      link.addEventListener(
+        'click',
+        closeMenu
+      );
+
+    });
+
+
+  document.addEventListener(
+    'keydown',
+    event => {
+
+      if (event.key === 'Escape') {
+
+        closeMenu();
+
+      }
+
+    }
+  );
+
+</script>
 
 
 </body>
