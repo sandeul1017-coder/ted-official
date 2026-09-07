@@ -1,112 +1,170 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>T.E.D. | Temporal Enforcement Division</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    T.E.D. | Temporal Enforcement Division
+  </title>
+
 
   <style>
+
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
 
+
     :root {
+
       --bg: #05090f;
+
       --bg-soft: #0a111b;
+
       --panel: rgba(11, 19, 30, 0.82);
 
       --line: rgba(122, 192, 255, 0.16);
 
       --blue: #63b8ff;
+
       --blue-bright: #9bd7ff;
 
       --white: #eef7ff;
+
       --muted: #8796a8;
 
       --header-height: 82px;
+
     }
+
 
     * {
+
       margin: 0;
+
       padding: 0;
+
       box-sizing: border-box;
+
     }
+
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
+
     body {
+
       background:
+
         radial-gradient(
           circle at top,
           rgba(28, 75, 122, 0.16),
           transparent 35%
         ),
+
         var(--bg);
 
       color: var(--white);
 
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family:
+        'Noto Sans KR',
+        sans-serif;
 
       overflow-x: hidden;
+
     }
+
 
     body.menu-open {
+
       overflow: hidden;
+
     }
+
 
     a {
-      text-decoration: none;
+
       color: inherit;
+
+      text-decoration: none;
+
     }
 
+
     button {
+
       font-family: inherit;
+
     }
+
 
 
     /* =========================================
        HEADER
     ========================================= */
 
+
     header {
+
       position: fixed;
 
       top: 0;
+
       left: 0;
 
       width: 100%;
+
       height: var(--header-height);
 
       z-index: 1000;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       padding: 0 5%;
 
-      background: rgba(4, 8, 14, 0.76);
+      background:
+        rgba(4, 8, 14, 0.78);
+
+      border-bottom:
+        1px solid rgba(130, 194, 255, 0.12);
 
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
 
-      border-bottom: 1px solid rgba(130, 194, 255, 0.12);
     }
 
 
     .brand {
+
       display: flex;
+
       align-items: center;
 
       gap: 14px;
 
       min-width: 0;
+
     }
 
 
     .brand img {
+
       width: 46px;
+
       height: 46px;
 
       object-fit: contain;
@@ -117,96 +175,118 @@
         drop-shadow(
           0 0 10px rgba(98, 181, 255, 0.25)
         );
+
     }
 
 
     .brand-text {
+
       display: flex;
+
       flex-direction: column;
 
       line-height: 1.15;
+
     }
 
 
     .brand-text strong {
-      font-family: 'Orbitron', sans-serif;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
 
       font-size: 17px;
 
       letter-spacing: 2px;
+
     }
 
 
     .brand-text span {
+
       margin-top: 5px;
+
+      color: var(--muted);
 
       font-size: 10px;
 
       letter-spacing: 1.5px;
 
-      color: var(--muted);
     }
+
 
 
     /* =========================================
        DESKTOP NAVIGATION
     ========================================= */
 
+
     nav {
+
       display: flex;
+
       align-items: center;
 
       gap: 7px;
+
     }
 
 
     .nav-item {
+
       position: relative;
+
     }
 
 
     .nav-title {
+
       display: block;
 
       padding: 30px 15px;
 
-      font-size: 13px;
-
       color: #c5d2df;
+
+      font-size: 13px;
 
       cursor: pointer;
 
       transition: 0.25s;
+
     }
 
 
     .nav-title:hover {
+
       color: var(--blue-bright);
+
     }
 
 
     .dropdown {
+
       position: absolute;
 
       top: 72px;
-      left: 50%;
 
-      transform:
-        translateX(-50%)
-        translateY(8px);
+      left: 50%;
 
       width: 215px;
 
       padding: 9px;
 
-      background: rgba(7, 14, 23, 0.97);
+      transform:
+        translateX(-50%)
+        translateY(8px);
 
-      border: 1px solid rgba(99, 184, 255, 0.18);
+      background:
+        rgba(7, 14, 23, 0.98);
+
+      border:
+        1px solid rgba(99, 184, 255, 0.18);
 
       border-radius: 10px;
-
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
 
       opacity: 0;
 
@@ -214,12 +294,18 @@
 
       transition: 0.22s;
 
+      backdrop-filter: blur(20px);
+
+      -webkit-backdrop-filter: blur(20px);
+
       box-shadow:
         0 20px 50px rgba(0, 0, 0, 0.38);
+
     }
 
 
     .nav-item:hover .dropdown {
+
       opacity: 1;
 
       visibility: visible;
@@ -227,43 +313,57 @@
       transform:
         translateX(-50%)
         translateY(0);
+
     }
 
 
     .dropdown a {
+
       display: block;
 
       padding: 12px 14px;
 
-      font-size: 12px;
-
       color: #aebdcc;
+
+      font-size: 12px;
 
       border-radius: 6px;
 
       transition: 0.2s;
+
     }
 
 
     .dropdown a:hover {
+
       color: white;
 
       background:
         rgba(92, 175, 255, 0.09);
+
     }
+
 
 
     /* =========================================
        MENU BUTTON
     ========================================= */
 
+
     .menu-toggle {
+
       display: none;
 
       width: 45px;
+
       height: 45px;
 
-      border: 1px solid rgba(119, 191, 255, 0.17);
+      align-items: center;
+
+      justify-content: center;
+
+      border:
+        1px solid rgba(119, 191, 255, 0.17);
 
       border-radius: 8px;
 
@@ -276,30 +376,57 @@
 
       cursor: pointer;
 
-      transition: 0.25s;
     }
 
-
-    .menu-toggle:hover {
-      border-color:
-        rgba(119, 191, 255, 0.4);
-
-      background:
-        rgba(27, 54, 79, 0.7);
-    }
 
 
     /* =========================================
-       MOBILE FULL MENU
+       MOBILE MENU
     ========================================= */
 
+
+    .menu-overlay {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      background:
+        rgba(0, 0, 0, 0.65);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: 0.3s;
+
+      backdrop-filter: blur(4px);
+
+    }
+
+
+    .menu-overlay.active {
+
+      opacity: 1;
+
+      visibility: visible;
+
+    }
+
+
     .mobile-menu {
+
       position: fixed;
 
       top: 0;
+
       right: -100%;
 
-      width: min(430px, 92%);
+      width:
+        min(430px, 92%);
+
       height: 100dvh;
 
       z-index: 2100;
@@ -309,62 +436,39 @@
       overflow-y: auto;
 
       background:
+
         linear-gradient(
           180deg,
-          rgba(7, 14, 23, 0.99),
+          rgba(7, 14, 23, 0.995),
           rgba(4, 9, 15, 0.995)
         );
 
       border-left:
         1px solid rgba(100, 180, 255, 0.16);
 
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        -20px 0 80px rgba(0, 0, 0, 0.55);
 
       transition:
         right 0.35s cubic-bezier(.2, .8, .2, 1);
 
-      box-shadow:
-        -20px 0 80px rgba(0, 0, 0, 0.55);
     }
 
 
     .mobile-menu.active {
+
       right: 0;
-    }
 
-
-    .menu-overlay {
-      position: fixed;
-
-      inset: 0;
-
-      z-index: 2000;
-
-      background:
-        rgba(0, 0, 0, 0.62);
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      transition: 0.3s;
-
-      backdrop-filter: blur(4px);
-    }
-
-
-    .menu-overlay.active {
-      opacity: 1;
-
-      visibility: visible;
     }
 
 
     .mobile-menu-header {
+
       display: flex;
-      justify-content: space-between;
+
       align-items: center;
+
+      justify-content: space-between;
 
       gap: 20px;
 
@@ -372,39 +476,51 @@
 
       border-bottom:
         1px solid rgba(100, 180, 255, 0.12);
+
     }
 
 
     .mobile-menu-brand {
+
       display: flex;
+
       align-items: center;
 
       gap: 12px;
+
     }
 
 
     .mobile-menu-brand img {
+
       width: 44px;
+
       height: 44px;
 
       object-fit: contain;
 
       border-radius: 6px;
+
     }
 
 
-    .mobile-menu-header strong {
+    .mobile-menu-brand strong {
+
       display: block;
 
-      font-family: 'Orbitron', sans-serif;
+      font-family:
+        'Orbitron',
+        sans-serif;
 
       font-size: 18px;
 
       letter-spacing: 2px;
+
     }
 
 
-    .mobile-menu-header span {
+    .mobile-menu-brand span {
+
       display: block;
 
       margin-top: 5px;
@@ -414,11 +530,14 @@
       font-size: 9px;
 
       letter-spacing: 1px;
+
     }
 
 
     .menu-close {
+
       width: 42px;
+
       height: 42px;
 
       border:
@@ -434,34 +553,44 @@
       font-size: 18px;
 
       cursor: pointer;
+
     }
 
 
     .mobile-menu-content {
+
       padding-bottom: 60px;
+
     }
 
 
     .mobile-category {
+
       padding: 27px 0;
 
       border-bottom:
         1px solid rgba(100, 180, 255, 0.08);
+
     }
 
 
     .mobile-category-number {
-      font-family: 'Orbitron', sans-serif;
+
+      color: #526d82;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
 
       font-size: 9px;
 
       letter-spacing: 2px;
 
-      color: #526d82;
     }
 
 
     .mobile-category h4 {
+
       margin:
         7px 0 15px;
 
@@ -471,13 +600,15 @@
 
       font-weight: 500;
 
-      letter-spacing: 0.3px;
     }
 
 
     .mobile-category a {
+
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       padding: 10px 0;
@@ -487,49 +618,42 @@
       font-size: 13px;
 
       transition: 0.2s;
+
     }
 
 
     .mobile-category a::after {
+
       content: '→';
 
       color: #536b80;
 
-      font-size: 12px;
-
-      transition: 0.2s;
     }
 
-
-    .mobile-category a:hover {
-      color: white;
-
-      padding-left: 6px;
-    }
-
-
-    .mobile-category a:hover::after {
-      color: var(--blue);
-    }
 
 
     /* =========================================
        HERO
     ========================================= */
 
+
     .hero {
+
       position: relative;
 
       min-height: 100vh;
 
       display: flex;
+
       align-items: flex-end;
 
       overflow: hidden;
+
     }
 
 
     .hero-bg {
+
       position: absolute;
 
       inset: 0;
@@ -542,26 +666,12 @@
       background-position: center;
 
       transform: scale(1.035);
-    }
 
-
-    .hero-bg::after {
-      content: '';
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 72% 45%,
-          rgba(53, 133, 202, 0.07),
-          transparent 30%
-        );
     }
 
 
     .hero-overlay {
+
       position: absolute;
 
       inset: 0;
@@ -581,10 +691,12 @@
           rgba(5, 9, 15, 0.78),
           rgba(5, 9, 15, 0.04) 63%
         );
+
     }
 
 
     .hero-content {
+
       position: relative;
 
       z-index: 5;
@@ -597,11 +709,14 @@
 
       padding:
         0 7% 90px;
+
     }
 
 
     .classification {
+
       display: inline-flex;
+
       align-items: center;
 
       gap: 8px;
@@ -619,18 +734,22 @@
       color: #a6d8ff;
 
       font-family:
-        'Orbitron', sans-serif;
+        'Orbitron',
+        sans-serif;
 
       font-size: 9px;
 
       letter-spacing: 2px;
+
     }
 
 
     .classification::before {
+
       content: '';
 
       width: 6px;
+
       height: 6px;
 
       border-radius: 50%;
@@ -639,43 +758,48 @@
 
       box-shadow:
         0 0 12px #68c2ff;
+
     }
 
 
     .hero-logo {
-      width: 96px;
-      height: 96px;
 
-      object-fit: contain;
+      width: 96px;
+
+      height: 96px;
 
       margin-bottom: 20px;
 
+      object-fit: contain;
+
       border-radius: 9px;
 
-      filter:
-        drop-shadow(
-          0 0 22px rgba(81, 175, 255, 0.28)
-        );
     }
 
 
     .hero h1 {
+
       font-family:
-        'Orbitron', sans-serif;
+        'Orbitron',
+        sans-serif;
 
       font-size:
         clamp(54px, 8vw, 105px);
 
-      letter-spacing: 7px;
+      font-weight: 600;
 
       line-height: 0.95;
 
-      font-weight: 600;
+      letter-spacing: 7px;
+
     }
 
 
     .hero h2 {
+
       margin-top: 18px;
+
+      color: #b9cad8;
 
       font-size:
         clamp(17px, 2.4vw, 28px);
@@ -684,20 +808,22 @@
 
       letter-spacing: 3px;
 
-      color: #b9cad8;
     }
 
 
     .hero h2 span {
+
       display: inline-block;
 
       margin-left: 8px;
 
       color: var(--blue-bright);
+
     }
 
 
     .hero-description {
+
       max-width: 700px;
 
       margin-top: 28px;
@@ -706,22 +832,26 @@
 
       font-size: 14px;
 
+      font-weight: 300;
+
       line-height: 1.95;
 
-      font-weight: 300;
     }
 
 
     .hero-actions {
+
       display: flex;
 
       gap: 12px;
 
       margin-top: 32px;
+
     }
 
 
     .btn {
+
       display: inline-flex;
 
       align-items: center;
@@ -732,111 +862,110 @@
 
       padding: 0 22px;
 
-      font-size: 11px;
-
-      letter-spacing: 0.8px;
-
       border:
         1px solid rgba(121, 194, 255, 0.25);
 
+      font-size: 11px;
+
       transition: 0.25s;
+
     }
 
 
     .btn-primary {
+
       background:
         rgba(76, 164, 239, 0.17);
 
       color: #d9efff;
-    }
 
-
-    .btn-primary:hover {
-      background:
-        rgba(76, 164, 239, 0.3);
-
-      border-color:
-        rgba(121, 194, 255, 0.42);
     }
 
 
     .btn-secondary {
-      color: #9babba;
 
       background:
         rgba(5, 10, 17, 0.26);
+
+      color: #9babba;
+
     }
 
-
-    .btn-secondary:hover {
-      color: white;
-
-      border-color:
-        rgba(151, 210, 255, 0.4);
-    }
 
 
     /* =========================================
-       MAIN INTRODUCTION
+       INTRO
     ========================================= */
 
+
     .section {
-      padding: 120px 7%;
+
+      padding:
+        120px 7%;
+
     }
 
 
     .section-inner {
+
       max-width: 1280px;
 
       margin: 0 auto;
+
     }
 
 
     .section-label {
-      font-family:
-        'Orbitron', sans-serif;
+
+      margin-bottom: 16px;
 
       color: var(--blue);
+
+      font-family:
+        'Orbitron',
+        sans-serif;
 
       font-size: 10px;
 
       letter-spacing: 3px;
 
-      margin-bottom: 16px;
     }
 
 
     .section h3 {
+
       font-size:
         clamp(30px, 4vw, 48px);
 
       font-weight: 500;
 
-      letter-spacing: -1px;
-
       line-height: 1.4;
+
     }
 
 
     .section-lead {
-      margin-top: 22px;
 
       max-width: 720px;
+
+      margin-top: 22px;
 
       color: #8191a0;
 
       font-size: 14px;
 
       line-height: 2;
+
     }
+
 
 
     /* =========================================
        INTRO CARDS
     ========================================= */
 
+
     .intro-grid {
-      margin-top: 65px;
 
       display: grid;
 
@@ -844,10 +973,14 @@
         repeat(4, 1fr);
 
       gap: 14px;
+
+      margin-top: 65px;
+
     }
 
 
     .intro-card {
+
       min-height: 205px;
 
       padding: 28px;
@@ -864,48 +997,47 @@
         1px solid rgba(122, 190, 255, 0.11);
 
       transition: 0.3s;
+
     }
 
 
     .intro-card:hover {
-      border-color:
-        rgba(120, 194, 255, 0.32);
 
       transform:
         translateY(-4px);
 
-      background:
+      border-color:
+        rgba(120, 194, 255, 0.32);
 
-        linear-gradient(
-          150deg,
-          rgba(18, 34, 53, 0.92),
-          rgba(8, 15, 25, 0.78)
-        );
     }
 
 
     .card-number {
-      font-family:
-        'Orbitron', sans-serif;
-
-      font-size: 10px;
 
       color: var(--blue);
 
-      letter-spacing: 1px;
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 10px;
+
     }
 
 
     .intro-card h4 {
+
       margin-top: 35px;
 
       font-size: 17px;
 
       font-weight: 500;
+
     }
 
 
     .intro-card p {
+
       margin-top: 12px;
 
       color: #758696;
@@ -913,69 +1045,440 @@
       font-size: 12px;
 
       line-height: 1.75;
+
     }
 
 
+
     /* =========================================
-       CONTENT SECTIONS
+       CONTENT SECTION
     ========================================= */
 
+
     .content-section {
-      padding: 110px 7%;
+
+      padding:
+        110px 7%;
 
       border-top:
         1px solid rgba(120, 190, 255, 0.07);
 
       scroll-margin-top:
         calc(var(--header-height) + 10px);
-    }
 
-
-    .content-section:nth-of-type(even) {
-      background:
-        rgba(8, 15, 23, 0.48);
     }
 
 
     .content-inner {
+
       max-width: 1280px;
 
       margin: 0 auto;
+
     }
 
 
     .content-section h3 {
+
       font-family:
-        'Orbitron', sans-serif;
+        'Orbitron',
+        'Noto Sans KR',
+        sans-serif;
 
       font-size:
         clamp(26px, 4vw, 34px);
 
-      letter-spacing: 2px;
-
       font-weight: 500;
+
+      letter-spacing: 1px;
+
     }
 
 
     .content-section p {
-      margin-top: 18px;
 
       max-width: 850px;
 
+      margin-top: 18px;
+
       color: #7d8c9a;
+
+      font-size: 13px;
 
       line-height: 1.95;
 
-      font-size: 13px;
     }
+
+
+
+    /* =========================================
+       FACILITY MAP
+    ========================================= */
+
+
+    .facility-map-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 24px;
+
+      margin-top: 50px;
+
+    }
+
+
+    .facility-map-card {
+
+      margin: 0;
+
+      overflow: hidden;
+
+      background:
+
+        linear-gradient(
+          150deg,
+          rgba(15, 27, 42, 0.9),
+          rgba(7, 13, 22, 0.94)
+        );
+
+      border:
+        1px solid rgba(115, 188, 255, 0.15);
+
+      transition: 0.3s;
+
+    }
+
+
+    .facility-map-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        rgba(115, 188, 255, 0.36);
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28);
+
+    }
+
+
+    .facility-map-card img {
+
+      display: block;
+
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      object-fit: cover;
+
+      background: #09111b;
+
+    }
+
+
+    .facility-map-card figcaption {
+
+      display: grid;
+
+      grid-template-columns:
+        auto 1fr;
+
+      column-gap: 14px;
+
+      row-gap: 4px;
+
+      padding: 22px;
+
+    }
+
+
+    .facility-map-card figcaption span {
+
+      grid-row:
+        1 / 3;
+
+      color: var(--blue);
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 10px;
+
+    }
+
+
+    .facility-map-card figcaption strong {
+
+      color: #e7f3ff;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+    }
+
+
+    .facility-map-card figcaption small {
+
+      color: #718395;
+
+      font-size: 11px;
+
+      line-height: 1.7;
+
+    }
+
+
+
+    /* =========================================
+       FACILITY GALLERY
+    ========================================= */
+
+
+    .facility-gallery-wrap {
+
+      position: relative;
+
+      margin-top: 50px;
+
+    }
+
+
+    .facility-gallery {
+
+      display: flex;
+
+      gap: 18px;
+
+      overflow-x: auto;
+
+      padding:
+        0 2px 18px;
+
+      scroll-behavior: smooth;
+
+      scroll-snap-type:
+        x mandatory;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        rgba(98, 184, 255, 0.45)
+        rgba(255, 255, 255, 0.04);
+
+      -webkit-overflow-scrolling: touch;
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar {
+
+      height: 6px;
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar-track {
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar-thumb {
+
+      background:
+        rgba(98, 184, 255, 0.42);
+
+      border-radius: 20px;
+
+    }
+
+
+    .facility-photo-card {
+
+      position: relative;
+
+      flex:
+        0 0 clamp(280px, 37vw, 520px);
+
+      aspect-ratio:
+        16 / 10;
+
+      overflow: hidden;
+
+      scroll-snap-align: start;
+
+      background: #09111b;
+
+      border:
+        1px solid rgba(113, 188, 255, 0.13);
+
+    }
+
+
+    .facility-photo-card img {
+
+      display: block;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.45s ease;
+
+    }
+
+
+    .facility-photo-card:hover img {
+
+      transform:
+        scale(1.035);
+
+    }
+
+
+    .facility-photo-card::after {
+
+      content: '';
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        linear-gradient(
+          to top,
+          rgba(4, 8, 14, 0.92) 0%,
+          rgba(4, 8, 14, 0.2) 46%,
+          transparent 72%
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .facility-photo-info {
+
+      position: absolute;
+
+      left: 22px;
+
+      bottom: 20px;
+
+      z-index: 2;
+
+    }
+
+
+    .facility-photo-info span {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--blue);
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+
+    }
+
+
+    .facility-photo-info h4 {
+
+      color: white;
+
+      font-size: 18px;
+
+      font-weight: 500;
+
+    }
+
+
+    .gallery-arrow {
+
+      position: absolute;
+
+      top: 50%;
+
+      z-index: 5;
+
+      width: 48px;
+
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transform:
+        translateY(-50%);
+
+      border:
+        1px solid rgba(120, 194, 255, 0.2);
+
+      border-radius: 50%;
+
+      background:
+        rgba(5, 11, 19, 0.85);
+
+      color: white;
+
+      font-size: 31px;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(12px);
+
+      -webkit-backdrop-filter: blur(12px);
+
+    }
+
+
+    .gallery-prev {
+
+      left: -24px;
+
+    }
+
+
+    .gallery-next {
+
+      right: -24px;
+
+    }
+
 
 
     /* =========================================
        FOOTER
     ========================================= */
 
+
     footer {
-      padding: 50px 7%;
+
+      padding:
+        50px 7%;
 
       border-top:
         1px solid rgba(120, 190, 255, 0.1);
@@ -985,10 +1488,12 @@
       font-size: 10px;
 
       letter-spacing: 1px;
+
     }
 
 
     .footer-inner {
+
       max-width: 1280px;
 
       margin: 0 auto;
@@ -998,267 +1503,326 @@
       justify-content: space-between;
 
       gap: 20px;
+
     }
+
 
 
     /* =========================================
        TABLET
     ========================================= */
 
+
     @media (max-width: 1000px) {
 
+
       nav {
+
         display: none;
+
       }
 
 
       .menu-toggle {
-        display: inline-flex;
 
-        align-items: center;
+        display: flex;
 
-        justify-content: center;
       }
 
 
       .intro-grid {
+
         grid-template-columns:
           repeat(2, 1fr);
+
       }
 
+
     }
+
 
 
     /* =========================================
        MOBILE
     ========================================= */
 
+
+    @media (max-width: 850px) {
+
+
+      .facility-map-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .facility-photo-card {
+
+        flex-basis: 82%;
+
+      }
+
+
+      .gallery-arrow {
+
+        display: none;
+
+      }
+
+
+    }
+
+
     @media (max-width: 700px) {
 
+
       :root {
+
         --header-height: 70px;
+
       }
 
 
       header {
+
         height: 70px;
 
         padding:
           0 18px;
+
       }
 
 
       .brand {
+
         gap: 10px;
+
       }
 
 
       .brand img {
+
         width: 38px;
+
         height: 38px;
+
       }
 
 
       .brand-text strong {
+
         font-size: 14px;
 
-        letter-spacing: 1.5px;
       }
 
 
       .brand-text span {
+
         display: none;
-      }
 
-
-      .menu-toggle {
-        width: 42px;
-        height: 42px;
-
-        font-size: 21px;
       }
 
 
       .hero {
+
         min-height: 100svh;
+
       }
 
 
       .hero-bg {
+
         background-position:
           58% center;
+
       }
 
 
       .hero-content {
+
         padding:
           0 24px 62px;
-      }
 
-
-      .classification {
-        font-size: 8px;
-
-        letter-spacing: 1.4px;
       }
 
 
       .hero-logo {
+
         width: 74px;
+
         height: 74px;
+
       }
 
 
       .hero h1 {
+
         font-size: 51px;
 
         letter-spacing: 5px;
+
       }
 
 
       .hero h2 {
+
         font-size: 15px;
 
         line-height: 1.65;
 
-        letter-spacing: 1.5px;
       }
 
 
       .hero h2 span {
+
         display: block;
 
         margin:
           2px 0 0;
+
       }
 
 
       .hero-description {
+
         font-size: 13px;
 
-        line-height: 1.85;
       }
 
 
       .hero-actions {
+
         flex-direction: column;
 
-        align-items: stretch;
-
-        width: 100%;
-
         max-width: 280px;
+
       }
 
 
       .section {
+
         padding:
           85px 24px;
-      }
 
-
-      .section h3 {
-        font-size: 30px;
-      }
-
-
-      .section-lead {
-        font-size: 13px;
       }
 
 
       .intro-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
 
         margin-top: 45px;
-      }
 
-
-      .intro-card {
-        min-height: auto;
-
-        padding: 24px;
-      }
-
-
-      .intro-card h4 {
-        margin-top: 24px;
       }
 
 
       .content-section {
+
         padding:
           80px 24px;
-      }
 
-
-      .content-section h3 {
-        font-size: 25px;
-      }
-
-
-      footer {
-        padding:
-          35px 24px;
-      }
-
-
-      .footer-inner {
-        flex-direction: column;
-
-        gap: 8px;
       }
 
 
       .mobile-menu {
+
         padding:
           24px 22px;
+
       }
+
+
+      footer {
+
+        padding:
+          35px 24px;
+
+      }
+
+
+      .footer-inner {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+      }
+
 
     }
 
 
-    /* =========================================
-       VERY SMALL MOBILE
-    ========================================= */
+    @media (max-width: 500px) {
 
-    @media (max-width: 390px) {
 
-      .hero h1 {
-        font-size: 44px;
+      .facility-map-grid {
+
+        margin-top: 35px;
+
+        gap: 16px;
+
       }
 
 
-      .hero h2 {
-        font-size: 14px;
+      .facility-map-card figcaption {
+
+        padding: 18px;
+
       }
 
 
-      .hero-description {
-        font-size: 12px;
+      .facility-photo-card {
+
+        flex-basis: 88%;
+
+        aspect-ratio:
+          4 / 3;
+
       }
+
+
+      .facility-gallery {
+
+        gap: 12px;
+
+      }
+
 
     }
+
 
   </style>
+
 </head>
 
 
+
 <body>
+
 
 
 <!-- =========================================
      HEADER
 ========================================= -->
 
+
 <header>
 
-  <a class="brand" href="#home">
+
+  <a
+    class="brand"
+    href="#home"
+  >
+
 
     <img
       src="https://i.ifh.cc/xnwlTn.jpg"
       alt="T.E.D. Logo"
     >
+
 
     <div class="brand-text">
 
@@ -1272,16 +1836,13 @@
 
     </div>
 
+
   </a>
 
 
 
-  <!-- DESKTOP NAV -->
-
   <nav>
 
-
-    <!-- 정보 -->
 
     <div class="nav-item">
 
@@ -1308,8 +1869,6 @@
     </div>
 
 
-
-    <!-- 시간여행 장치 -->
 
     <div class="nav-item">
 
@@ -1341,8 +1900,6 @@
 
 
 
-    <!-- 부서 안내 -->
-
     <div class="nav-item">
 
       <span class="nav-title">
@@ -1352,7 +1909,7 @@
       <div class="dropdown">
 
         <a href="#commissioner">
-          단속 총감
+          단속총감
         </a>
 
         <a href="#enforcement">
@@ -1377,8 +1934,6 @@
 
 
 
-    <!-- 시설 안내 -->
-
     <div class="nav-item">
 
       <span class="nav-title">
@@ -1387,48 +1942,12 @@
 
       <div class="dropdown">
 
-        <a href="#civil">
-          민원실
+        <a href="#facility-map">
+          시설안내도
         </a>
 
-        <a href="#dormitory">
-          기숙사
-        </a>
-
-        <a href="#training">
-          교육실
-        </a>
-
-        <a href="#cafeteria">
-          식당
-        </a>
-
-        <a href="#archive">
-          자료실
-        </a>
-
-        <a href="#supplies">
-          비품실
-        </a>
-
-        <a href="#security">
-          보안실
-        </a>
-
-        <a href="#broadcast">
-          방송실
-        </a>
-
-        <a href="#interrogation">
-          조사실
-        </a>
-
-        <a href="#lounge">
-          휴게실
-        </a>
-
-        <a href="#power">
-          전기실
+        <a href="#facility-photo">
+          시설사진
         </a>
 
       </div>
@@ -1440,8 +1959,6 @@
 
 
 
-  <!-- MOBILE MENU BUTTON -->
-
   <button
     class="menu-toggle"
     id="menuToggle"
@@ -1450,13 +1967,10 @@
     ☰
   </button>
 
+
 </header>
 
 
-
-<!-- =========================================
-     MOBILE MENU OVERLAY
-========================================= -->
 
 <div
   class="menu-overlay"
@@ -1469,20 +1983,24 @@
      MOBILE MENU
 ========================================= -->
 
+
 <aside
   class="mobile-menu"
   id="mobileMenu"
 >
+
 
   <div class="mobile-menu-header">
 
 
     <div class="mobile-menu-brand">
 
+
       <img
         src="https://i.ifh.cc/xnwlTn.jpg"
         alt="T.E.D. Logo"
       >
+
 
       <div>
 
@@ -1496,7 +2014,9 @@
 
       </div>
 
+
     </div>
+
 
 
     <button
@@ -1515,7 +2035,6 @@
   <div class="mobile-menu-content">
 
 
-    <!-- INFORMATION -->
 
     <section class="mobile-category">
 
@@ -1542,8 +2061,6 @@
     </section>
 
 
-
-    <!-- TEMPORAL DEVICE -->
 
     <section class="mobile-category">
 
@@ -1575,8 +2092,6 @@
 
 
 
-    <!-- DIVISIONS -->
-
     <section class="mobile-category">
 
       <div class="mobile-category-number">
@@ -1588,7 +2103,7 @@
       </h4>
 
       <a href="#commissioner">
-        단속 총감
+        단속총감
       </a>
 
       <a href="#enforcement">
@@ -1611,8 +2126,6 @@
 
 
 
-    <!-- FACILITIES -->
-
     <section class="mobile-category">
 
       <div class="mobile-category-number">
@@ -1623,54 +2136,19 @@
         시설안내
       </h4>
 
-      <a href="#civil">
-        민원실
+      <a href="#facility-map">
+        시설안내도
       </a>
 
-      <a href="#dormitory">
-        기숙사
-      </a>
-
-      <a href="#training">
-        교육실
-      </a>
-
-      <a href="#cafeteria">
-        식당
-      </a>
-
-      <a href="#archive">
-        자료실
-      </a>
-
-      <a href="#supplies">
-        비품실
-      </a>
-
-      <a href="#security">
-        보안실
-      </a>
-
-      <a href="#broadcast">
-        방송실
-      </a>
-
-      <a href="#interrogation">
-        조사실
-      </a>
-
-      <a href="#lounge">
-        휴게실
-      </a>
-
-      <a href="#power">
-        전기실
+      <a href="#facility-photo">
+        시설사진
       </a>
 
     </section>
 
 
   </div>
+
 
 </aside>
 
@@ -1680,10 +2158,12 @@
      HERO
 ========================================= -->
 
+
 <section
   class="hero"
   id="home"
 >
+
 
   <div class="hero-bg"></div>
 
@@ -1735,14 +2215,14 @@
 
       승인되지 않은 시간 이동,
       시간범죄, 역사 개입 및 시간선 변조를 감시하며
-      발생한 시간 이상 현상을
-      조사·단속·복구합니다.
+      발생한 시간 이상 현상을 조사·단속·복구합니다.
 
     </p>
 
 
 
     <div class="hero-actions">
+
 
       <a
         href="#introduction"
@@ -1759,10 +2239,12 @@
         공식 정보 열람
       </a>
 
+
     </div>
 
 
   </div>
+
 
 </section>
 
@@ -1772,10 +2254,12 @@
      INTRODUCTION
 ========================================= -->
 
+
 <section
   class="section"
   id="introduction"
 >
+
 
   <div class="section-inner">
 
@@ -1788,6 +2272,7 @@
     <h3>
 
       시간의 흐름을 보호하고<br>
+
       역사의 질서를 유지합니다.
 
     </h3>
@@ -1825,12 +2310,8 @@
         </h4>
 
         <p>
-
-          설립 목적,
-          위치 정보 및
-          시간질서단속반의 주요 임무를
-          확인합니다.
-
+          설립 목적, 위치 정보 및
+          기관의 주요 임무를 확인합니다.
         </p>
 
       </a>
@@ -1851,11 +2332,8 @@
         </h4>
 
         <p>
-
-          시간 이동 기술의 개발 과정,
-          작동 원리와 내부 구조를
-          열람합니다.
-
+          시간 이동 기술의 개발 과정과
+          작동 원리 및 구조를 확인합니다.
         </p>
 
       </a>
@@ -1876,11 +2354,8 @@
         </h4>
 
         <p>
-
-          단속총감 및
-          T.E.D. 산하 4개 핵심 부서의
-          업무를 확인합니다.
-
+          단속총감과 T.E.D. 산하
+          4개 핵심 부서를 확인합니다.
         </p>
 
       </a>
@@ -1888,7 +2363,7 @@
 
 
       <a
-        href="#civil"
+        href="#facility-map"
         class="intro-card"
       >
 
@@ -1901,11 +2376,8 @@
         </h4>
 
         <p>
-
-          본부 내부의 업무시설,
-          생활시설 및 보안시설을
-          안내합니다.
-
+          본부 시설안내도와
+          주요 시설 사진을 확인합니다.
         </p>
 
       </a>
@@ -1916,6 +2388,7 @@
 
   </div>
 
+
 </section>
 
 
@@ -1923,6 +2396,7 @@
 <!-- =========================================
      INFORMATION
 ========================================= -->
+
 
 <section
   class="content-section"
@@ -1940,11 +2414,8 @@
     </h3>
 
     <p>
-
       시간질서단속반의 설립 목적과
-      법적 임무에 관한 내용이
-      이곳에 표시됩니다.
-
+      법적 임무에 관한 내용이 표시됩니다.
     </p>
 
   </div>
@@ -1969,11 +2440,8 @@
     </h3>
 
     <p>
-
       시간관리국 및
-      T.E.D. 본부 위치 정보가
-      이곳에 표시됩니다.
-
+      T.E.D. 본부 위치 정보가 표시됩니다.
     </p>
 
   </div>
@@ -1998,11 +2466,8 @@
     </h3>
 
     <p>
-
-      기관의 역사,
-      역할 및 운영 체계에 관한
-      내용이 이곳에 표시됩니다.
-
+      시간질서단속반의 역사와
+      역할 및 운영 체계가 표시됩니다.
     </p>
 
   </div>
@@ -2014,6 +2479,7 @@
 <!-- =========================================
      TEMPORAL DEVICE
 ========================================= -->
+
 
 <section
   class="content-section"
@@ -2031,10 +2497,7 @@
     </h3>
 
     <p>
-
-      시간여행 장치 개발자 정보가
-      표시됩니다.
-
+      시간여행 장치의 개발자 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2059,10 +2522,8 @@
     </h3>
 
     <p>
-
-      시간여행 장치의 개발 연혁 및
+      시간여행 장치의 개발 연혁과
       완성 시기가 표시됩니다.
-
     </p>
 
   </div>
@@ -2087,10 +2548,8 @@
     </h3>
 
     <p>
-
-      시간 이동 기술의 작동 원리가
-      표시됩니다.
-
+      시간 이동 기술의
+      작동 원리가 표시됩니다.
     </p>
 
   </div>
@@ -2115,11 +2574,8 @@
     </h3>
 
     <p>
-
       시간여행 장치의
-      내부 및 외부 구조가
-      표시됩니다.
-
+      내부 및 외부 구조가 표시됩니다.
     </p>
 
   </div>
@@ -2131,6 +2587,7 @@
 <!-- =========================================
      DIVISIONS
 ========================================= -->
+
 
 <section
   class="content-section"
@@ -2144,15 +2601,12 @@
     </div>
 
     <h3>
-      단속 총감
+      단속총감
     </h3>
 
     <p>
-
-      T.E.D. 최고 책임자인
-      단속총감에 관한 정보가
-      표시됩니다.
-
+      T.E.D. 전체를 지휘하는
+      최고 책임자에 대한 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2177,11 +2631,8 @@
     </h3>
 
     <p>
-
       시간집행과의
-      주요 업무 및 조직 정보가
-      표시됩니다.
-
+      주요 업무와 조직 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2206,11 +2657,8 @@
     </h3>
 
     <p>
-
       시간수사과의
-      주요 업무 및 조직 정보가
-      표시됩니다.
-
+      주요 업무와 조직 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2235,11 +2683,8 @@
     </h3>
 
     <p>
-
       시간감찰과의
-      주요 업무 및 조직 정보가
-      표시됩니다.
-
+      주요 업무와 조직 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2264,11 +2709,8 @@
     </h3>
 
     <p>
-
       시간복구과의
-      주요 업무 및 조직 정보가
-      표시됩니다.
-
+      주요 업무와 조직 정보가 표시됩니다.
     </p>
 
   </div>
@@ -2278,317 +2720,458 @@
 
 
 <!-- =========================================
-     FACILITIES
+     FACILITY MAP
 ========================================= -->
 
+
 <section
   class="content-section"
-  id="civil"
+  id="facility-map"
 >
+
 
   <div class="content-inner">
 
+
     <div class="section-label">
-      FACILITY · 01
+      FACILITIES · 01
     </div>
 
+
     <h3>
-      민원실
+      시설안내도
     </h3>
+
 
     <p>
 
-      시간관리국 민원실
-      시설 안내가 표시됩니다.
+      시간질서단속반 본부의
+      층별 구조와 주요 시설 배치를
+      확인할 수 있습니다.
 
     </p>
 
+
+
+    <div class="facility-map-grid">
+
+
+
+      <figure class="facility-map-card">
+
+
+        <img
+          src="https://i.ifh.cc/MhzSsx.jpg"
+          alt="T.E.D. 본부 주요 시설 안내도"
+        >
+
+
+        <figcaption>
+
+
+          <span>
+            01
+          </span>
+
+
+          <strong>
+            본부 주요 시설층
+          </strong>
+
+
+          <small>
+
+            민원실 · 기숙사 · 교육실 · 식당 ·
+            자료실 · 비품실 · 보안실 · 방송실 ·
+            조사실 · 휴게실 · 전기실
+
+          </small>
+
+
+        </figcaption>
+
+
+      </figure>
+
+
+
+
+      <figure class="facility-map-card">
+
+
+        <img
+          src="https://i.ifh.cc/g6akVJ.jpg"
+          alt="T.E.D. 본부 상층부 안내도"
+        >
+
+
+        <figcaption>
+
+
+          <span>
+            02
+          </span>
+
+
+          <strong>
+            본부 상층부
+          </strong>
+
+
+          <small>
+
+            단속총감 집무실 · 시간집행과 ·
+            시간수사과 · 시간감찰과 · 시간복구과
+
+          </small>
+
+
+        </figcaption>
+
+
+      </figure>
+
+
+
+    </div>
+
+
   </div>
+
 
 </section>
 
 
 
-<section
-  class="content-section"
-  id="dormitory"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 02
-    </div>
-
-    <h3>
-      기숙사
-    </h3>
-
-    <p>
-
-      T.E.D. 요원
-      기숙시설 안내가 표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
+<!-- =========================================
+     FACILITY PHOTOS
+========================================= -->
 
 
 <section
   class="content-section"
-  id="training"
+  id="facility-photo"
 >
+
 
   <div class="content-inner">
 
+
     <div class="section-label">
-      FACILITY · 03
+      FACILITIES · 02
     </div>
 
+
     <h3>
-      교육실
+      시설사진
     </h3>
+
 
     <p>
 
-      요원 교육 및
-      훈련시설 안내가 표시됩니다.
+      시간질서단속반 본부 내부의
+      주요 시설을 사진으로 확인할 수 있습니다.
+
+      모바일에서는 화면을 좌우로 넘겨
+      각 시설을 열람할 수 있습니다.
 
     </p>
 
-  </div>
-
-</section>
 
 
+    <div class="facility-gallery-wrap">
 
-<section
-  class="content-section"
-  id="cafeteria"
->
 
-  <div class="content-inner">
 
-    <div class="section-label">
-      FACILITY · 04
+      <button
+        class="gallery-arrow gallery-prev"
+        id="galleryPrev"
+        aria-label="이전 사진"
+      >
+        ‹
+      </button>
+
+
+
+      <div
+        class="facility-gallery"
+        id="facilityGallery"
+      >
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-민원실-이미지-주소"
+            alt="민원실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 01
+            </span>
+
+            <h4>
+              민원실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-기숙사-이미지-주소"
+            alt="기숙사"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 02
+            </span>
+
+            <h4>
+              기숙사
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-교육실-이미지-주소"
+            alt="교육실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 03
+            </span>
+
+            <h4>
+              교육실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-식당-이미지-주소"
+            alt="식당"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 04
+            </span>
+
+            <h4>
+              식당
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-자료실-이미지-주소"
+            alt="자료실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 05
+            </span>
+
+            <h4>
+              자료실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-비품실-이미지-주소"
+            alt="비품실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 06
+            </span>
+
+            <h4>
+              비품실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-보안실-이미지-주소"
+            alt="보안실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 07
+            </span>
+
+            <h4>
+              보안실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-방송실-이미지-주소"
+            alt="방송실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 08
+            </span>
+
+            <h4>
+              방송실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-조사실-이미지-주소"
+            alt="조사실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 09
+            </span>
+
+            <h4>
+              조사실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-휴게실-이미지-주소"
+            alt="휴게실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 10
+            </span>
+
+            <h4>
+              휴게실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="facility-photo-card">
+
+          <img
+            src="여기에-전기실-이미지-주소"
+            alt="전기실"
+          >
+
+          <div class="facility-photo-info">
+
+            <span>
+              FACILITY · 11
+            </span>
+
+            <h4>
+              전기실
+            </h4>
+
+          </div>
+
+        </article>
+
+
+
+      </div>
+
+
+
+      <button
+        class="gallery-arrow gallery-next"
+        id="galleryNext"
+        aria-label="다음 사진"
+      >
+        ›
+      </button>
+
+
+
     </div>
 
-    <h3>
-      식당
-    </h3>
-
-    <p>
-
-      직원 식당 시설 안내가
-      표시됩니다.
-
-    </p>
 
   </div>
 
-</section>
-
-
-
-<section
-  class="content-section"
-  id="archive"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 05
-    </div>
-
-    <h3>
-      자료실
-    </h3>
-
-    <p>
-
-      시간 기록 및
-      자료 보관시설 안내가
-      표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="supplies"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 06
-    </div>
-
-    <h3>
-      비품실
-    </h3>
-
-    <p>
-
-      장비 및 업무 비품
-      보관시설 안내가 표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="security"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 07
-    </div>
-
-    <h3>
-      보안실
-    </h3>
-
-    <p>
-
-      본부 보안 관제시설
-      안내가 표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="broadcast"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 08
-    </div>
-
-    <h3>
-      방송실
-    </h3>
-
-    <p>
-
-      본부 내부 방송 및
-      비상통신 시설 안내가
-      표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="interrogation"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 09
-    </div>
-
-    <h3>
-      조사실
-    </h3>
-
-    <p>
-
-      시간범죄자 조사 및
-      진술 확보 시설 안내가
-      표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="lounge"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 10
-    </div>
-
-    <h3>
-      휴게실
-    </h3>
-
-    <p>
-
-      직원 및 현장 요원의
-      휴식시설 안내가
-      표시됩니다.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<section
-  class="content-section"
-  id="power"
->
-
-  <div class="content-inner">
-
-    <div class="section-label">
-      FACILITY · 11
-    </div>
-
-    <h3>
-      전기실
-    </h3>
-
-    <p>
-
-      본부 전력 및
-      시간여행 장치 보조 전원시설
-      안내가 표시됩니다.
-
-    </p>
-
-  </div>
 
 </section>
 
@@ -2598,24 +3181,25 @@
      FOOTER
 ========================================= -->
 
+
 <footer>
+
 
   <div class="footer-inner">
 
-    <div>
 
+    <div>
       T.E.D. · TEMPORAL ENFORCEMENT DIVISION
-
     </div>
 
 
     <div>
-
       TIME MANAGEMENT BUREAU · OFFICIAL NETWORK
-
     </div>
+
 
   </div>
+
 
 </footer>
 
@@ -2625,19 +3209,28 @@
      JAVASCRIPT
 ========================================= -->
 
+
 <script>
+
+
+  /* MOBILE MENU */
+
 
   const menuToggle =
     document.getElementById('menuToggle');
 
+
   const mobileMenu =
     document.getElementById('mobileMenu');
+
 
   const menuClose =
     document.getElementById('menuClose');
 
+
   const menuOverlay =
     document.getElementById('menuOverlay');
+
 
 
   function openMenu() {
@@ -2651,6 +3244,7 @@
   }
 
 
+
   function closeMenu() {
 
     mobileMenu.classList.remove('active');
@@ -2660,6 +3254,7 @@
     document.body.classList.remove('menu-open');
 
   }
+
 
 
   menuToggle.addEventListener(
@@ -2680,6 +3275,7 @@
   );
 
 
+
   document
     .querySelectorAll('.mobile-menu a')
     .forEach(link => {
@@ -2690,6 +3286,7 @@
       );
 
     });
+
 
 
   document.addEventListener(
@@ -2705,8 +3302,87 @@
     }
   );
 
+
+
+  /* FACILITY GALLERY */
+
+
+  const gallery =
+    document.getElementById('facilityGallery');
+
+
+  const galleryPrev =
+    document.getElementById('galleryPrev');
+
+
+  const galleryNext =
+    document.getElementById('galleryNext');
+
+
+
+  function getGalleryScrollAmount() {
+
+
+    const firstCard =
+      gallery.querySelector(
+        '.facility-photo-card'
+      );
+
+
+    if (!firstCard) {
+
+      return 320;
+
+    }
+
+
+    return firstCard.offsetWidth + 18;
+
+  }
+
+
+
+  galleryPrev.addEventListener(
+    'click',
+    () => {
+
+      gallery.scrollBy({
+
+        left:
+          -getGalleryScrollAmount(),
+
+        behavior:
+          'smooth'
+
+      });
+
+    }
+  );
+
+
+
+  galleryNext.addEventListener(
+    'click',
+    () => {
+
+      gallery.scrollBy({
+
+        left:
+          getGalleryScrollAmount(),
+
+        behavior:
+          'smooth'
+
+      });
+
+    }
+  );
+
+
 </script>
 
 
+
 </body>
+
 </html>
