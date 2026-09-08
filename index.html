@@ -35,6 +35,7 @@
       --muted: #8796a8;
 
       --header-height: 82px;
+      --player-height: 54px;
 
     }
 
@@ -93,7 +94,8 @@
     }
 
 
-    button {
+    button,
+    input {
 
       font-family: inherit;
 
@@ -126,7 +128,7 @@
       padding: 0 5%;
 
       background:
-        rgba(4, 8, 14, 0.78);
+        rgba(4, 8, 14, 0.82);
 
       border-bottom:
         1px solid rgba(130, 194, 255, 0.12);
@@ -324,6 +326,280 @@
 
       background:
         rgba(92, 175, 255, 0.09);
+
+    }
+
+
+
+    /* =========================================
+       MUSIC PLAYER
+    ========================================= */
+
+
+    .theme-player-bar {
+
+      position: fixed;
+
+      top: var(--header-height);
+      left: 0;
+
+      width: 100%;
+      height: var(--player-height);
+
+      z-index: 950;
+
+      display: flex;
+
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 13, 22, 0.97),
+          rgba(10, 22, 35, 0.97),
+          rgba(7, 13, 22, 0.97)
+        );
+
+      border-bottom:
+        1px solid rgba(99, 184, 255, 0.13);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+    }
+
+
+    .theme-player-inner {
+
+      width: 100%;
+
+      max-width: 1450px;
+
+      margin: 0 auto;
+
+      padding: 0 5%;
+
+      display: grid;
+
+      grid-template-columns:
+        auto minmax(160px, 260px) 1fr auto;
+
+      align-items: center;
+
+      gap: 16px;
+
+    }
+
+
+    .player-control {
+
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      border:
+        1px solid rgba(107, 188, 255, 0.28);
+
+      border-radius: 50%;
+
+      background:
+        rgba(77, 160, 231, 0.11);
+
+      color: #dff2ff;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+
+    }
+
+
+    .player-control:hover {
+
+      background:
+        rgba(77, 160, 231, 0.24);
+
+      border-color:
+        rgba(107, 188, 255, 0.52);
+
+      box-shadow:
+        0 0 18px rgba(78, 169, 246, 0.16);
+
+    }
+
+
+    .track-info {
+
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 2px;
+
+    }
+
+
+    .track-info strong {
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #dcefff;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 9px;
+
+      font-weight: 500;
+
+      letter-spacing: 1.3px;
+
+    }
+
+
+    .track-info span {
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #667b8d;
+
+      font-size: 9px;
+
+      letter-spacing: 0.5px;
+
+    }
+
+
+    .player-progress-area {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      min-width: 0;
+
+    }
+
+
+    .time-display {
+
+      min-width: 34px;
+
+      color: #667b8d;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 8px;
+
+      text-align: center;
+
+    }
+
+
+    input[type="range"] {
+
+      -webkit-appearance: none;
+
+      appearance: none;
+
+      width: 100%;
+      height: 3px;
+
+      border-radius: 10px;
+
+      outline: none;
+
+      background:
+        rgba(125, 185, 235, 0.13);
+
+      cursor: pointer;
+
+    }
+
+
+    input[type="range"]::-webkit-slider-thumb {
+
+      -webkit-appearance: none;
+
+      appearance: none;
+
+      width: 10px;
+      height: 10px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #77c5ff;
+
+      box-shadow:
+        0 0 8px rgba(89, 185, 255, 0.65);
+
+      cursor: pointer;
+
+    }
+
+
+    input[type="range"]::-moz-range-thumb {
+
+      width: 10px;
+      height: 10px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #77c5ff;
+
+      box-shadow:
+        0 0 8px rgba(89, 185, 255, 0.65);
+
+      cursor: pointer;
+
+    }
+
+
+    .volume-wrap {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      width: 105px;
+
+    }
+
+
+    .volume-icon {
+
+      color: #7790a5;
+
+      font-size: 13px;
 
     }
 
@@ -622,6 +898,12 @@
       align-items: flex-end;
 
       overflow: hidden;
+
+      padding-top:
+        calc(
+          var(--header-height)
+          + var(--player-height)
+        );
 
     }
 
@@ -957,7 +1239,6 @@
       padding: 28px;
 
       background:
-
         linear-gradient(
           150deg,
           rgba(15, 27, 42, 0.8),
@@ -1035,15 +1316,11 @@
         1px solid rgba(120, 190, 255, 0.07);
 
       scroll-margin-top:
-        calc(var(--header-height) + 10px);
-
-    }
-
-
-    .content-section:nth-of-type(even) {
-
-      background:
-        rgba(8, 15, 23, 0.2);
+        calc(
+          var(--header-height)
+          + var(--player-height)
+          + 10px
+        );
 
     }
 
@@ -1092,7 +1369,6 @@
 
     /* =========================================
        DETAIL IMAGE
-       세로 / 가로 / 정사각형 모두 원본비율 유지
     ========================================= */
 
 
@@ -1184,7 +1460,6 @@
       overflow: hidden;
 
       background:
-
         linear-gradient(
           150deg,
           rgba(15, 27, 42, 0.9),
@@ -1314,36 +1589,7 @@
 
       scrollbar-width: thin;
 
-      scrollbar-color:
-        rgba(98, 184, 255, 0.45)
-        rgba(255, 255, 255, 0.04);
-
       -webkit-overflow-scrolling: touch;
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar {
-
-      height: 6px;
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar-track {
-
-      background:
-        rgba(255, 255, 255, 0.04);
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar-thumb {
-
-      background:
-        rgba(98, 184, 255, 0.42);
-
-      border-radius: 20px;
 
     }
 
@@ -1402,7 +1648,6 @@
       inset: 0;
 
       background:
-
         linear-gradient(
           to top,
           rgba(4, 8, 14, 0.92) 0%,
@@ -1617,6 +1862,7 @@
       :root {
 
         --header-height: 70px;
+        --player-height: 66px;
 
       }
 
@@ -1627,13 +1873,6 @@
 
         padding:
           0 18px;
-
-      }
-
-
-      .brand {
-
-        gap: 10px;
 
       }
 
@@ -1656,6 +1895,69 @@
       .brand-text span {
 
         display: none;
+
+      }
+
+
+      .theme-player-inner {
+
+        padding: 0 16px;
+
+        grid-template-columns:
+          auto minmax(0, 1fr) auto;
+
+        gap: 10px;
+
+      }
+
+
+      .track-info {
+
+        grid-column: 2;
+
+      }
+
+
+      .player-progress-area {
+
+        grid-column:
+          1 / 4;
+
+        grid-row: 2;
+
+        gap: 7px;
+
+      }
+
+
+      .volume-wrap {
+
+        width: 72px;
+
+        grid-column: 3;
+
+        grid-row: 1;
+
+      }
+
+
+      .theme-player-bar {
+
+        height: 66px;
+
+      }
+
+
+      .track-info strong {
+
+        font-size: 8px;
+
+      }
+
+
+      .track-info span {
+
+        font-size: 8px;
 
       }
 
@@ -1771,7 +2073,6 @@
       .detail-image {
 
         max-width: 100%;
-
         max-height: 78vh;
 
       }
@@ -1838,6 +2139,13 @@
 
       }
 
+
+      .volume-icon {
+
+        display: none;
+
+      }
+
     }
 
 
@@ -1889,8 +2197,6 @@
   <nav>
 
 
-    <!-- 정보 -->
-
     <div class="nav-item">
 
       <span class="nav-title">
@@ -1916,8 +2222,6 @@
     </div>
 
 
-
-    <!-- 시간여행 장치 -->
 
     <div class="nav-item">
 
@@ -1948,8 +2252,6 @@
     </div>
 
 
-
-    <!-- 부서 안내 -->
 
     <div class="nav-item">
 
@@ -1984,8 +2286,6 @@
     </div>
 
 
-
-    <!-- 시설안내 -->
 
     <div class="nav-item">
 
@@ -2022,6 +2322,113 @@
 
 
 </header>
+
+
+
+<!-- =========================================
+     T.E.D. THEME PLAYER
+========================================= -->
+
+
+<div class="theme-player-bar">
+
+
+  <div class="theme-player-inner">
+
+
+    <button
+      class="player-control"
+      id="playPauseBtn"
+      aria-label="테마곡 재생"
+    >
+      ▶
+    </button>
+
+
+
+    <div class="track-info">
+
+      <strong>
+        T.E.D. OFFICIAL THEME
+      </strong>
+
+      <span>
+        Temporal Enforcement Division
+      </span>
+
+    </div>
+
+
+
+    <div class="player-progress-area">
+
+      <span
+        class="time-display"
+        id="currentTime"
+      >
+        00:00
+      </span>
+
+
+      <input
+        type="range"
+        id="progressBar"
+        min="0"
+        max="100"
+        value="0"
+        step="0.1"
+        aria-label="재생 위치"
+      >
+
+
+      <span
+        class="time-display"
+        id="duration"
+      >
+        00:00
+      </span>
+
+    </div>
+
+
+
+    <div class="volume-wrap">
+
+      <span class="volume-icon">
+        ◕
+      </span>
+
+      <input
+        type="range"
+        id="volumeControl"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.7"
+        aria-label="볼륨"
+      >
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<audio
+  id="themeAudio"
+  preload="metadata"
+>
+
+  <source
+    src="audio/ted-theme.mp3"
+    type="audio/mpeg"
+  >
+
+</audio>
 
 
 
@@ -2475,7 +2882,7 @@
 
       <img
         class="detail-image"
-        src="https://i.ifh.cc/hB5ahy.jpg"
+        src="여기에-설립목적-이미지-주소"
         alt="T.E.D. 설립목적"
       >
 
@@ -2929,11 +3336,9 @@
 
 
     <p>
-
       시간질서단속반 본부의
       층별 구조와 주요 시설 배치를
       확인할 수 있습니다.
-
     </p>
 
 
@@ -2965,11 +3370,9 @@
 
 
           <small>
-
             민원실 · 기숙사 · 교육실 · 식당 ·
             자료실 · 비품실 · 보안실 · 방송실 ·
             조사실 · 휴게실 · 전기실
-
           </small>
 
 
@@ -3004,10 +3407,8 @@
 
 
           <small>
-
             단속총감 집무실 · 시간집행과 ·
             시간수사과 · 시간감찰과 · 시간복구과
-
           </small>
 
 
@@ -3053,13 +3454,11 @@
 
 
     <p>
-
       시간질서단속반 본부 내부의
       주요 시설을 사진으로 확인할 수 있습니다.
 
       모바일에서는 화면을 좌우로 넘겨
       각 시설을 열람할 수 있습니다.
-
     </p>
 
 
@@ -3406,18 +3805,14 @@
   const menuToggle =
     document.getElementById('menuToggle');
 
-
   const mobileMenu =
     document.getElementById('mobileMenu');
-
 
   const menuClose =
     document.getElementById('menuClose');
 
-
   const menuOverlay =
     document.getElementById('menuOverlay');
-
 
 
   function openMenu() {
@@ -3431,7 +3826,6 @@
   }
 
 
-
   function closeMenu() {
 
     mobileMenu.classList.remove('active');
@@ -3441,7 +3835,6 @@
     document.body.classList.remove('menu-open');
 
   }
-
 
 
   menuToggle.addEventListener(
@@ -3462,7 +3855,6 @@
   );
 
 
-
   document
     .querySelectorAll('.mobile-menu a')
     .forEach(link => {
@@ -3473,7 +3865,6 @@
       );
 
     });
-
 
 
   document.addEventListener(
@@ -3492,6 +3883,204 @@
 
 
   /* =========================================
+     THEME MUSIC PLAYER
+  ========================================= */
+
+
+  const themeAudio =
+    document.getElementById('themeAudio');
+
+  const playPauseBtn =
+    document.getElementById('playPauseBtn');
+
+  const progressBar =
+    document.getElementById('progressBar');
+
+  const currentTimeDisplay =
+    document.getElementById('currentTime');
+
+  const durationDisplay =
+    document.getElementById('duration');
+
+  const volumeControl =
+    document.getElementById('volumeControl');
+
+
+  themeAudio.volume =
+    Number(volumeControl.value);
+
+
+  function formatTime(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+
+      return '00:00';
+
+    }
+
+    const minutes =
+      Math.floor(seconds / 60);
+
+    const remainingSeconds =
+      Math.floor(seconds % 60);
+
+    return (
+      String(minutes).padStart(2, '0')
+      +
+      ':'
+      +
+      String(remainingSeconds).padStart(2, '0')
+    );
+
+  }
+
+
+  playPauseBtn.addEventListener(
+    'click',
+    async () => {
+
+      if (themeAudio.paused) {
+
+        try {
+
+          await themeAudio.play();
+
+          playPauseBtn.textContent =
+            '❚❚';
+
+          playPauseBtn.setAttribute(
+            'aria-label',
+            '테마곡 일시정지'
+          );
+
+        } catch (error) {
+
+          console.error(
+            'Audio playback failed:',
+            error
+          );
+
+        }
+
+      } else {
+
+        themeAudio.pause();
+
+        playPauseBtn.textContent =
+          '▶';
+
+        playPauseBtn.setAttribute(
+          'aria-label',
+          '테마곡 재생'
+        );
+
+      }
+
+    }
+  );
+
+
+  themeAudio.addEventListener(
+    'loadedmetadata',
+    () => {
+
+      durationDisplay.textContent =
+        formatTime(
+          themeAudio.duration
+        );
+
+    }
+  );
+
+
+  themeAudio.addEventListener(
+    'timeupdate',
+    () => {
+
+      currentTimeDisplay.textContent =
+        formatTime(
+          themeAudio.currentTime
+        );
+
+
+      if (
+        Number.isFinite(
+          themeAudio.duration
+        )
+      ) {
+
+        progressBar.value =
+          (
+            themeAudio.currentTime
+            /
+            themeAudio.duration
+          )
+          *
+          100;
+
+      }
+
+    }
+  );
+
+
+  progressBar.addEventListener(
+    'input',
+    () => {
+
+      if (
+        Number.isFinite(
+          themeAudio.duration
+        )
+      ) {
+
+        themeAudio.currentTime =
+          (
+            Number(progressBar.value)
+            /
+            100
+          )
+          *
+          themeAudio.duration;
+
+      }
+
+    }
+  );
+
+
+  volumeControl.addEventListener(
+    'input',
+    () => {
+
+      themeAudio.volume =
+        Number(volumeControl.value);
+
+    }
+  );
+
+
+  themeAudio.addEventListener(
+    'ended',
+    () => {
+
+      playPauseBtn.textContent =
+        '▶';
+
+      playPauseBtn.setAttribute(
+        'aria-label',
+        '테마곡 재생'
+      );
+
+      progressBar.value =
+        0;
+
+    }
+  );
+
+
+
+  /* =========================================
      FACILITY GALLERY
   ========================================= */
 
@@ -3499,24 +4088,19 @@
   const gallery =
     document.getElementById('facilityGallery');
 
-
   const galleryPrev =
     document.getElementById('galleryPrev');
-
 
   const galleryNext =
     document.getElementById('galleryNext');
 
 
-
   function getGalleryScrollAmount() {
-
 
     const firstCard =
       gallery.querySelector(
         '.facility-photo-card'
       );
-
 
     if (!firstCard) {
 
@@ -3524,11 +4108,9 @@
 
     }
 
-
     return firstCard.offsetWidth + 18;
 
   }
-
 
 
   galleryPrev.addEventListener(
@@ -3547,7 +4129,6 @@
 
     }
   );
-
 
 
   galleryNext.addEventListener(
