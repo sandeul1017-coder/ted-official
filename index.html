@@ -10,6 +10,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="theme-color"
+    content="#05090f"
+  >
+
   <title>
     T.E.D. | Temporal Enforcement Division
   </title>
@@ -20,29 +25,44 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
 
 
+    /* =========================================
+       ROOT
+    ========================================= */
+
     :root {
 
       --bg: #05090f;
+
       --bg-soft: #0a111b;
+
       --panel: rgba(11, 19, 30, 0.82);
 
       --line: rgba(122, 192, 255, 0.16);
 
       --blue: #63b8ff;
+
       --blue-bright: #9bd7ff;
 
       --white: #eef7ff;
+
       --muted: #8796a8;
 
       --header-height: 82px;
-      --player-height: 54px;
+
+      --player-height: 62px;
 
     }
 
 
+
+    /* =========================================
+       RESET
+    ========================================= */
+
     * {
 
       margin: 0;
+
       padding: 0;
 
       box-sizing: border-box;
@@ -60,11 +80,13 @@
     body {
 
       background:
+
         radial-gradient(
           circle at top,
           rgba(28, 75, 122, 0.16),
           transparent 35%
         ),
+
         var(--bg);
 
       color: var(--white);
@@ -102,20 +124,28 @@
     }
 
 
+    button {
+
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+
 
     /* =========================================
        HEADER
     ========================================= */
-
 
     header {
 
       position: fixed;
 
       top: 0;
+
       left: 0;
 
       width: 100%;
+
       height: var(--header-height);
 
       z-index: 1000;
@@ -123,17 +153,19 @@
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       padding: 0 5%;
 
       background:
-        rgba(4, 8, 14, 0.82);
+        rgba(4, 8, 14, 0.86);
 
       border-bottom:
         1px solid rgba(130, 194, 255, 0.12);
 
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
 
     }
@@ -155,6 +187,7 @@
     .brand img {
 
       width: 46px;
+
       height: 46px;
 
       object-fit: contain;
@@ -211,7 +244,6 @@
        DESKTOP NAVIGATION
     ========================================= */
 
-
     nav {
 
       display: flex;
@@ -259,6 +291,7 @@
       position: absolute;
 
       top: 72px;
+
       left: 50%;
 
       width: 215px;
@@ -278,11 +311,13 @@
       border-radius: 10px;
 
       opacity: 0;
+
       visibility: hidden;
 
       transition: 0.22s;
 
       backdrop-filter: blur(20px);
+
       -webkit-backdrop-filter: blur(20px);
 
       box-shadow:
@@ -294,6 +329,7 @@
     .nav-item:hover .dropdown {
 
       opacity: 1;
+
       visibility: visible;
 
       transform:
@@ -332,292 +368,19 @@
 
 
     /* =========================================
-       MUSIC PLAYER
+       MOBILE MENU BUTTON
     ========================================= */
-
-
-    .theme-player-bar {
-
-      position: fixed;
-
-      top: var(--header-height);
-      left: 0;
-
-      width: 100%;
-      height: var(--player-height);
-
-      z-index: 950;
-
-      display: flex;
-
-      align-items: center;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(7, 13, 22, 0.97),
-          rgba(10, 22, 35, 0.97),
-          rgba(7, 13, 22, 0.97)
-        );
-
-      border-bottom:
-        1px solid rgba(99, 184, 255, 0.13);
-
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-
-    }
-
-
-    .theme-player-inner {
-
-      width: 100%;
-
-      max-width: 1450px;
-
-      margin: 0 auto;
-
-      padding: 0 5%;
-
-      display: grid;
-
-      grid-template-columns:
-        auto minmax(160px, 260px) 1fr auto;
-
-      align-items: center;
-
-      gap: 16px;
-
-    }
-
-
-    .player-control {
-
-      width: 34px;
-      height: 34px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      flex-shrink: 0;
-
-      border:
-        1px solid rgba(107, 188, 255, 0.28);
-
-      border-radius: 50%;
-
-      background:
-        rgba(77, 160, 231, 0.11);
-
-      color: #dff2ff;
-
-      font-size: 13px;
-
-      cursor: pointer;
-
-      transition: 0.25s;
-
-    }
-
-
-    .player-control:hover {
-
-      background:
-        rgba(77, 160, 231, 0.24);
-
-      border-color:
-        rgba(107, 188, 255, 0.52);
-
-      box-shadow:
-        0 0 18px rgba(78, 169, 246, 0.16);
-
-    }
-
-
-    .track-info {
-
-      min-width: 0;
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 2px;
-
-    }
-
-
-    .track-info strong {
-
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-
-      white-space: nowrap;
-
-      color: #dcefff;
-
-      font-family:
-        'Orbitron',
-        sans-serif;
-
-      font-size: 9px;
-
-      font-weight: 500;
-
-      letter-spacing: 1.3px;
-
-    }
-
-
-    .track-info span {
-
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-
-      white-space: nowrap;
-
-      color: #667b8d;
-
-      font-size: 9px;
-
-      letter-spacing: 0.5px;
-
-    }
-
-
-    .player-progress-area {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      min-width: 0;
-
-    }
-
-
-    .time-display {
-
-      min-width: 34px;
-
-      color: #667b8d;
-
-      font-family:
-        'Orbitron',
-        sans-serif;
-
-      font-size: 8px;
-
-      text-align: center;
-
-    }
-
-
-    input[type="range"] {
-
-      -webkit-appearance: none;
-
-      appearance: none;
-
-      width: 100%;
-      height: 3px;
-
-      border-radius: 10px;
-
-      outline: none;
-
-      background:
-        rgba(125, 185, 235, 0.13);
-
-      cursor: pointer;
-
-    }
-
-
-    input[type="range"]::-webkit-slider-thumb {
-
-      -webkit-appearance: none;
-
-      appearance: none;
-
-      width: 10px;
-      height: 10px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: #77c5ff;
-
-      box-shadow:
-        0 0 8px rgba(89, 185, 255, 0.65);
-
-      cursor: pointer;
-
-    }
-
-
-    input[type="range"]::-moz-range-thumb {
-
-      width: 10px;
-      height: 10px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: #77c5ff;
-
-      box-shadow:
-        0 0 8px rgba(89, 185, 255, 0.65);
-
-      cursor: pointer;
-
-    }
-
-
-    .volume-wrap {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      width: 105px;
-
-    }
-
-
-    .volume-icon {
-
-      color: #7790a5;
-
-      font-size: 13px;
-
-    }
-
-
-
-    /* =========================================
-       MENU BUTTON
-    ========================================= */
-
 
     .menu-toggle {
 
       display: none;
 
       width: 45px;
+
       height: 45px;
 
       align-items: center;
+
       justify-content: center;
 
       border:
@@ -639,9 +402,343 @@
 
 
     /* =========================================
-       MOBILE MENU
+       OST PLAYER
     ========================================= */
 
+    .theme-player-bar {
+
+      position: fixed;
+
+      top: var(--header-height);
+
+      left: 0;
+
+      width: 100%;
+
+      min-height: var(--player-height);
+
+      z-index: 950;
+
+      display: flex;
+
+      align-items: center;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(5, 10, 18, 0.98),
+          rgba(11, 26, 41, 0.98),
+          rgba(5, 10, 18, 0.98)
+        );
+
+      border-bottom:
+        1px solid rgba(99, 184, 255, 0.16);
+
+      backdrop-filter: blur(18px);
+
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.22);
+
+    }
+
+
+    .theme-player-inner {
+
+      width: 100%;
+
+      max-width: 1450px;
+
+      margin: 0 auto;
+
+      padding: 7px 5%;
+
+      display: grid;
+
+      grid-template-columns:
+        auto
+        minmax(190px, 285px)
+        minmax(200px, 1fr)
+        auto;
+
+      align-items: center;
+
+      gap: 17px;
+
+    }
+
+
+    .player-control {
+
+      width: 39px;
+
+      height: 39px;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border:
+        1px solid rgba(107, 188, 255, 0.32);
+
+      border-radius: 50%;
+
+      background:
+
+        radial-gradient(
+          circle,
+          rgba(73, 164, 239, 0.22),
+          rgba(25, 67, 103, 0.1)
+        );
+
+      color: #e8f7ff;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+
+    }
+
+
+    .player-control:hover {
+
+      background:
+        rgba(77, 160, 231, 0.3);
+
+      border-color:
+        rgba(126, 205, 255, 0.65);
+
+      box-shadow:
+        0 0 20px rgba(67, 170, 255, 0.22);
+
+    }
+
+
+    .track-info {
+
+      min-width: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+    }
+
+
+    .track-meta {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 5px;
+
+      margin-bottom: 2px;
+
+    }
+
+
+    .track-dot {
+
+      width: 5px;
+
+      height: 5px;
+
+      border-radius: 50%;
+
+      background: #6ec4ff;
+
+      box-shadow:
+        0 0 8px rgba(110, 196, 255, 0.8);
+
+    }
+
+
+    .track-status {
+
+      color: #5e91b9;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 7px;
+
+      letter-spacing: 1.6px;
+
+    }
+
+
+    .TIMELESS {
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #e9f6ff;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.2px;
+
+    }
+
+
+    .NOVA  {
+
+      margin-top: 2px;
+
+      color: #8297aa;
+
+      font-size: 9px;
+
+      font-weight: 400;
+
+      letter-spacing: 1.4px;
+
+    }
+
+
+    .player-progress-area {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      min-width: 0;
+
+    }
+
+
+    .time-display {
+
+      min-width: 35px;
+
+      color: #687e90;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 8px;
+
+      text-align: center;
+
+    }
+
+
+    input[type="range"] {
+
+      -webkit-appearance: none;
+
+      appearance: none;
+
+      width: 100%;
+
+      height: 3px;
+
+      border-radius: 10px;
+
+      outline: none;
+
+      background:
+        rgba(125, 185, 235, 0.14);
+
+      cursor: pointer;
+
+    }
+
+
+    input[type="range"]::-webkit-slider-thumb {
+
+      -webkit-appearance: none;
+
+      appearance: none;
+
+      width: 10px;
+
+      height: 10px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #77c5ff;
+
+      box-shadow:
+        0 0 8px rgba(89, 185, 255, 0.7);
+
+      cursor: pointer;
+
+    }
+
+
+    input[type="range"]::-moz-range-thumb {
+
+      width: 10px;
+
+      height: 10px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #77c5ff;
+
+      box-shadow:
+        0 0 8px rgba(89, 185, 255, 0.7);
+
+      cursor: pointer;
+
+    }
+
+
+    .volume-wrap {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      width: 110px;
+
+    }
+
+
+    .volume-icon {
+
+      color: #7790a5;
+
+      font-size: 13px;
+
+    }
+
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
 
     .menu-overlay {
 
@@ -655,6 +752,7 @@
         rgba(0, 0, 0, 0.65);
 
       opacity: 0;
+
       visibility: hidden;
 
       transition: 0.3s;
@@ -667,6 +765,7 @@
     .menu-overlay.active {
 
       opacity: 1;
+
       visibility: visible;
 
     }
@@ -677,6 +776,7 @@
       position: fixed;
 
       top: 0;
+
       right: -100%;
 
       width:
@@ -691,6 +791,7 @@
       overflow-y: auto;
 
       background:
+
         linear-gradient(
           180deg,
           rgba(7, 14, 23, 0.995),
@@ -721,6 +822,7 @@
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       gap: 20px;
@@ -747,6 +849,7 @@
     .mobile-menu-brand img {
 
       width: 44px;
+
       height: 44px;
 
       object-fit: contain;
@@ -789,6 +892,7 @@
     .menu-close {
 
       width: 42px;
+
       height: 42px;
 
       border:
@@ -859,6 +963,7 @@
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       padding: 10px 0;
@@ -885,7 +990,6 @@
     /* =========================================
        HERO
     ========================================= */
-
 
     .hero {
 
@@ -1005,6 +1109,7 @@
       content: '';
 
       width: 6px;
+
       height: 6px;
 
       border-radius: 50%;
@@ -1020,6 +1125,7 @@
     .hero-logo {
 
       width: 96px;
+
       height: 96px;
 
       margin-bottom: 20px;
@@ -1109,6 +1215,7 @@
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
       min-height: 46px;
@@ -1149,7 +1256,6 @@
     /* =========================================
        INTRO
     ========================================= */
-
 
     .section {
 
@@ -1217,7 +1323,6 @@
        INTRO CARDS
     ========================================= */
 
-
     .intro-grid {
 
       display: grid;
@@ -1239,6 +1344,7 @@
       padding: 28px;
 
       background:
+
         linear-gradient(
           150deg,
           rgba(15, 27, 42, 0.8),
@@ -1306,7 +1412,6 @@
        CONTENT SECTION
     ========================================= */
 
-
     .content-section {
 
       padding:
@@ -1321,6 +1426,14 @@
           + var(--player-height)
           + 10px
         );
+
+    }
+
+
+    .content-section:nth-of-type(even) {
+
+      background:
+        rgba(8, 15, 23, 0.18);
 
     }
 
@@ -1369,8 +1482,8 @@
 
     /* =========================================
        DETAIL IMAGE
+       원본 이미지 비율 유지
     ========================================= */
-
 
     .detail-image-wrap {
 
@@ -1381,6 +1494,7 @@
       display: flex;
 
       justify-content: center;
+
       align-items: center;
 
     }
@@ -1391,6 +1505,7 @@
       display: block;
 
       width: auto;
+
       height: auto;
 
       max-width:
@@ -1433,11 +1548,39 @@
     }
 
 
+    .detail-image-placeholder {
+
+      width:
+        min(100%, 700px);
+
+      min-height: 150px;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border:
+        1px dashed rgba(115, 188, 255, 0.14);
+
+      color: #40576b;
+
+      font-family:
+        'Orbitron',
+        sans-serif;
+
+      font-size: 9px;
+
+      letter-spacing: 2px;
+
+    }
+
+
 
     /* =========================================
        FACILITY MAP
     ========================================= */
-
 
     .facility-map-grid {
 
@@ -1460,6 +1603,7 @@
       overflow: hidden;
 
       background:
+
         linear-gradient(
           150deg,
           rgba(15, 27, 42, 0.9),
@@ -1494,7 +1638,8 @@
 
       width: 100%;
 
-      aspect-ratio: 16 / 9;
+      aspect-ratio:
+        16 / 9;
 
       object-fit: cover;
 
@@ -1511,6 +1656,7 @@
         auto 1fr;
 
       column-gap: 14px;
+
       row-gap: 4px;
 
       padding: 22px;
@@ -1558,9 +1704,8 @@
 
 
     /* =========================================
-       FACILITY GALLERY
+       FACILITY PHOTO GALLERY
     ========================================= */
-
 
     .facility-gallery-wrap {
 
@@ -1589,7 +1734,36 @@
 
       scrollbar-width: thin;
 
+      scrollbar-color:
+        rgba(98, 184, 255, 0.45)
+        rgba(255, 255, 255, 0.04);
+
       -webkit-overflow-scrolling: touch;
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar {
+
+      height: 6px;
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar-track {
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+    }
+
+
+    .facility-gallery::-webkit-scrollbar-thumb {
+
+      background:
+        rgba(98, 184, 255, 0.42);
+
+      border-radius: 20px;
 
     }
 
@@ -1621,6 +1795,7 @@
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
@@ -1648,6 +1823,7 @@
       inset: 0;
 
       background:
+
         linear-gradient(
           to top,
           rgba(4, 8, 14, 0.92) 0%,
@@ -1665,6 +1841,7 @@
       position: absolute;
 
       left: 22px;
+
       bottom: 20px;
 
       z-index: 2;
@@ -1711,11 +1888,13 @@
       z-index: 5;
 
       width: 48px;
+
       height: 48px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       transform:
@@ -1736,6 +1915,7 @@
       cursor: pointer;
 
       backdrop-filter: blur(12px);
+
       -webkit-backdrop-filter: blur(12px);
 
     }
@@ -1759,7 +1939,6 @@
     /* =========================================
        FOOTER
     ========================================= */
-
 
     footer {
 
@@ -1798,7 +1977,6 @@
        TABLET
     ========================================= */
 
-
     @media (max-width: 1000px) {
 
       nav {
@@ -1829,7 +2007,6 @@
     /* =========================================
        MOBILE
     ========================================= */
-
 
     @media (max-width: 850px) {
 
@@ -1862,7 +2039,8 @@
       :root {
 
         --header-height: 70px;
-        --player-height: 66px;
+
+        --player-height: 82px;
 
       }
 
@@ -1877,9 +2055,17 @@
       }
 
 
+      .brand {
+
+        gap: 10px;
+
+      }
+
+
       .brand img {
 
         width: 38px;
+
         height: 38px;
 
       }
@@ -1899,14 +2085,43 @@
       }
 
 
+      .menu-toggle {
+
+        width: 42px;
+
+        height: 42px;
+
+      }
+
+
+
+      /* MOBILE PLAYER */
+
       .theme-player-inner {
 
-        padding: 0 16px;
+        padding:
+          7px 16px;
 
         grid-template-columns:
-          auto minmax(0, 1fr) auto;
+          auto
+          minmax(0, 1fr)
+          auto;
 
-        gap: 10px;
+        gap:
+          7px 10px;
+
+      }
+
+
+      .player-control {
+
+        grid-column: 1;
+
+        grid-row: 1;
+
+        width: 38px;
+
+        height: 38px;
 
       }
 
@@ -1914,6 +2129,40 @@
       .track-info {
 
         grid-column: 2;
+
+        grid-row: 1;
+
+      }
+
+
+      .track-title {
+
+        font-size: 10px;
+
+      }
+
+
+      .track-artist {
+
+        font-size: 8px;
+
+      }
+
+
+      .track-status {
+
+        font-size: 6px;
+
+      }
+
+
+      .volume-wrap {
+
+        grid-column: 3;
+
+        grid-row: 1;
+
+        width: 66px;
 
       }
 
@@ -1925,42 +2174,24 @@
 
         grid-row: 2;
 
+        width: 100%;
+
         gap: 7px;
 
       }
 
 
-      .volume-wrap {
+      .time-display {
 
-        width: 72px;
+        min-width: 30px;
 
-        grid-column: 3;
-
-        grid-row: 1;
+        font-size: 7px;
 
       }
 
 
-      .theme-player-bar {
 
-        height: 66px;
-
-      }
-
-
-      .track-info strong {
-
-        font-size: 8px;
-
-      }
-
-
-      .track-info span {
-
-        font-size: 8px;
-
-      }
-
+      /* HERO */
 
       .hero {
 
@@ -1988,6 +2219,7 @@
       .hero-logo {
 
         width: 74px;
+
         height: 74px;
 
       }
@@ -2073,6 +2305,7 @@
       .detail-image {
 
         max-width: 100%;
+
         max-height: 78vh;
 
       }
@@ -2146,6 +2379,13 @@
 
       }
 
+
+      .volume-wrap {
+
+        width: 50px;
+
+      }
+
     }
 
 
@@ -2163,7 +2403,6 @@
      HEADER
 ========================================= -->
 
-
 <header>
 
 
@@ -2176,7 +2415,6 @@
       src="https://i.ifh.cc/xnwlTn.jpg"
       alt="T.E.D. Logo"
     >
-
 
     <div class="brand-text">
 
@@ -2326,9 +2564,8 @@
 
 
 <!-- =========================================
-     T.E.D. THEME PLAYER
+     T.E.D. OST PLAYER
 ========================================= -->
-
 
 <div class="theme-player-bar">
 
@@ -2348,19 +2585,38 @@
 
     <div class="track-info">
 
-      <strong>
+
+      <div class="track-meta">
+
+        <span class="track-dot"></span>
+
+        <span
+          class="track-status"
+          id="trackStatus"
+        >
+          T.E.D. OFFICIAL OST
+        </span>
+
+      </div>
+
+
+      <!-- 실제 곡명으로 변경 -->
+      <strong class="track-title">
         T.E.D. OFFICIAL THEME
       </strong>
 
-      <span>
-        Temporal Enforcement Division
+
+      <span class="track-artist">
+        NOVA
       </span>
+
 
     </div>
 
 
 
     <div class="player-progress-area">
+
 
       <span
         class="time-display"
@@ -2388,15 +2644,18 @@
         00:00
       </span>
 
+
     </div>
 
 
 
     <div class="volume-wrap">
 
+
       <span class="volume-icon">
-        ◕
+        ♪
       </span>
+
 
       <input
         type="range"
@@ -2407,6 +2666,7 @@
         value="0.7"
         aria-label="볼륨"
       >
+
 
     </div>
 
@@ -2423,8 +2683,9 @@
   preload="metadata"
 >
 
+  <!-- GitHub 저장소 최상단의 MP3 파일 -->
   <source
-    src="audio/ted-theme.mp3"
+    src="ted-theme.mp3"
     type="audio/mpeg"
   >
 
@@ -2432,16 +2693,14 @@
 
 
 
+<!-- =========================================
+     MOBILE MENU
+========================================= -->
+
 <div
   class="menu-overlay"
   id="menuOverlay"
 ></div>
-
-
-
-<!-- =========================================
-     MOBILE MENU
-========================================= -->
 
 
 <aside
@@ -2493,6 +2752,7 @@
 
 
   <div class="mobile-menu-content">
+
 
 
     <section class="mobile-category">
@@ -2617,7 +2877,6 @@
      HERO
 ========================================= -->
 
-
 <section
   class="hero"
   id="home"
@@ -2633,11 +2892,8 @@
 
 
     <div class="classification">
-
       TEMPORAL AUTHORITY · OFFICIAL NETWORK
-
     </div>
-
 
 
     <img
@@ -2647,11 +2903,9 @@
     >
 
 
-
     <h1>
       T.E.D.
     </h1>
-
 
 
     <h2>
@@ -2665,7 +2919,6 @@
     </h2>
 
 
-
     <p class="hero-description">
 
       시간질서단속반 T.E.D.는 시간선의 안정과
@@ -2677,7 +2930,6 @@
       발생한 시간 이상 현상을 조사·단속·복구합니다.
 
     </p>
-
 
 
     <div class="hero-actions">
@@ -2712,7 +2964,6 @@
 <!-- =========================================
      INTRODUCTION
 ========================================= -->
-
 
 <section
   class="section"
@@ -2884,7 +3135,12 @@
         class="detail-image"
         src="여기에-설립목적-이미지-주소"
         alt="T.E.D. 설립목적"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -2921,7 +3177,12 @@
         class="detail-image"
         src="여기에-위치정보-이미지-주소"
         alt="T.E.D. 위치정보"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -2958,7 +3219,12 @@
         class="detail-image"
         src="여기에-기관안내-이미지-주소"
         alt="T.E.D. 기관안내"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3000,7 +3266,12 @@
         class="detail-image"
         src="여기에-개발자-이미지-주소"
         alt="시간여행 장치 개발자"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3037,7 +3308,12 @@
         class="detail-image"
         src="여기에-개발완료시기-이미지-주소"
         alt="시간여행 장치 개발 완료 시기"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3074,7 +3350,12 @@
         class="detail-image"
         src="여기에-작동원리-이미지-주소"
         alt="시간여행 장치 작동 원리"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3111,7 +3392,12 @@
         class="detail-image"
         src="여기에-장치구조-이미지-주소"
         alt="시간여행 장치 구조"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3153,7 +3439,12 @@
         class="detail-image"
         src="여기에-단속총감-이미지-주소"
         alt="T.E.D. 단속총감"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3190,7 +3481,12 @@
         class="detail-image"
         src="여기에-시간집행과-이미지-주소"
         alt="시간집행과"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3227,7 +3523,12 @@
         class="detail-image"
         src="여기에-시간수사과-이미지-주소"
         alt="시간수사과"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3264,7 +3565,12 @@
         class="detail-image"
         src="여기에-시간감찰과-이미지-주소"
         alt="시간감찰과"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3301,7 +3607,12 @@
         class="detail-image"
         src="여기에-시간복구과-이미지-주소"
         alt="시간복구과"
+        onerror="showPlaceholder(this)"
       >
+
+      <div class="detail-image-placeholder">
+        IMAGE · PENDING
+      </div>
 
     </div>
 
@@ -3370,9 +3681,11 @@
 
 
           <small>
+
             민원실 · 기숙사 · 교육실 · 식당 ·
             자료실 · 비품실 · 보안실 · 방송실 ·
             조사실 · 휴게실 · 전기실
+
           </small>
 
 
@@ -3407,8 +3720,10 @@
 
 
           <small>
+
             단속총감 집무실 · 시간집행과 ·
             시간수사과 · 시간감찰과 · 시간복구과
+
           </small>
 
 
@@ -3454,11 +3769,13 @@
 
 
     <p>
+
       시간질서단속반 본부 내부의
       주요 시설을 사진으로 확인할 수 있습니다.
 
       모바일에서는 화면을 좌우로 넘겨
       각 시설을 열람할 수 있습니다.
+
     </p>
 
 
@@ -3798,9 +4115,31 @@
 
 
   /* =========================================
-     MOBILE MENU
+     EMPTY IMAGE PLACEHOLDER
   ========================================= */
 
+  function showPlaceholder(image) {
+
+    image.style.display =
+      'none';
+
+    const placeholder =
+      image.nextElementSibling;
+
+    if (placeholder) {
+
+      placeholder.style.display =
+        'flex';
+
+    }
+
+  }
+
+
+
+  /* =========================================
+     MOBILE MENU
+  ========================================= */
 
   const menuToggle =
     document.getElementById('menuToggle');
@@ -3817,22 +4156,34 @@
 
   function openMenu() {
 
-    mobileMenu.classList.add('active');
+    mobileMenu.classList.add(
+      'active'
+    );
 
-    menuOverlay.classList.add('active');
+    menuOverlay.classList.add(
+      'active'
+    );
 
-    document.body.classList.add('menu-open');
+    document.body.classList.add(
+      'menu-open'
+    );
 
   }
 
 
   function closeMenu() {
 
-    mobileMenu.classList.remove('active');
+    mobileMenu.classList.remove(
+      'active'
+    );
 
-    menuOverlay.classList.remove('active');
+    menuOverlay.classList.remove(
+      'active'
+    );
 
-    document.body.classList.remove('menu-open');
+    document.body.classList.remove(
+      'menu-open'
+    );
 
   }
 
@@ -3856,7 +4207,9 @@
 
 
   document
-    .querySelectorAll('.mobile-menu a')
+    .querySelectorAll(
+      '.mobile-menu a'
+    )
     .forEach(link => {
 
       link.addEventListener(
@@ -3871,7 +4224,10 @@
     'keydown',
     event => {
 
-      if (event.key === 'Escape') {
+      if (
+        event.key ===
+        'Escape'
+      ) {
 
         closeMenu();
 
@@ -3883,77 +4239,118 @@
 
 
   /* =========================================
-     THEME MUSIC PLAYER
+     T.E.D. OST PLAYER
   ========================================= */
 
-
   const themeAudio =
-    document.getElementById('themeAudio');
+    document.getElementById(
+      'themeAudio'
+    );
 
   const playPauseBtn =
-    document.getElementById('playPauseBtn');
+    document.getElementById(
+      'playPauseBtn'
+    );
 
   const progressBar =
-    document.getElementById('progressBar');
+    document.getElementById(
+      'progressBar'
+    );
 
   const currentTimeDisplay =
-    document.getElementById('currentTime');
+    document.getElementById(
+      'currentTime'
+    );
 
   const durationDisplay =
-    document.getElementById('duration');
+    document.getElementById(
+      'duration'
+    );
 
   const volumeControl =
-    document.getElementById('volumeControl');
+    document.getElementById(
+      'volumeControl'
+    );
+
+  const trackStatus =
+    document.getElementById(
+      'trackStatus'
+    );
 
 
   themeAudio.volume =
-    Number(volumeControl.value);
+    Number(
+      volumeControl.value
+    );
 
 
   function formatTime(seconds) {
 
-    if (!Number.isFinite(seconds)) {
+    if (
+      !Number.isFinite(seconds)
+    ) {
 
       return '00:00';
 
     }
 
+
     const minutes =
-      Math.floor(seconds / 60);
+      Math.floor(
+        seconds / 60
+      );
+
 
     const remainingSeconds =
-      Math.floor(seconds % 60);
+      Math.floor(
+        seconds % 60
+      );
+
 
     return (
-      String(minutes).padStart(2, '0')
+      String(minutes)
+        .padStart(2, '0')
       +
       ':'
       +
-      String(remainingSeconds).padStart(2, '0')
+      String(remainingSeconds)
+        .padStart(2, '0')
     );
 
   }
+
 
 
   playPauseBtn.addEventListener(
     'click',
     async () => {
 
-      if (themeAudio.paused) {
+      if (
+        themeAudio.paused
+      ) {
 
         try {
 
           await themeAudio.play();
 
+
           playPauseBtn.textContent =
             '❚❚';
+
 
           playPauseBtn.setAttribute(
             'aria-label',
             '테마곡 일시정지'
           );
 
-        } catch (error) {
+
+          trackStatus.textContent =
+            'NOW PLAYING';
+
+        }
+
+
+        catch (error) {
 
           console.error(
             'Audio playback failed:',
@@ -3962,22 +4359,32 @@
 
         }
 
-      } else {
+      }
+
+
+      else {
 
         themeAudio.pause();
 
+
         playPauseBtn.textContent =
           '▶';
+
 
         playPauseBtn.setAttribute(
           'aria-label',
           '테마곡 재생'
         );
 
+
+        trackStatus.textContent =
+          'T.E.D. OFFICIAL OST';
+
       }
 
     }
   );
+
 
 
   themeAudio.addEventListener(
@@ -3991,6 +4398,21 @@
 
     }
   );
+
+
+
+  themeAudio.addEventListener(
+    'durationchange',
+    () => {
+
+      durationDisplay.textContent =
+        formatTime(
+          themeAudio.duration
+        );
+
+    }
+  );
+
 
 
   themeAudio.addEventListener(
@@ -4007,6 +4429,8 @@
         Number.isFinite(
           themeAudio.duration
         )
+        &&
+        themeAudio.duration > 0
       ) {
 
         progressBar.value =
@@ -4024,6 +4448,7 @@
   );
 
 
+
   progressBar.addEventListener(
     'input',
     () => {
@@ -4032,11 +4457,15 @@
         Number.isFinite(
           themeAudio.duration
         )
+        &&
+        themeAudio.duration > 0
       ) {
 
         themeAudio.currentTime =
           (
-            Number(progressBar.value)
+            Number(
+              progressBar.value
+            )
             /
             100
           )
@@ -4049,15 +4478,19 @@
   );
 
 
+
   volumeControl.addEventListener(
     'input',
     () => {
 
       themeAudio.volume =
-        Number(volumeControl.value);
+        Number(
+          volumeControl.value
+        );
 
     }
   );
+
 
 
   themeAudio.addEventListener(
@@ -4067,13 +4500,53 @@
       playPauseBtn.textContent =
         '▶';
 
+
       playPauseBtn.setAttribute(
         'aria-label',
         '테마곡 재생'
       );
 
+
+      trackStatus.textContent =
+        'T.E.D. OFFICIAL OST';
+
+
       progressBar.value =
         0;
+
+
+      currentTimeDisplay.textContent =
+        '00:00';
+
+    }
+  );
+
+
+
+  themeAudio.addEventListener(
+    'play',
+    () => {
+
+      trackStatus.textContent =
+        'NOW PLAYING';
+
+    }
+  );
+
+
+
+  themeAudio.addEventListener(
+    'pause',
+    () => {
+
+      if (
+        !themeAudio.ended
+      ) {
+
+        trackStatus.textContent =
+          'T.E.D. OFFICIAL OST';
+
+      }
 
     }
   );
@@ -4084,15 +4557,20 @@
      FACILITY GALLERY
   ========================================= */
 
-
   const gallery =
-    document.getElementById('facilityGallery');
+    document.getElementById(
+      'facilityGallery'
+    );
 
   const galleryPrev =
-    document.getElementById('galleryPrev');
+    document.getElementById(
+      'galleryPrev'
+    );
 
   const galleryNext =
-    document.getElementById('galleryNext');
+    document.getElementById(
+      'galleryNext'
+    );
 
 
   function getGalleryScrollAmount() {
@@ -4102,13 +4580,19 @@
         '.facility-photo-card'
       );
 
+
     if (!firstCard) {
 
       return 320;
 
     }
 
-    return firstCard.offsetWidth + 18;
+
+    return (
+      firstCard.offsetWidth
+      +
+      18
+    );
 
   }
 
