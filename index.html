@@ -26,7 +26,7 @@
 
   <style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
 
 
     /* =========================================
@@ -50,7 +50,6 @@
       --muted: #8796a8;
 
       --header-height: 82px;
-
       --player-height: 62px;
 
     }
@@ -516,8 +515,6 @@
 
       flex-direction: column;
 
-      justify-content: center;
-
     }
 
 
@@ -655,8 +652,6 @@
 
       -webkit-appearance: none;
 
-      appearance: none;
-
       width: 10px;
       height: 10px;
 
@@ -668,27 +663,6 @@
 
       box-shadow:
         0 0 8px rgba(89, 185, 255, 0.7);
-
-      cursor: pointer;
-
-    }
-
-
-    input[type="range"]::-moz-range-thumb {
-
-      width: 10px;
-      height: 10px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: #77c5ff;
-
-      box-shadow:
-        0 0 8px rgba(89, 185, 255, 0.7);
-
-      cursor: pointer;
 
     }
 
@@ -709,8 +683,6 @@
     .volume-icon {
 
       color: #7790a5;
-
-      font-size: 13px;
 
     }
 
@@ -780,9 +752,6 @@
       border-left:
         1px solid rgba(100, 180, 255, 0.16);
 
-      box-shadow:
-        -20px 0 80px rgba(0, 0, 0, 0.55);
-
       transition:
         right 0.35s cubic-bezier(.2, .8, .2, 1);
 
@@ -802,8 +771,6 @@
 
       align-items: center;
       justify-content: space-between;
-
-      gap: 20px;
 
       padding-bottom: 26px;
 
@@ -831,8 +798,6 @@
 
       object-fit: contain;
 
-      border-radius: 6px;
-
     }
 
 
@@ -843,8 +808,6 @@
       font-family:
         'Orbitron',
         sans-serif;
-
-      font-size: 18px;
 
       letter-spacing: 2px;
 
@@ -860,8 +823,6 @@
       color: #73869a;
 
       font-size: 9px;
-
-      letter-spacing: 1px;
 
     }
 
@@ -881,16 +842,7 @@
 
       color: white;
 
-      font-size: 18px;
-
       cursor: pointer;
-
-    }
-
-
-    .mobile-menu-content {
-
-      padding-bottom: 60px;
 
     }
 
@@ -938,8 +890,6 @@
 
       display: flex;
 
-      align-items: center;
-
       justify-content: space-between;
 
       padding: 10px 0;
@@ -947,8 +897,6 @@
       color: #b2c0cd;
 
       font-size: 13px;
-
-      transition: 0.2s;
 
     }
 
@@ -982,7 +930,8 @@
       padding-top:
         calc(
           var(--header-height)
-          + var(--player-height)
+          +
+          var(--player-height)
         );
 
     }
@@ -1001,7 +950,8 @@
 
       background-position: center;
 
-      transform: scale(1.035);
+      transform:
+        scale(1.035);
 
     }
 
@@ -1064,9 +1014,6 @@
       border:
         1px solid rgba(111, 188, 255, 0.25);
 
-      background:
-        rgba(27, 82, 131, 0.12);
-
       color: #a6d8ff;
 
       font-family:
@@ -1080,23 +1027,6 @@
     }
 
 
-    .classification::before {
-
-      content: '';
-
-      width: 6px;
-      height: 6px;
-
-      border-radius: 50%;
-
-      background: #68c2ff;
-
-      box-shadow:
-        0 0 12px #68c2ff;
-
-    }
-
-
     .hero-logo {
 
       width: 96px;
@@ -1105,8 +1035,6 @@
       margin-bottom: 20px;
 
       object-fit: contain;
-
-      border-radius: 9px;
 
     }
 
@@ -1119,10 +1047,6 @@
 
       font-size:
         clamp(54px, 8vw, 105px);
-
-      font-weight: 600;
-
-      line-height: 0.95;
 
       letter-spacing: 7px;
 
@@ -1140,14 +1064,10 @@
 
       font-weight: 400;
 
-      letter-spacing: 3px;
-
     }
 
 
     .hero h2 span {
-
-      display: inline-block;
 
       margin-left: 8px;
 
@@ -1165,8 +1085,6 @@
       color: #97a9ba;
 
       font-size: 14px;
-
-      font-weight: 300;
 
       line-height: 1.95;
 
@@ -1200,8 +1118,6 @@
 
       font-size: 11px;
 
-      transition: 0.25s;
-
     }
 
 
@@ -1210,15 +1126,10 @@
       background:
         rgba(76, 164, 239, 0.17);
 
-      color: #d9efff;
-
     }
 
 
     .btn-secondary {
-
-      background:
-        rgba(5, 10, 17, 0.26);
 
       color: #9babba;
 
@@ -1227,7 +1138,7 @@
 
 
     /* =========================================
-       INTRO
+       BASIC SECTIONS
     ========================================= */
 
     .section {
@@ -1238,7 +1149,8 @@
     }
 
 
-    .section-inner {
+    .section-inner,
+    .content-inner {
 
       max-width: 1280px;
 
@@ -1271,8 +1183,6 @@
 
       font-weight: 500;
 
-      line-height: 1.4;
-
     }
 
 
@@ -1290,11 +1200,6 @@
 
     }
 
-
-
-    /* =========================================
-       INTRO CARDS
-    ========================================= */
 
     .intro-grid {
 
@@ -1337,9 +1242,6 @@
       transform:
         translateY(-4px);
 
-      border-color:
-        rgba(120, 194, 255, 0.32);
-
     }
 
 
@@ -1362,8 +1264,6 @@
 
       font-size: 17px;
 
-      font-weight: 500;
-
     }
 
 
@@ -1380,11 +1280,6 @@
     }
 
 
-
-    /* =========================================
-       CONTENT SECTION
-    ========================================= */
-
     .content-section {
 
       padding:
@@ -1396,26 +1291,11 @@
       scroll-margin-top:
         calc(
           var(--header-height)
-          + var(--player-height)
-          + 10px
+          +
+          var(--player-height)
+          +
+          10px
         );
-
-    }
-
-
-    .content-section:nth-of-type(even) {
-
-      background:
-        rgba(8, 15, 23, 0.18);
-
-    }
-
-
-    .content-inner {
-
-      max-width: 1280px;
-
-      margin: 0 auto;
 
     }
 
@@ -1431,8 +1311,6 @@
         clamp(26px, 4vw, 34px);
 
       font-weight: 500;
-
-      letter-spacing: 1px;
 
     }
 
@@ -1485,70 +1363,38 @@
 
       object-fit: contain;
 
-      margin: 0 auto;
-
-      background:
-        rgba(7, 13, 22, 0.8);
-
       border:
         1px solid rgba(115, 188, 255, 0.14);
 
       box-shadow:
         0 18px 55px rgba(0, 0, 0, 0.28);
 
-      transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-
-    }
-
-
-    .detail-image:hover {
-
-      transform:
-        translateY(-3px);
-
-      border-color:
-        rgba(115, 188, 255, 0.32);
-
-      box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.4);
-
     }
 
 
     .detail-image-placeholder {
+
+      display: none;
 
       width:
         min(100%, 700px);
 
       min-height: 150px;
 
-      display: none;
-
       align-items: center;
       justify-content: center;
 
-      border:
-        1px dashed rgba(115, 188, 255, 0.14);
-
       color: #40576b;
 
-      font-family:
-        'Orbitron',
-        sans-serif;
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
+      border:
+        1px dashed rgba(115, 188, 255, 0.14);
 
     }
 
 
 
     /* =========================================
-       FACILITY MAP
+       FACILITY
     ========================================= */
 
     .facility-map-grid {
@@ -1567,36 +1413,13 @@
 
     .facility-map-card {
 
-      margin: 0;
-
       overflow: hidden;
 
       background:
-
-        linear-gradient(
-          150deg,
-          rgba(15, 27, 42, 0.9),
-          rgba(7, 13, 22, 0.94)
-        );
+        rgba(11, 19, 30, 0.82);
 
       border:
         1px solid rgba(115, 188, 255, 0.15);
-
-      transition: 0.3s;
-
-    }
-
-
-    .facility-map-card:hover {
-
-      transform:
-        translateY(-4px);
-
-      border-color:
-        rgba(115, 188, 255, 0.36);
-
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.28);
 
     }
 
@@ -1612,49 +1435,21 @@
 
       object-fit: cover;
 
-      background: #09111b;
-
     }
 
 
     .facility-map-card figcaption {
-
-      display: grid;
-
-      grid-template-columns:
-        auto 1fr;
-
-      column-gap: 14px;
-      row-gap: 4px;
 
       padding: 22px;
 
     }
 
 
-    .facility-map-card figcaption span {
-
-      grid-row:
-        1 / 3;
-
-      color: var(--blue);
-
-      font-family:
-        'Orbitron',
-        sans-serif;
-
-      font-size: 10px;
-
-    }
-
-
     .facility-map-card figcaption strong {
 
-      color: #e7f3ff;
+      display: block;
 
-      font-size: 15px;
-
-      font-weight: 500;
+      margin-bottom: 5px;
 
     }
 
@@ -1663,17 +1458,8 @@
 
       color: #718395;
 
-      font-size: 11px;
-
-      line-height: 1.7;
-
     }
 
-
-
-    /* =========================================
-       FACILITY PHOTO GALLERY
-    ========================================= */
 
     .facility-gallery-wrap {
 
@@ -1692,46 +1478,9 @@
 
       overflow-x: auto;
 
-      padding:
-        0 2px 18px;
-
       scroll-behavior: smooth;
 
-      scroll-snap-type:
-        x mandatory;
-
-      scrollbar-width: thin;
-
-      scrollbar-color:
-        rgba(98, 184, 255, 0.45)
-        rgba(255, 255, 255, 0.04);
-
-      -webkit-overflow-scrolling: touch;
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar {
-
-      height: 6px;
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar-track {
-
-      background:
-        rgba(255, 255, 255, 0.04);
-
-    }
-
-
-    .facility-gallery::-webkit-scrollbar-thumb {
-
-      background:
-        rgba(98, 184, 255, 0.42);
-
-      border-radius: 20px;
+      padding-bottom: 18px;
 
     }
 
@@ -1748,35 +1497,27 @@
 
       overflow: hidden;
 
-      scroll-snap-align: start;
-
-      background: #09111b;
-
-      border:
-        1px solid rgba(113, 188, 255, 0.13);
-
     }
 
 
     .facility-photo-card img {
-
-      display: block;
 
       width: 100%;
       height: 100%;
 
       object-fit: cover;
 
-      transition:
-        transform 0.45s ease;
-
     }
 
 
-    .facility-photo-card:hover img {
+    .facility-photo-info {
 
-      transform:
-        scale(1.035);
+      position: absolute;
+
+      left: 22px;
+      bottom: 20px;
+
+      z-index: 5;
 
     }
 
@@ -1793,54 +1534,18 @@
 
         linear-gradient(
           to top,
-          rgba(4, 8, 14, 0.92) 0%,
-          rgba(4, 8, 14, 0.2) 46%,
-          transparent 72%
+          rgba(4, 8, 14, 0.9),
+          transparent 65%
         );
-
-      pointer-events: none;
-
-    }
-
-
-    .facility-photo-info {
-
-      position: absolute;
-
-      left: 22px;
-      bottom: 20px;
-
-      z-index: 2;
 
     }
 
 
     .facility-photo-info span {
 
-      display: block;
-
-      margin-bottom: 5px;
-
       color: var(--blue);
 
-      font-family:
-        'Orbitron',
-        sans-serif;
-
       font-size: 8px;
-
-      letter-spacing: 1.5px;
-
-    }
-
-
-    .facility-photo-info h4 {
-
-      color: white;
-
-      font-size: 18px;
-
-      font-weight: 500;
 
     }
 
@@ -1851,18 +1556,10 @@
 
       top: 50%;
 
-      z-index: 5;
+      z-index: 10;
 
       width: 48px;
       height: 48px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      transform:
-        translateY(-50%);
 
       border:
         1px solid rgba(120, 194, 255, 0.2);
@@ -1874,12 +1571,9 @@
 
       color: white;
 
-      font-size: 31px;
+      font-size: 30px;
 
       cursor: pointer;
-
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
 
     }
 
@@ -1920,179 +1614,6 @@
       border:
         1px solid rgba(115, 188, 255, 0.14);
 
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.22);
-
-    }
-
-
-    .staff-board-panel h4 {
-
-      color: #e9f6ff;
-
-      font-size: 20px;
-
-      font-weight: 500;
-
-    }
-
-
-    .staff-board-panel > p {
-
-      max-width: none;
-
-      margin-top: 10px;
-
-      color: #7c8e9f;
-
-      font-size: 13px;
-
-      line-height: 1.9;
-
-    }
-
-
-
-    /* =========================================
-       RECRUITMENT IMAGE
-    ========================================= */
-
-    .upload-control-row {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 12px;
-
-      align-items: center;
-
-      margin-top: 24px;
-
-    }
-
-
-    .file-input {
-
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      min-height: 44px;
-
-      padding: 0 18px;
-
-      border:
-        1px solid rgba(121, 194, 255, 0.25);
-
-      background:
-        rgba(76, 164, 239, 0.12);
-
-      color: #dff2ff;
-
-      font-size: 12px;
-
-      cursor: pointer;
-
-      transition: 0.25s;
-
-    }
-
-
-    .file-input:hover {
-
-      background:
-        rgba(76, 164, 239, 0.22);
-
-      border-color:
-        rgba(121, 194, 255, 0.48);
-
-    }
-
-
-    .file-input input {
-
-      display: none;
-
-    }
-
-
-    .upload-file-name {
-
-      color: #6f8294;
-
-      font-size: 12px;
-
-    }
-
-
-    .recruitment-preview-wrap {
-
-      margin-top: 24px;
-
-      min-height: 320px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 18px;
-
-      background:
-        rgba(5, 10, 17, 0.4);
-
-      border:
-        1px dashed rgba(115, 188, 255, 0.14);
-
-    }
-
-
-    .recruitment-preview-image {
-
-      display: none;
-
-      max-width: 100%;
-      max-height: 80vh;
-
-      width: auto;
-      height: auto;
-
-      object-fit: contain;
-
-      border:
-        1px solid rgba(115, 188, 255, 0.14);
-
-      box-shadow:
-        0 16px 45px rgba(0, 0, 0, 0.22);
-
-    }
-
-
-    .recruitment-placeholder {
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      min-height: 220px;
-
-      width: 100%;
-
-      color: #46596c;
-
-      font-family:
-        'Orbitron',
-        sans-serif;
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      text-align: center;
-
     }
 
 
@@ -2110,8 +1631,6 @@
         minmax(0, 1fr);
 
       gap: 34px;
-
-      align-items: start;
 
       margin-top: 30px;
 
@@ -2136,8 +1655,6 @@
 
 
     .idcard-form-title {
-
-      margin-bottom: 4px;
 
       color: var(--blue);
 
@@ -2172,8 +1689,6 @@
 
     .idcard-form-group input {
 
-      width: 100%;
-
       min-height: 44px;
 
       padding: 0 14px;
@@ -2184,24 +1699,36 @@
       background:
         rgba(8, 15, 24, 0.92);
 
-      color: #e9f5ff;
-
-      font-size: 13px;
+      color: white;
 
       outline: none;
-
-      transition: 0.2s;
 
     }
 
 
-    .idcard-form-group input:focus {
+    .file-input {
 
-      border-color:
-        rgba(120, 194, 255, 0.48);
+      display: flex;
 
-      box-shadow:
-        0 0 0 1px rgba(120, 194, 255, 0.12);
+      align-items: center;
+      justify-content: center;
+
+      min-height: 44px;
+
+      border:
+        1px solid rgba(121, 194, 255, 0.25);
+
+      background:
+        rgba(76, 164, 239, 0.12);
+
+      cursor: pointer;
+
+    }
+
+
+    .file-input input {
+
+      display: none;
 
     }
 
@@ -2231,27 +1758,9 @@
       background:
         rgba(76, 164, 239, 0.16);
 
-      color: #e5f4ff;
-
-      font-size: 11px;
+      color: white;
 
       cursor: pointer;
-
-      transition: 0.25s;
-
-    }
-
-
-    .idcard-btn:hover {
-
-      transform:
-        translateY(-1px);
-
-      border-color:
-        rgba(121, 194, 255, 0.52);
-
-      background:
-        rgba(76, 164, 239, 0.24);
 
     }
 
@@ -2259,7 +1768,7 @@
     .idcard-btn.secondary {
 
       background:
-        rgba(255, 255, 255, 0.035);
+        rgba(255, 255, 255, 0.03);
 
       color: #9fb0c0;
 
@@ -2270,8 +1779,7 @@
 
       overflow-x: auto;
 
-      padding:
-        4px 4px 18px;
+      padding-bottom: 15px;
 
     }
 
@@ -2282,15 +1790,14 @@
 
       gap: 22px;
 
-      align-items: flex-start;
-
       min-width: max-content;
 
     }
 
 
+
     /* =========================================
-       PHYSICAL ID CARD
+       ID CARD
     ========================================= */
 
     .idcard-card {
@@ -2302,21 +1809,20 @@
 
       overflow: hidden;
 
-      padding:
-        19px 20px;
+      padding: 20px;
 
       background:
 
         radial-gradient(
-          circle at 50% -10%,
-          rgba(61, 151, 226, 0.2),
-          transparent 34%
+          circle at top,
+          rgba(61, 151, 226, 0.18),
+          transparent 35%
         ),
 
         linear-gradient(
           150deg,
           #0a1520,
-          #050a10 64%,
+          #050a10 65%,
           #09131e
         );
 
@@ -2326,55 +1832,7 @@
       border-radius: 17px;
 
       box-shadow:
-
-        0 20px 55px rgba(0, 0, 0, 0.38),
-
-        inset
-        0 0 30px rgba(89, 181, 255, 0.035);
-
-    }
-
-
-    .idcard-card::before {
-
-      content: '';
-
-      position: absolute;
-
-      inset: 8px;
-
-      border:
-        1px solid rgba(114, 190, 255, 0.08);
-
-      border-radius: 11px;
-
-      pointer-events: none;
-
-    }
-
-
-    .idcard-card::after {
-
-      content: '';
-
-      position: absolute;
-
-      top: 0;
-      left: -30%;
-
-      width: 70%;
-      height: 100%;
-
-      background:
-
-        linear-gradient(
-          105deg,
-          transparent 30%,
-          rgba(113, 195, 255, 0.035) 48%,
-          transparent 66%
-        );
-
-      pointer-events: none;
+        0 20px 55px rgba(0, 0, 0, 0.4);
 
     }
 
@@ -2402,8 +1860,6 @@
 
       object-fit: contain;
 
-      border-radius: 7px;
-
     }
 
 
@@ -2411,15 +1867,11 @@
 
       text-align: center;
 
-      color: #f2f8ff;
-
       font-family:
         'Orbitron',
         sans-serif;
 
       font-size: 20px;
-
-      font-weight: 600;
 
       letter-spacing: 3px;
 
@@ -2430,9 +1882,9 @@
 
       margin-top: 4px;
 
-      color: #7797b2;
-
       text-align: center;
+
+      color: #7797b2;
 
       font-family:
         'Orbitron',
@@ -2451,26 +1903,20 @@
       height: 1px;
 
       margin:
-        10px auto 0;
+        10px auto;
 
-      background:
-        var(--blue);
-
-      box-shadow:
-        0 0 9px rgba(99, 184, 255, 0.6);
+      background: var(--blue);
 
     }
 
 
     .idcard-photo-frame {
 
-      position: relative;
-
       width: 178px;
       height: 202px;
 
       margin:
-        15px auto 14px;
+        15px auto;
 
       display: flex;
 
@@ -2479,36 +1925,10 @@
 
       overflow: hidden;
 
-      background:
-        linear-gradient(
-          160deg,
-          #0b1824,
-          #04080d
-        );
-
       border:
         1px solid rgba(120, 194, 255, 0.25);
 
-      box-shadow:
-        0 10px 26px rgba(0, 0, 0, 0.24);
-
-    }
-
-
-    .idcard-photo-frame::before {
-
-      content: '';
-
-      position: absolute;
-
-      inset: 5px;
-
-      z-index: 1;
-
-      border:
-        1px solid rgba(116, 189, 255, 0.09);
-
-      pointer-events: none;
+      background: #08111a;
 
     }
 
@@ -2535,8 +1955,6 @@
 
       font-size: 9px;
 
-      letter-spacing: 2px;
-
     }
 
 
@@ -2558,9 +1976,9 @@
 
       gap: 9px;
 
-      align-items: center;
-
       min-height: 27px;
+
+      align-items: center;
 
       border-bottom:
         1px solid rgba(115, 188, 255, 0.07);
@@ -2574,8 +1992,6 @@
 
       font-size: 8px;
 
-      letter-spacing: 0.5px;
-
     }
 
 
@@ -2587,9 +2003,9 @@
 
       font-weight: 500;
 
-      overflow: hidden;
-
       white-space: nowrap;
+
+      overflow: hidden;
 
       text-overflow: ellipsis;
 
@@ -2602,8 +2018,7 @@
 
       margin-top: 10px;
 
-      padding:
-        5px 8px;
+      padding: 5px 8px;
 
       display: flex;
 
@@ -2613,8 +2028,6 @@
       background: #f2f7fa;
 
       border-radius: 3px;
-
-      overflow: hidden;
 
     }
 
@@ -2628,6 +2041,7 @@
     }
 
 
+
     /* =========================================
        ID CARD BACK
     ========================================= */
@@ -2637,8 +2051,6 @@
       display: flex;
 
       flex-direction: column;
-
-      height: 100%;
 
     }
 
@@ -2658,12 +2070,6 @@
 
       border-radius: 50%;
 
-      background:
-        rgba(74, 159, 230, 0.035);
-
-      box-shadow:
-        0 0 35px rgba(72, 170, 255, 0.1);
-
     }
 
 
@@ -2681,13 +2087,11 @@
 
     .idcard-back-heading {
 
-      color: #eaf5ff;
+      text-align: center;
 
       font-family:
         'Orbitron',
         sans-serif;
-
-      text-align: center;
 
       font-size: 15px;
 
@@ -2700,17 +2104,15 @@
 
       margin-top: 5px;
 
+      text-align: center;
+
       color: #668ba9;
 
       font-family:
         'Orbitron',
         sans-serif;
 
-      text-align: center;
-
       font-size: 7px;
-
-      letter-spacing: 1.3px;
 
     }
 
@@ -2718,7 +2120,6 @@
     .idcard-back-rule {
 
       width: 70%;
-
       height: 1px;
 
       margin:
@@ -2729,7 +2130,7 @@
         linear-gradient(
           90deg,
           transparent,
-          rgba(107, 190, 255, 0.55),
+          var(--blue),
           transparent
         );
 
@@ -2758,9 +2159,6 @@
 
       margin-top: 15px;
 
-      padding:
-        0 24px;
-
       color: #688096;
 
       font-size: 8px;
@@ -2775,9 +2173,6 @@
     .idcard-sign-area {
 
       margin-top: auto;
-
-      padding:
-        0 18px 5px;
 
       text-align: center;
 
@@ -2801,29 +2196,29 @@
 
     .idcard-signature {
 
-      min-height: 46px;
+      min-height: 50px;
 
-      margin-top: 2px;
+      margin-top: 5px;
 
       color: #eaf7ff;
 
       font-family:
-        'Nanum Pen Script',
+        'Great Vibes',
         cursive;
 
-      font-size: 38px;
+      font-size: 42px;
 
       line-height: 1.1;
 
       text-shadow:
-        0 0 12px rgba(118, 198, 255, 0.18);
+        0 0 14px rgba(118, 198, 255, 0.25);
 
     }
 
 
     .idcard-sign-line {
 
-      width: 150px;
+      width: 160px;
       height: 1px;
 
       margin:
@@ -2849,8 +2244,6 @@
 
       line-height: 1.8;
 
-      letter-spacing: 0.8px;
-
     }
 
 
@@ -2871,8 +2264,6 @@
 
       font-size: 10px;
 
-      letter-spacing: 1px;
-
     }
 
 
@@ -2886,14 +2277,12 @@
 
       justify-content: space-between;
 
-      gap: 20px;
-
     }
 
 
 
     /* =========================================
-       TABLET
+       RESPONSIVE
     ========================================= */
 
     @media (max-width: 1100px) {
@@ -2942,24 +2331,12 @@
     }
 
 
-
-    /* =========================================
-       MOBILE
-    ========================================= */
-
     @media (max-width: 850px) {
 
       .facility-map-grid {
 
         grid-template-columns:
           1fr;
-
-      }
-
-
-      .facility-photo-card {
-
-        flex-basis: 82%;
 
       }
 
@@ -2978,7 +2355,6 @@
       :root {
 
         --header-height: 70px;
-
         --player-height: 82px;
 
       }
@@ -2986,17 +2362,8 @@
 
       header {
 
-        height: 70px;
-
         padding:
           0 18px;
-
-      }
-
-
-      .brand {
-
-        gap: 10px;
 
       }
 
@@ -3009,24 +2376,9 @@
       }
 
 
-      .brand-text strong {
-
-        font-size: 14px;
-
-      }
-
-
       .brand-text span {
 
         display: none;
-
-      }
-
-
-      .menu-toggle {
-
-        width: 42px;
-        height: 42px;
 
       }
 
@@ -3038,40 +2390,8 @@
 
         grid-template-columns:
           auto
-          minmax(0, 1fr)
+          1fr
           auto;
-
-        gap:
-          7px 10px;
-
-      }
-
-
-      .player-control {
-
-        grid-column: 1;
-        grid-row: 1;
-
-        width: 38px;
-        height: 38px;
-
-      }
-
-
-      .track-info {
-
-        grid-column: 2;
-        grid-row: 1;
-
-      }
-
-
-      .volume-wrap {
-
-        grid-column: 3;
-        grid-row: 1;
-
-        width: 66px;
 
       }
 
@@ -3081,26 +2401,12 @@
         grid-column:
           1 / 4;
 
-        grid-row: 2;
-
-        width: 100%;
-
-        gap: 7px;
-
       }
 
 
       .hero {
 
         min-height: 100svh;
-
-      }
-
-
-      .hero-bg {
-
-        background-position:
-          58% center;
 
       }
 
@@ -3113,28 +2419,9 @@
       }
 
 
-      .hero-logo {
-
-        width: 74px;
-        height: 74px;
-
-      }
-
-
       .hero h1 {
 
         font-size: 51px;
-
-        letter-spacing: 5px;
-
-      }
-
-
-      .hero h2 {
-
-        font-size: 15px;
-
-        line-height: 1.65;
 
       }
 
@@ -3143,24 +2430,7 @@
 
         display: block;
 
-        margin:
-          2px 0 0;
-
-      }
-
-
-      .hero-description {
-
-        font-size: 13px;
-
-      }
-
-
-      .hero-actions {
-
-        flex-direction: column;
-
-        max-width: 280px;
+        margin-left: 0;
 
       }
 
@@ -3178,8 +2448,6 @@
         grid-template-columns:
           1fr;
 
-        margin-top: 45px;
-
       }
 
 
@@ -3191,40 +2459,9 @@
       }
 
 
-      .detail-image-wrap {
-
-        margin-top: 30px;
-
-      }
-
-
-      .detail-image {
-
-        max-width: 100%;
-
-        max-height: 78vh;
-
-      }
-
-
       .staff-board-panel {
 
         padding: 20px;
-
-      }
-
-
-      .idcard-form {
-
-        padding: 18px;
-
-      }
-
-
-      .mobile-menu {
-
-        padding:
-          24px 22px;
 
       }
 
@@ -3250,39 +2487,6 @@
 
     @media (max-width: 500px) {
 
-      .facility-map-grid {
-
-        margin-top: 35px;
-
-        gap: 16px;
-
-      }
-
-
-      .facility-photo-card {
-
-        flex-basis: 88%;
-
-        aspect-ratio:
-          4 / 3;
-
-      }
-
-
-      .volume-icon {
-
-        display: none;
-
-      }
-
-
-      .volume-wrap {
-
-        width: 50px;
-
-      }
-
-
       .idcard-card {
 
         width: 300px;
@@ -3299,10 +2503,9 @@
       }
 
 
-      .idcard-info-item {
+      .volume-icon {
 
-        grid-template-columns:
-          62px 1fr;
+        display: none;
 
       }
 
@@ -3338,7 +2541,6 @@
 
 <header>
 
-
   <a
     class="brand"
     href="#home"
@@ -3351,9 +2553,7 @@
 
     <div class="brand-text">
 
-      <strong>
-        T.E.D.
-      </strong>
+      <strong>T.E.D.</strong>
 
       <span>
         TEMPORAL ENFORCEMENT DIVISION
@@ -3364,9 +2564,7 @@
   </a>
 
 
-
   <nav>
-
 
     <div class="nav-item">
 
@@ -3391,7 +2589,6 @@
       </div>
 
     </div>
-
 
 
     <div class="nav-item">
@@ -3421,7 +2618,6 @@
       </div>
 
     </div>
-
 
 
     <div class="nav-item">
@@ -3457,7 +2653,6 @@
     </div>
 
 
-
     <div class="nav-item">
 
       <span class="nav-title">
@@ -3477,7 +2672,6 @@
       </div>
 
     </div>
-
 
 
     <div class="nav-item">
@@ -3500,26 +2694,22 @@
 
     </div>
 
-
   </nav>
-
 
 
   <button
     class="menu-toggle"
     id="menuToggle"
-    aria-label="전체 메뉴 열기"
   >
     ☰
   </button>
-
 
 </header>
 
 
 
 <!-- =========================================
-     T.E.D. OST PLAYER
+     OST PLAYER
 ========================================= -->
 
 <div class="theme-player-bar">
@@ -3529,7 +2719,6 @@
     <button
       class="player-control"
       id="playPauseBtn"
-      aria-label="테마곡 재생"
     >
       ▶
     </button>
@@ -3576,8 +2765,6 @@
         min="0"
         max="100"
         value="0"
-        step="0.1"
-        aria-label="재생 위치"
       >
 
       <span
@@ -3603,7 +2790,6 @@
         max="1"
         step="0.01"
         value="0.7"
-        aria-label="볼륨"
       >
 
     </div>
@@ -3613,15 +2799,16 @@
 </div>
 
 
-
 <audio
   id="themeAudio"
   preload="metadata"
 >
+
   <source
     src="ted-theme.mp3"
     type="audio/mpeg"
   >
+
 </audio>
 
 
@@ -3647,14 +2834,12 @@
 
       <img
         src="https://i.ifh.cc/xnwlTn.jpg"
-        alt="T.E.D. Logo"
+        alt="T.E.D."
       >
 
       <div>
 
-        <strong>
-          T.E.D.
-        </strong>
+        <strong>T.E.D.</strong>
 
         <span>
           TEMPORAL ENFORCEMENT DIVISION
@@ -3668,7 +2853,6 @@
     <button
       class="menu-close"
       id="menuClose"
-      aria-label="메뉴 닫기"
     >
       ✕
     </button>
@@ -3676,9 +2860,7 @@
   </div>
 
 
-
   <div class="mobile-menu-content">
-
 
     <section class="mobile-category">
 
@@ -3686,18 +2868,13 @@
         01 · INFORMATION
       </div>
 
-      <h4>
-        정보
-      </h4>
+      <h4>정보</h4>
 
       <a href="#purpose">설립목적</a>
-
       <a href="#location">위치정보</a>
-
       <a href="#agency">기관안내</a>
 
     </section>
-
 
 
     <section class="mobile-category">
@@ -3711,15 +2888,11 @@
       </h4>
 
       <a href="#developer">개발자</a>
-
       <a href="#development">개발 완료 시기</a>
-
       <a href="#principle">작동 원리</a>
-
       <a href="#structure">구조</a>
 
     </section>
-
 
 
     <section class="mobile-category">
@@ -3728,22 +2901,15 @@
         03 · DIVISIONS
       </div>
 
-      <h4>
-        부서안내
-      </h4>
+      <h4>부서안내</h4>
 
       <a href="#commissioner">단속총감</a>
-
       <a href="#enforcement">시간집행과</a>
-
       <a href="#investigation">시간수사과</a>
-
       <a href="#inspection">시간감찰과</a>
-
       <a href="#restoration">시간복구과</a>
 
     </section>
-
 
 
     <section class="mobile-category">
@@ -3752,16 +2918,17 @@
         04 · FACILITIES
       </div>
 
-      <h4>
-        시설안내
-      </h4>
+      <h4>시설안내</h4>
 
-      <a href="#facility-map">시설안내도</a>
+      <a href="#facility-map">
+        시설안내도
+      </a>
 
-      <a href="#facility-photo">시설사진</a>
+      <a href="#facility-photo">
+        시설사진
+      </a>
 
     </section>
-
 
 
     <section class="mobile-category">
@@ -3783,7 +2950,6 @@
       </a>
 
     </section>
-
 
   </div>
 
@@ -3815,7 +2981,7 @@
     <img
       class="hero-logo"
       src="https://i.ifh.cc/xnwlTn.jpg"
-      alt="T.E.D. Emblem"
+      alt="T.E.D."
     >
 
 
@@ -3837,12 +3003,12 @@
 
     <p class="hero-description">
 
-      시간질서단속반 T.E.D.는 시간선의 안정과
-      역사적 연속성을 보호하기 위해 설립된
-      시간관리국 산하 특수 집행기관입니다.
+      시간질서단속반 T.E.D.는
+      시간선의 안정과 역사적 연속성을 보호하기 위해
+      설립된 시간관리국 산하 특수 집행기관입니다.
 
-      승인되지 않은 시간 이동,
-      시간범죄, 역사 개입 및 시간선 변조를 감시하며
+      승인되지 않은 시간 이동과 시간범죄,
+      역사 개입 및 시간선 변조를 감시하며
       발생한 시간 이상 현상을 조사·단속·복구합니다.
 
     </p>
@@ -3873,7 +3039,7 @@
 
 
 <!-- =========================================
-     INTRODUCTION
+     INTRO
 ========================================= -->
 
 <section
@@ -3905,11 +3071,7 @@
       시간관리국의 현장 집행 및 수사를 담당하는
       핵심 기관입니다.
 
-      모든 시대의 안정성과
-      시간선의 지속성을 최우선 가치로 삼습니다.
-
     </p>
-
 
 
     <div class="intro-grid">
@@ -3923,13 +3085,11 @@
           01
         </span>
 
-        <h4>
-          기관 정보
-        </h4>
+        <h4>기관 정보</h4>
 
         <p>
-          설립목적, 위치정보 및
-          기관의 주요 정보를 확인합니다.
+          설립목적과 위치정보,
+          기관 정보를 확인합니다.
         </p>
 
       </a>
@@ -3949,8 +3109,8 @@
         </h4>
 
         <p>
-          개발 과정과 작동 원리,
-          장치 구조를 확인합니다.
+          장치 개발 과정과
+          작동 원리를 확인합니다.
         </p>
 
       </a>
@@ -3965,13 +3125,11 @@
           03
         </span>
 
-        <h4>
-          부서 안내
-        </h4>
+        <h4>부서 안내</h4>
 
         <p>
-          단속총감과 T.E.D. 산하
-          4개 핵심 부서를 확인합니다.
+          단속총감과
+          4개 과를 확인합니다.
         </p>
 
       </a>
@@ -3986,13 +3144,11 @@
           04
         </span>
 
-        <h4>
-          시설 안내
-        </h4>
+        <h4>시설 안내</h4>
 
         <p>
-          본부 시설안내도와
-          주요 시설 사진을 확인합니다.
+          본부 주요 시설을
+          확인합니다.
         </p>
 
       </a>
@@ -4012,8 +3168,8 @@
         </h4>
 
         <p>
-          인원 모집 기준과
-          직원 ID카드 발급 시스템을 이용합니다.
+          모집 기준과
+          ID카드 발급 시스템입니다.
         </p>
 
       </a>
@@ -4041,34 +3197,21 @@
       INFORMATION · 01
     </div>
 
-    <h3>
-      설립목적
-    </h3>
-
-    <p>
-      시간질서단속반의 설립 목적과
-      기관이 수행하는 핵심 임무를 확인할 수 있습니다.
-    </p>
+    <h3>설립목적</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/faYbRZ.jpg"
-        alt="T.E.D. 설립목적"
-        onerror="showPlaceholder(this)"
+        alt="설립목적"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4082,34 +3225,21 @@
       INFORMATION · 02
     </div>
 
-    <h3>
-      위치정보
-    </h3>
-
-    <p>
-      시간관리국 및 T.E.D. 본부의
-      위치 정보를 확인할 수 있습니다.
-    </p>
+    <h3>위치정보</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/fRrbQq.jpg"
-        alt="T.E.D. 위치정보"
-        onerror="showPlaceholder(this)"
+        alt="위치정보"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4123,27 +3253,15 @@
       INFORMATION · 03
     </div>
 
-    <h3>
-      기관안내
-    </h3>
-
-    <p>
-      시간질서단속반의 역사,
-      역할 및 운영 체계를 확인할 수 있습니다.
-    </p>
+    <h3>기관안내</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/gtrP5S.jpg"
-        alt="T.E.D. 기관안내"
-        onerror="showPlaceholder(this)"
+        alt="기관안내"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
@@ -4168,34 +3286,21 @@
       TEMPORAL DEVICE · 01
     </div>
 
-    <h3>
-      개발자
-    </h3>
-
-    <p>
-      시간여행 장치 개발에 참여한
-      핵심 개발자 정보를 확인할 수 있습니다.
-    </p>
+    <h3>개발자</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/hjKNxW.jpg"
-        alt="시간여행 장치 개발자"
-        onerror="showPlaceholder(this)"
+        alt="개발자"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4213,30 +3318,19 @@
       개발 완료 시기
     </h3>
 
-    <p>
-      시간여행 장치의 개발 과정과
-      완성 시기를 확인할 수 있습니다.
-    </p>
-
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/ton4RV.jpg"
-        alt="시간여행 장치 개발 완료 시기"
-        onerror="showPlaceholder(this)"
+        alt="개발 연혁"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4250,34 +3344,21 @@
       TEMPORAL DEVICE · 03
     </div>
 
-    <h3>
-      작동 원리
-    </h3>
-
-    <p>
-      시간여행 장치가 시간 좌표를 설정하고
-      이동을 수행하는 원리를 확인할 수 있습니다.
-    </p>
+    <h3>작동 원리</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/khM4XO.jpg"
-        alt="시간여행 장치 작동 원리"
-        onerror="showPlaceholder(this)"
+        alt="작동 원리"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4291,27 +3372,15 @@
       TEMPORAL DEVICE · 04
     </div>
 
-    <h3>
-      구조
-    </h3>
-
-    <p>
-      시간여행 장치의 내부 및 외부 구조와
-      핵심 구성 요소를 확인할 수 있습니다.
-    </p>
+    <h3>구조</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/b8N1MD.jpg"
-        alt="시간여행 장치 구조"
-        onerror="showPlaceholder(this)"
+        alt="구조"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
@@ -4336,34 +3405,21 @@
       COMMAND · 01
     </div>
 
-    <h3>
-      단속총감
-    </h3>
-
-    <p>
-      T.E.D. 전체를 지휘하는
-      최고 책임자에 관한 정보를 확인할 수 있습니다.
-    </p>
+    <h3>단속총감</h3>
 
     <div class="detail-image-wrap">
 
       <img
         class="detail-image"
         src="https://i.ifh.cc/KMXZ8o.jpg"
-        alt="T.E.D. 단속총감"
-        onerror="showPlaceholder(this)"
+        alt="단속총감"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4377,14 +3433,7 @@
       DIVISION · 01
     </div>
 
-    <h3>
-      시간집행과
-    </h3>
-
-    <p>
-      무허가 시간 이동자에 대한 추적,
-      체포 및 강제송환을 담당합니다.
-    </p>
+    <h3>시간집행과</h3>
 
     <div class="detail-image-wrap">
 
@@ -4392,19 +3441,13 @@
         class="detail-image"
         src="https://i.ifh.cc/k3rHlX.jpg"
         alt="시간집행과"
-        onerror="showPlaceholder(this)"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4418,14 +3461,7 @@
       DIVISION · 02
     </div>
 
-    <h3>
-      시간수사과
-    </h3>
-
-    <p>
-      시대를 넘나드는 시간범죄를 분석하고
-      수사하는 전문 부서입니다.
-    </p>
+    <h3>시간수사과</h3>
 
     <div class="detail-image-wrap">
 
@@ -4433,19 +3469,13 @@
         class="detail-image"
         src="https://i.ifh.cc/bJ2s58.jpg"
         alt="시간수사과"
-        onerror="showPlaceholder(this)"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4459,14 +3489,7 @@
       DIVISION · 03
     </div>
 
-    <h3>
-      시간감찰과
-    </h3>
-
-    <p>
-      시간선에 영향을 미치는 행위와
-      시간관리 규정 위반 여부를 감시합니다.
-    </p>
+    <h3>시간감찰과</h3>
 
     <div class="detail-image-wrap">
 
@@ -4474,19 +3497,13 @@
         class="detail-image"
         src="https://i.ifh.cc/PYChqG.jpg"
         alt="시간감찰과"
-        onerror="showPlaceholder(this)"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <section
@@ -4500,14 +3517,7 @@
       DIVISION · 04
     </div>
 
-    <h3>
-      시간복구과
-    </h3>
-
-    <p>
-      역사 개변 및 시간선 왜곡으로 인해 발생한
-      이상 현상을 분석하고 복구합니다.
-    </p>
+    <h3>시간복구과</h3>
 
     <div class="detail-image-wrap">
 
@@ -4515,12 +3525,7 @@
         class="detail-image"
         src="https://i.ifh.cc/ySJsA9.jpg"
         alt="시간복구과"
-        onerror="showPlaceholder(this)"
       >
-
-      <div class="detail-image-placeholder">
-        IMAGE · PENDING
-      </div>
 
     </div>
 
@@ -4531,7 +3536,7 @@
 
 
 <!-- =========================================
-     FACILITY MAP
+     FACILITIES
 ========================================= -->
 
 <section
@@ -4545,15 +3550,7 @@
       FACILITIES · 01
     </div>
 
-    <h3>
-      시설안내도
-    </h3>
-
-    <p>
-      시간질서단속반 본부의
-      층별 구조와 주요 시설 배치를
-      확인할 수 있습니다.
-    </p>
+    <h3>시설안내도</h3>
 
 
     <div class="facility-map-grid">
@@ -4562,23 +3559,18 @@
 
         <img
           src="https://i.ifh.cc/MhzSsx.jpg"
-          alt="T.E.D. 본부 주요 시설 안내도"
+          alt="시설 안내도"
         >
 
         <figcaption>
-
-          <span>
-            01
-          </span>
 
           <strong>
             본부 주요 시설층
           </strong>
 
           <small>
-            민원실 · 기숙사 · 교육실 · 식당 ·
-            자료실 · 비품실 · 보안실 · 방송실 ·
-            조사실 · 휴게실 · 전기실
+            민원실 · 기숙사 · 교육실 · 식당 · 자료실 · 비품실 ·
+            보안실 · 방송실 · 조사실 · 휴게실 · 전기실
           </small>
 
         </figcaption>
@@ -4586,27 +3578,22 @@
       </figure>
 
 
-
       <figure class="facility-map-card">
 
         <img
           src="https://i.ifh.cc/g6akVJ.jpg"
-          alt="T.E.D. 본부 상층부 안내도"
+          alt="본부 상층부"
         >
 
         <figcaption>
-
-          <span>
-            02
-          </span>
 
           <strong>
             본부 상층부
           </strong>
 
           <small>
-            단속총감 집무실 · 시간집행과 ·
-            시간수사과 · 시간감찰과 · 시간복구과
+            단속총감 집무실 · 시간집행과 · 시간수사과 ·
+            시간감찰과 · 시간복구과
           </small>
 
         </figcaption>
@@ -4621,10 +3608,6 @@
 
 
 
-<!-- =========================================
-     FACILITY PHOTOS
-========================================= -->
-
 <section
   class="content-section"
   id="facility-photo"
@@ -4636,16 +3619,7 @@
       FACILITIES · 02
     </div>
 
-    <h3>
-      시설사진
-    </h3>
-
-    <p>
-      시간질서단속반 본부 내부의
-      주요 시설을 사진으로 확인할 수 있습니다.
-      모바일에서는 화면을 좌우로 넘겨
-      각 시설을 열람할 수 있습니다.
-    </p>
+    <h3>시설사진</h3>
 
 
     <div class="facility-gallery-wrap">
@@ -4653,7 +3627,6 @@
       <button
         class="gallery-arrow gallery-prev"
         id="galleryPrev"
-        aria-label="이전 사진"
       >
         ‹
       </button>
@@ -4674,13 +3647,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 01
-            </span>
+            <span>FACILITY · 01</span>
 
-            <h4>
-              민원실
-            </h4>
+            <h4>민원실</h4>
 
           </div>
 
@@ -4696,13 +3665,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 02
-            </span>
+            <span>FACILITY · 02</span>
 
-            <h4>
-              기숙사
-            </h4>
+            <h4>기숙사</h4>
 
           </div>
 
@@ -4718,13 +3683,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 03
-            </span>
+            <span>FACILITY · 03</span>
 
-            <h4>
-              교육실
-            </h4>
+            <h4>교육실</h4>
 
           </div>
 
@@ -4740,13 +3701,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 04
-            </span>
+            <span>FACILITY · 04</span>
 
-            <h4>
-              식당
-            </h4>
+            <h4>식당</h4>
 
           </div>
 
@@ -4762,13 +3719,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 05
-            </span>
+            <span>FACILITY · 05</span>
 
-            <h4>
-              자료실
-            </h4>
+            <h4>자료실</h4>
 
           </div>
 
@@ -4784,13 +3737,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 06
-            </span>
+            <span>FACILITY · 06</span>
 
-            <h4>
-              비품실
-            </h4>
+            <h4>비품실</h4>
 
           </div>
 
@@ -4806,13 +3755,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 07
-            </span>
+            <span>FACILITY · 07</span>
 
-            <h4>
-              보안실
-            </h4>
+            <h4>보안실</h4>
 
           </div>
 
@@ -4828,13 +3773,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 08
-            </span>
+            <span>FACILITY · 08</span>
 
-            <h4>
-              방송실
-            </h4>
+            <h4>방송실</h4>
 
           </div>
 
@@ -4850,13 +3791,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 09
-            </span>
+            <span>FACILITY · 09</span>
 
-            <h4>
-              조사실
-            </h4>
+            <h4>조사실</h4>
 
           </div>
 
@@ -4872,13 +3809,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 10
-            </span>
+            <span>FACILITY · 10</span>
 
-            <h4>
-              휴게실
-            </h4>
+            <h4>휴게실</h4>
 
           </div>
 
@@ -4894,13 +3827,9 @@
 
           <div class="facility-photo-info">
 
-            <span>
-              FACILITY · 11
-            </span>
+            <span>FACILITY · 11</span>
 
-            <h4>
-              전기실
-            </h4>
+            <h4>전기실</h4>
 
           </div>
 
@@ -4913,7 +3842,6 @@
       <button
         class="gallery-arrow gallery-next"
         id="galleryNext"
-        aria-label="다음 사진"
       >
         ›
       </button>
@@ -4946,63 +3874,27 @@
     </h3>
 
     <p>
-      T.E.D. 신규 인원 모집 및 선발 기준을
-      확인할 수 있는 내부 게시판입니다.
+      T.E.D. 신규 인원 모집 및
+      선발 기준을 확인할 수 있습니다.
     </p>
 
 
-    <div class="staff-board-panel">
+    <div class="detail-image-wrap">
 
-      <h4>
-        인원 모집 기준 이미지
-      </h4>
+      <!--
+        ★ 여기의 recruitment.jpg를
+        모집 기준 이미지 파일명으로 변경하면 됩니다.
+      -->
 
-      <p>
-        이미지 파일을 선택하면 원본 비율을 유지한 상태로 표시됩니다.
-        세로·가로·정사각형 등 이미지 비율에는 제한이 없습니다.
-      </p>
+      <img
+        class="detail-image"
+        src="recruitment.jpg"
+        alt="T.E.D. 인원 모집 기준"
+        onerror="showPlaceholder(this)"
+      >
 
-
-      <div class="upload-control-row">
-
-        <label class="file-input">
-
-          이미지 선택
-
-          <input
-            type="file"
-            id="recruitmentImageInput"
-            accept="image/*"
-          >
-
-        </label>
-
-
-        <span
-          class="upload-file-name"
-          id="recruitmentFileName"
-        >
-          선택된 파일 없음
-        </span>
-
-      </div>
-
-
-      <div class="recruitment-preview-wrap">
-
-        <img
-          id="recruitmentPreviewImage"
-          class="recruitment-preview-image"
-          alt="T.E.D. 인원 모집 기준"
-        >
-
-        <div
-          class="recruitment-placeholder"
-          id="recruitmentPlaceholder"
-        >
-          T.E.D. RECRUITMENT DOCUMENT · IMAGE PENDING
-        </div>
-
+      <div class="detail-image-placeholder">
+        RECRUITMENT IMAGE · PENDING
       </div>
 
     </div>
@@ -5033,8 +3925,9 @@
     </h3>
 
     <p>
-      직원 정보를 입력하면 T.E.D. 공식 ID CARD의
-      앞면과 뒷면이 실시간으로 생성됩니다.
+      직원 정보를 입력하면
+      T.E.D. 공식 ID CARD의 앞면과 뒷면이
+      실시간으로 생성됩니다.
     </p>
 
 
@@ -5044,19 +3937,11 @@
         T.E.D. Personnel Identification System
       </h4>
 
-      <p>
-        사진과 인적 정보를 입력한 후
-        원하는 형태로 ID CARD 이미지를 저장할 수 있습니다.
-        바코드는 입력된 사원번호를 기반으로 자동 생성됩니다.
-      </p>
-
 
       <div class="idcard-layout">
 
 
-        <!-- =====================================
-             FORM
-        ====================================== -->
+        <!-- INPUT -->
 
         <div class="idcard-form">
 
@@ -5088,7 +3973,7 @@
 
           <div class="idcard-form-group">
 
-            <label for="staffNameInput">
+            <label>
               이름
             </label>
 
@@ -5104,7 +3989,7 @@
 
           <div class="idcard-form-group">
 
-            <label for="staffAgeInput">
+            <label>
               나이
             </label>
 
@@ -5112,8 +3997,6 @@
               type="number"
               id="staffAgeInput"
               placeholder="예: 42"
-              min="1"
-              max="999"
             >
 
           </div>
@@ -5121,7 +4004,7 @@
 
           <div class="idcard-form-group">
 
-            <label for="staffDeptInput">
+            <label>
               부서
             </label>
 
@@ -5129,7 +4012,6 @@
               type="text"
               id="staffDeptInput"
               placeholder="예: 시간수사과"
-              maxlength="40"
             >
 
           </div>
@@ -5137,7 +4019,7 @@
 
           <div class="idcard-form-group">
 
-            <label for="staffPositionInput">
+            <label>
               직책
             </label>
 
@@ -5145,7 +4027,6 @@
               type="text"
               id="staffPositionInput"
               placeholder="예: 선임단속관"
-              maxlength="40"
             >
 
           </div>
@@ -5153,7 +4034,7 @@
 
           <div class="idcard-form-group">
 
-            <label for="staffNumberInput">
+            <label>
               사원번호
             </label>
 
@@ -5161,7 +4042,6 @@
               type="text"
               id="staffNumberInput"
               placeholder="예: TED-2488-0107"
-              maxlength="40"
             >
 
           </div>
@@ -5170,33 +4050,33 @@
           <div class="idcard-actions">
 
             <button
-              type="button"
               class="idcard-btn"
               id="downloadFrontBtn"
+              type="button"
             >
               앞면 저장
             </button>
 
             <button
-              type="button"
               class="idcard-btn"
               id="downloadBackBtn"
+              type="button"
             >
               뒷면 저장
             </button>
 
             <button
-              type="button"
               class="idcard-btn"
               id="downloadBothBtn"
+              type="button"
             >
               앞·뒤 함께 저장
             </button>
 
             <button
-              type="button"
               class="idcard-btn secondary"
               id="resetIdCardBtn"
+              type="button"
             >
               초기화
             </button>
@@ -5207,12 +4087,9 @@
 
 
 
-        <!-- =====================================
-             PREVIEW
-        ====================================== -->
+        <!-- CARD PREVIEW -->
 
         <div class="idcard-export-wrap">
-
 
           <div
             class="idcard-pair"
@@ -5220,9 +4097,7 @@
           >
 
 
-            <!-- ================================
-                 FRONT
-            ================================= -->
+            <!-- FRONT -->
 
             <div
               class="idcard-card"
@@ -5234,19 +4109,16 @@
                 <img
                   class="idcard-logo"
                   src="https://i.ifh.cc/xnwlTn.jpg"
-                  alt="T.E.D. Logo"
+                  alt="T.E.D."
                 >
-
 
                 <div class="idcard-top-title">
                   T.E.D.
                 </div>
 
-
                 <div class="idcard-top-subtitle">
                   TEMPORAL ENFORCEMENT DIVISION
                 </div>
-
 
                 <div class="idcard-rank-line"></div>
 
@@ -5255,7 +4127,7 @@
 
                   <img
                     id="idPhotoPreview"
-                    alt="직원 프로필 사진"
+                    alt="Profile"
                   >
 
                   <div
@@ -5269,7 +4141,6 @@
 
 
                 <div class="idcard-info-list">
-
 
                   <div class="idcard-info-item">
 
@@ -5322,7 +4193,6 @@
 
                   </div>
 
-
                 </div>
 
 
@@ -5332,16 +4202,13 @@
 
                 </div>
 
-
               </div>
 
             </div>
 
 
 
-            <!-- ================================
-                 BACK
-            ================================= -->
+            <!-- BACK -->
 
             <div
               class="idcard-card"
@@ -5350,14 +4217,13 @@
 
               <div class="idcard-inner idcard-back">
 
-
                 <div>
 
                   <div class="idcard-back-emblem">
 
                     <img
                       src="https://i.ifh.cc/xnwlTn.jpg"
-                      alt="T.E.D. Logo"
+                      alt="T.E.D."
                     >
 
                   </div>
@@ -5409,11 +4275,16 @@
                   </div>
 
 
+                  <!--
+                    한글 이름을 입력하면
+                    자동으로 영어 로마자 이름으로 변환됩니다.
+                  -->
+
                   <div
                     class="idcard-signature"
                     id="cardSignature"
                   >
-                    이름
+                    Signature
                   </div>
 
 
@@ -5429,7 +4300,6 @@
                   </div>
 
                 </div>
-
 
               </div>
 
@@ -5481,7 +4351,7 @@
 
 
   /* =========================================
-     EMPTY IMAGE PLACEHOLDER
+     PLACEHOLDER
   ========================================= */
 
   function showPlaceholder(image) {
@@ -5508,56 +4378,36 @@
   ========================================= */
 
   const menuToggle =
-    document.getElementById(
-      'menuToggle'
-    );
+    document.getElementById('menuToggle');
 
   const mobileMenu =
-    document.getElementById(
-      'mobileMenu'
-    );
+    document.getElementById('mobileMenu');
 
   const menuClose =
-    document.getElementById(
-      'menuClose'
-    );
+    document.getElementById('menuClose');
 
   const menuOverlay =
-    document.getElementById(
-      'menuOverlay'
-    );
+    document.getElementById('menuOverlay');
 
 
   function openMenu() {
 
-    mobileMenu.classList.add(
-      'active'
-    );
+    mobileMenu.classList.add('active');
 
-    menuOverlay.classList.add(
-      'active'
-    );
+    menuOverlay.classList.add('active');
 
-    document.body.classList.add(
-      'menu-open'
-    );
+    document.body.classList.add('menu-open');
 
   }
 
 
   function closeMenu() {
 
-    mobileMenu.classList.remove(
-      'active'
-    );
+    mobileMenu.classList.remove('active');
 
-    menuOverlay.classList.remove(
-      'active'
-    );
+    menuOverlay.classList.remove('active');
 
-    document.body.classList.remove(
-      'menu-open'
-    );
+    document.body.classList.remove('menu-open');
 
   }
 
@@ -5581,9 +4431,7 @@
 
 
   document
-    .querySelectorAll(
-      '.mobile-menu a'
-    )
+    .querySelectorAll('.mobile-menu a')
     .forEach(link => {
 
       link.addEventListener(
@@ -5594,62 +4442,31 @@
     });
 
 
-  document.addEventListener(
-    'keydown',
-    event => {
-
-      if (
-        event.key ===
-        'Escape'
-      ) {
-
-        closeMenu();
-
-      }
-
-    }
-  );
-
-
 
   /* =========================================
-     T.E.D. OST PLAYER
+     OST PLAYER
   ========================================= */
 
   const themeAudio =
-    document.getElementById(
-      'themeAudio'
-    );
+    document.getElementById('themeAudio');
 
   const playPauseBtn =
-    document.getElementById(
-      'playPauseBtn'
-    );
+    document.getElementById('playPauseBtn');
 
   const progressBar =
-    document.getElementById(
-      'progressBar'
-    );
+    document.getElementById('progressBar');
 
   const currentTimeDisplay =
-    document.getElementById(
-      'currentTime'
-    );
+    document.getElementById('currentTime');
 
   const durationDisplay =
-    document.getElementById(
-      'duration'
-    );
+    document.getElementById('duration');
 
   const volumeControl =
-    document.getElementById(
-      'volumeControl'
-    );
+    document.getElementById('volumeControl');
 
   const trackStatus =
-    document.getElementById(
-      'trackStatus'
-    );
+    document.getElementById('trackStatus');
 
 
   themeAudio.volume =
@@ -5660,9 +4477,7 @@
 
   function formatTime(seconds) {
 
-    if (
-      !Number.isFinite(seconds)
-    ) {
+    if (!Number.isFinite(seconds)) {
 
       return '00:00';
 
@@ -5675,57 +4490,38 @@
       );
 
 
-    const remainingSeconds =
+    const secs =
       Math.floor(
         seconds % 60
       );
 
 
     return (
-      String(minutes)
-        .padStart(2, '0')
+      String(minutes).padStart(2, '0')
       +
       ':'
       +
-      String(remainingSeconds)
-        .padStart(2, '0')
+      String(secs).padStart(2, '0')
     );
 
   }
-
 
 
   playPauseBtn.addEventListener(
     'click',
     async () => {
 
-      if (
-        themeAudio.paused
-      ) {
+      if (themeAudio.paused) {
 
         try {
 
           await themeAudio.play();
 
-          playPauseBtn.textContent =
-            '❚❚';
-
-          playPauseBtn.setAttribute(
-            'aria-label',
-            '테마곡 일시정지'
-          );
-
-          trackStatus.textContent =
-            'NOW PLAYING';
-
         }
 
         catch (error) {
 
-          console.error(
-            'Audio playback failed:',
-            error
-          );
+          console.error(error);
 
         }
 
@@ -5742,20 +4538,39 @@
 
 
   themeAudio.addEventListener(
-    'loadedmetadata',
+    'play',
     () => {
 
-      durationDisplay.textContent =
-        formatTime(
-          themeAudio.duration
-        );
+      playPauseBtn.textContent =
+        '❚❚';
+
+      trackStatus.textContent =
+        'NOW PLAYING';
 
     }
   );
 
 
   themeAudio.addEventListener(
-    'durationchange',
+    'pause',
+    () => {
+
+      playPauseBtn.textContent =
+        '▶';
+
+      if (!themeAudio.ended) {
+
+        trackStatus.textContent =
+          'T.E.D. OFFICIAL OST';
+
+      }
+
+    }
+  );
+
+
+  themeAudio.addEventListener(
+    'loadedmetadata',
     () => {
 
       durationDisplay.textContent =
@@ -5778,11 +4593,7 @@
 
 
       if (
-        Number.isFinite(
-          themeAudio.duration
-        )
-        &&
-        themeAudio.duration > 0
+        themeAudio.duration
       ) {
 
         progressBar.value =
@@ -5804,19 +4615,11 @@
     'input',
     () => {
 
-      if (
-        Number.isFinite(
-          themeAudio.duration
-        )
-        &&
-        themeAudio.duration > 0
-      ) {
+      if (themeAudio.duration) {
 
         themeAudio.currentTime =
           (
-            Number(
-              progressBar.value
-            )
+            progressBar.value
             /
             100
           )
@@ -5842,348 +4645,330 @@
   );
 
 
-  themeAudio.addEventListener(
-    'play',
-    () => {
-
-      playPauseBtn.textContent =
-        '❚❚';
-
-      trackStatus.textContent =
-        'NOW PLAYING';
-
-    }
-  );
-
-
-  themeAudio.addEventListener(
-    'pause',
-    () => {
-
-      if (
-        !themeAudio.ended
-      ) {
-
-        playPauseBtn.textContent =
-          '▶';
-
-        trackStatus.textContent =
-          'T.E.D. OFFICIAL OST';
-
-      }
-
-    }
-  );
-
-
-  themeAudio.addEventListener(
-    'ended',
-    () => {
-
-      playPauseBtn.textContent =
-        '▶';
-
-      playPauseBtn.setAttribute(
-        'aria-label',
-        '테마곡 재생'
-      );
-
-      trackStatus.textContent =
-        'T.E.D. OFFICIAL OST';
-
-      progressBar.value =
-        0;
-
-      currentTimeDisplay.textContent =
-        '00:00';
-
-    }
-  );
-
-
 
   /* =========================================
      FACILITY GALLERY
   ========================================= */
 
   const gallery =
-    document.getElementById(
-      'facilityGallery'
+    document.getElementById('facilityGallery');
+
+
+  document
+    .getElementById('galleryPrev')
+    .addEventListener(
+      'click',
+      () => {
+
+        gallery.scrollBy({
+
+          left: -400,
+
+          behavior: 'smooth'
+
+        });
+
+      }
     );
 
-  const galleryPrev =
-    document.getElementById(
-      'galleryPrev'
+
+  document
+    .getElementById('galleryNext')
+    .addEventListener(
+      'click',
+      () => {
+
+        gallery.scrollBy({
+
+          left: 400,
+
+          behavior: 'smooth'
+
+        });
+
+      }
     );
 
-  const galleryNext =
-    document.getElementById(
-      'galleryNext'
-    );
 
 
-  function getGalleryScrollAmount() {
+  /* =========================================
+     ID CARD INPUTS
+  ========================================= */
 
-    const firstCard =
-      gallery.querySelector(
-        '.facility-photo-card'
-      );
+  const idPhotoInput =
+    document.getElementById('idPhotoInput');
+
+  const staffNameInput =
+    document.getElementById('staffNameInput');
+
+  const staffAgeInput =
+    document.getElementById('staffAgeInput');
+
+  const staffDeptInput =
+    document.getElementById('staffDeptInput');
+
+  const staffPositionInput =
+    document.getElementById('staffPositionInput');
+
+  const staffNumberInput =
+    document.getElementById('staffNumberInput');
 
 
-    if (!firstCard) {
+  const cardNameAge =
+    document.getElementById('cardNameAge');
 
-      return 320;
+  const cardDepartment =
+    document.getElementById('cardDepartment');
+
+  const cardPosition =
+    document.getElementById('cardPosition');
+
+  const cardNumber =
+    document.getElementById('cardNumber');
+
+  const cardSignature =
+    document.getElementById('cardSignature');
+
+
+
+  /* =========================================
+     KOREAN → ROMANIZATION
+  ========================================= */
+
+  const familyNameMap = {
+
+    '김': 'Kim',
+    '이': 'Lee',
+    '박': 'Park',
+    '최': 'Choi',
+    '정': 'Jeong',
+    '강': 'Kang',
+    '조': 'Jo',
+    '윤': 'Yoon',
+    '장': 'Jang',
+    '임': 'Lim',
+    '한': 'Han',
+    '오': 'Oh',
+    '서': 'Seo',
+    '신': 'Shin',
+    '권': 'Kwon',
+    '황': 'Hwang',
+    '안': 'Ahn',
+    '송': 'Song',
+    '전': 'Jeon',
+    '홍': 'Hong',
+    '유': 'Yoo',
+    '고': 'Ko',
+    '문': 'Moon',
+    '양': 'Yang',
+    '손': 'Son',
+    '배': 'Bae',
+    '백': 'Baek',
+    '허': 'Heo',
+    '남': 'Nam',
+    '심': 'Shim',
+    '노': 'Noh',
+    '하': 'Ha',
+    '곽': 'Kwak',
+    '성': 'Seong',
+    '차': 'Cha',
+    '주': 'Joo',
+    '우': 'Woo'
+
+  };
+
+
+  const initials = [
+
+    'g', 'kk', 'n', 'd', 'tt',
+    'r', 'm', 'b', 'pp', 's',
+    'ss', '', 'j', 'jj', 'ch',
+    'k', 't', 'p', 'h'
+
+  ];
+
+
+  const vowels = [
+
+    'a', 'ae', 'ya', 'yae', 'eo',
+    'e', 'yeo', 'ye', 'o', 'wa',
+    'wae', 'oe', 'yo', 'u', 'wo',
+    'we', 'wi', 'yu', 'eu', 'ui',
+    'i'
+
+  ];
+
+
+  const finals = [
+
+    '', 'k', 'k', 'k', 'n',
+    'n', 'n', 't', 'l', 'k',
+    'm', 'p', 'l', 'l', 'p',
+    'l', 'm', 'p', 'p', 't',
+    't', 'ng', 't', 't', 'k',
+    't', 'p', 'h'
+
+  ];
+
+
+  function romanizeSyllable(char) {
+
+    const code =
+      char.charCodeAt(0);
+
+
+    if (
+      code < 0xAC00
+      ||
+      code > 0xD7A3
+    ) {
+
+      return char;
 
     }
 
 
+    const syllableIndex =
+      code - 0xAC00;
+
+
+    const initialIndex =
+      Math.floor(
+        syllableIndex / 588
+      );
+
+
+    const vowelIndex =
+      Math.floor(
+        (
+          syllableIndex % 588
+        )
+        /
+        28
+      );
+
+
+    const finalIndex =
+      syllableIndex % 28;
+
+
     return (
-      firstCard.offsetWidth
+      initials[initialIndex]
       +
-      18
+      vowels[vowelIndex]
+      +
+      finals[finalIndex]
     );
 
   }
 
 
-  galleryPrev.addEventListener(
-    'click',
-    () => {
 
-      gallery.scrollBy({
+  function capitalizeWord(word) {
 
-        left:
-          -getGalleryScrollAmount(),
+    if (!word) {
 
-        behavior:
-          'smooth'
-
-      });
+      return '';
 
     }
-  );
 
 
-  galleryNext.addEventListener(
-    'click',
-    () => {
+    return (
+      word.charAt(0).toUpperCase()
+      +
+      word.slice(1)
+    );
 
-      gallery.scrollBy({
+  }
 
-        left:
-          getGalleryScrollAmount(),
 
-        behavior:
-          'smooth'
 
-      });
+  function romanizeKoreanName(name) {
+
+    const cleanName =
+      name
+        .replace(/\s+/g, '')
+        .trim();
+
+
+    if (!cleanName) {
+
+      return 'Signature';
 
     }
-  );
 
 
+    /* 이미 영어 이름이면 그대로 사용 */
 
-  /* =========================================
-     STAFF BOARD · RECRUITMENT IMAGE
-  ========================================= */
+    if (
+      /^[A-Za-z .'-]+$/.test(
+        cleanName
+      )
+    ) {
 
-  const recruitmentImageInput =
-    document.getElementById(
-      'recruitmentImageInput'
-    );
+      return cleanName;
 
-  const recruitmentPreviewImage =
-    document.getElementById(
-      'recruitmentPreviewImage'
-    );
-
-  const recruitmentPlaceholder =
-    document.getElementById(
-      'recruitmentPlaceholder'
-    );
-
-  const recruitmentFileName =
-    document.getElementById(
-      'recruitmentFileName'
-    );
+    }
 
 
-  recruitmentImageInput.addEventListener(
-    'change',
-    event => {
-
-      const file =
-        event.target.files?.[0];
+    const surnameHangul =
+      cleanName.charAt(0);
 
 
-      if (!file) {
-
-        recruitmentPreviewImage.style.display =
-          'none';
-
-        recruitmentPlaceholder.style.display =
-          'flex';
-
-        recruitmentFileName.textContent =
-          '선택된 파일 없음';
-
-        return;
-
-      }
-
-
-      if (
-        !file.type.startsWith(
-          'image/'
+    const surname =
+      familyNameMap[surnameHangul]
+      ||
+      capitalizeWord(
+        romanizeSyllable(
+          surnameHangul
         )
-      ) {
-
-        alert(
-          '이미지 파일만 업로드할 수 있습니다.'
-        );
-
-        return;
-
-      }
-
-
-      const reader =
-        new FileReader();
-
-
-      reader.onload =
-        event => {
-
-          recruitmentPreviewImage.src =
-            event.target.result;
-
-          recruitmentPreviewImage.style.display =
-            'block';
-
-          recruitmentPlaceholder.style.display =
-            'none';
-
-          recruitmentFileName.textContent =
-            file.name;
-
-        };
-
-
-      reader.readAsDataURL(
-        file
       );
 
+
+    const givenHangul =
+      cleanName.slice(1);
+
+
+    let givenRoman =
+      '';
+
+
+    for (
+      const character
+      of givenHangul
+    ) {
+
+      givenRoman +=
+        romanizeSyllable(
+          character
+        );
+
     }
-  );
 
 
+    givenRoman =
+      capitalizeWord(
+        givenRoman
+      );
 
-  /* =========================================
-     ID CARD ELEMENTS
-  ========================================= */
 
-  const idPhotoInput =
-    document.getElementById(
-      'idPhotoInput'
+    /*
+       서명에는
+       이름 + 성 순서 사용
+
+       박건혁
+       → Geonhyeok Park
+    */
+
+    return (
+      givenRoman
+      +
+      ' '
+      +
+      surname
     );
 
-  const staffNameInput =
-    document.getElementById(
-      'staffNameInput'
-    );
-
-  const staffAgeInput =
-    document.getElementById(
-      'staffAgeInput'
-    );
-
-  const staffDeptInput =
-    document.getElementById(
-      'staffDeptInput'
-    );
-
-  const staffPositionInput =
-    document.getElementById(
-      'staffPositionInput'
-    );
-
-  const staffNumberInput =
-    document.getElementById(
-      'staffNumberInput'
-    );
-
-
-  const idPhotoPreview =
-    document.getElementById(
-      'idPhotoPreview'
-    );
-
-  const idPhotoPlaceholder =
-    document.getElementById(
-      'idPhotoPlaceholder'
-    );
-
-  const cardNameAge =
-    document.getElementById(
-      'cardNameAge'
-    );
-
-  const cardDepartment =
-    document.getElementById(
-      'cardDepartment'
-    );
-
-  const cardPosition =
-    document.getElementById(
-      'cardPosition'
-    );
-
-  const cardNumber =
-    document.getElementById(
-      'cardNumber'
-    );
-
-  const cardSignature =
-    document.getElementById(
-      'cardSignature'
-    );
-
-
-  const idCardFront =
-    document.getElementById(
-      'idCardFront'
-    );
-
-  const idCardBack =
-    document.getElementById(
-      'idCardBack'
-    );
-
-  const idCardPair =
-    document.getElementById(
-      'idCardPair'
-    );
-
-
-  const downloadFrontBtn =
-    document.getElementById(
-      'downloadFrontBtn'
-    );
-
-  const downloadBackBtn =
-    document.getElementById(
-      'downloadBackBtn'
-    );
-
-  const downloadBothBtn =
-    document.getElementById(
-      'downloadBothBtn'
-    );
-
-  const resetIdCardBtn =
-    document.getElementById(
-      'resetIdCardBtn'
-    );
+  }
 
 
 
@@ -6191,11 +4976,9 @@
      BARCODE
   ========================================= */
 
-  function generateBarcode(
-    number
-  ) {
+  function generateBarcode(number) {
 
-    const safeNumber =
+    const code =
       number.trim()
       ||
       'TED-0000-0000';
@@ -6205,11 +4988,10 @@
 
       JsBarcode(
         '#barcodeSvg',
-        safeNumber,
+        code,
         {
 
-          format:
-            'CODE128',
+          format: 'CODE128',
 
           lineColor:
             '#07111b',
@@ -6217,20 +4999,15 @@
           background:
             '#f2f7fa',
 
-          width:
-            1.45,
+          width: 1.4,
 
-          height:
-            35,
+          height: 34,
 
-          displayValue:
-            true,
+          displayValue: true,
 
-          fontSize:
-            10,
+          fontSize: 10,
 
-          margin:
-            2
+          margin: 2
 
         }
       );
@@ -6240,7 +5017,6 @@
     catch (error) {
 
       console.error(
-        'Barcode generation failed:',
         error
       );
 
@@ -6251,7 +5027,7 @@
 
 
   /* =========================================
-     UPDATE ID CARD
+     UPDATE CARD
   ========================================= */
 
   function updateIdCard() {
@@ -6268,7 +5044,7 @@
     const position =
       staffPositionInput.value.trim();
 
-    const employeeNumber =
+    const number =
       staffNumberInput.value.trim();
 
 
@@ -6311,23 +5087,26 @@
 
 
     cardNumber.textContent =
-      employeeNumber
+      number
       ||
       'TED-0000-0000';
 
 
+    /*
+      ★ 한글 이름 → 영어 싸인 자동 변환
+    */
+
     cardSignature.textContent =
-      name
-      ||
-      '이름';
+      romanizeKoreanName(
+        name
+      );
 
 
     generateBarcode(
-      employeeNumber
+      number
     );
 
   }
-
 
 
   [
@@ -6353,6 +5132,17 @@
   /* =========================================
      PROFILE PHOTO
   ========================================= */
+
+  const idPhotoPreview =
+    document.getElementById(
+      'idPhotoPreview'
+    );
+
+  const idPhotoPlaceholder =
+    document.getElementById(
+      'idPhotoPlaceholder'
+    );
+
 
   idPhotoInput.addEventListener(
     'change',
@@ -6413,57 +5203,55 @@
 
 
   /* =========================================
-     RESET ID CARD
+     RESET
   ========================================= */
 
-  resetIdCardBtn.addEventListener(
-    'click',
-    () => {
+  document
+    .getElementById(
+      'resetIdCardBtn'
+    )
+    .addEventListener(
+      'click',
+      () => {
 
-      staffNameInput.value =
-        '';
+        staffNameInput.value = '';
 
-      staffAgeInput.value =
-        '';
+        staffAgeInput.value = '';
 
-      staffDeptInput.value =
-        '';
+        staffDeptInput.value = '';
 
-      staffPositionInput.value =
-        '';
+        staffPositionInput.value = '';
 
-      staffNumberInput.value =
-        '';
+        staffNumberInput.value = '';
 
-      idPhotoInput.value =
-        '';
+        idPhotoInput.value = '';
 
 
-      idPhotoPreview.removeAttribute(
-        'src'
-      );
-
-      idPhotoPreview.style.display =
-        'none';
-
-      idPhotoPlaceholder.style.display =
-        'block';
+        idPhotoPreview.style.display =
+          'none';
 
 
-      updateIdCard();
+        idPhotoPreview.removeAttribute(
+          'src'
+        );
 
-    }
-  );
+
+        idPhotoPlaceholder.style.display =
+          'block';
+
+
+        updateIdCard();
+
+      }
+    );
 
 
 
   /* =========================================
-     DOWNLOAD HELPERS
+     IMAGE DOWNLOAD
   ========================================= */
 
-  function sanitizeFileName(
-    value
-  ) {
+  function safeFileName(value) {
 
     return (
       value
@@ -6471,7 +5259,6 @@
           /[\\/:*?"<>|]/g,
           '-'
         )
-        .trim()
       ||
       'TED-IDCARD'
     );
@@ -6479,9 +5266,10 @@
   }
 
 
-  async function captureElement(
+
+  async function saveCard(
     element,
-    fileName
+    name
   ) {
 
     try {
@@ -6494,20 +5282,14 @@
           element,
           {
 
+            scale: 3,
+
             backgroundColor:
               '#05090f',
 
-            scale:
-              3,
+            useCORS: true,
 
-            useCORS:
-              true,
-
-            allowTaint:
-              false,
-
-            logging:
-              false
+            logging: false
 
           }
         );
@@ -6520,7 +5302,7 @@
 
 
       link.download =
-        `${fileName}.png`;
+        `${name}.png`;
 
 
       link.href =
@@ -6529,32 +5311,19 @@
         );
 
 
-      document.body.appendChild(
-        link
-      );
-
-
       link.click();
-
-
-      document.body.removeChild(
-        link
-      );
 
     }
 
     catch (error) {
 
       console.error(
-        'ID card export failed:',
         error
       );
 
 
       alert(
-        'ID카드 저장 중 오류가 발생했습니다.\n\n' +
-        '외부 로고 이미지의 보안 정책(CORS) 문제일 수 있습니다.\n' +
-        'Netlify에 로고 파일을 직접 업로드한 뒤 로컬 경로로 변경하면 가장 안정적으로 작동합니다.'
+        '이미지 저장 중 오류가 발생했습니다.'
       );
 
     }
@@ -6563,81 +5332,96 @@
 
 
 
-  /* =========================================
-     DOWNLOAD FRONT
-  ========================================= */
+  document
+    .getElementById(
+      'downloadFrontBtn'
+    )
+    .addEventListener(
+      'click',
+      () => {
 
-  downloadFrontBtn.addEventListener(
-    'click',
-    () => {
+        const number =
+          safeFileName(
+            staffNumberInput.value
+            ||
+            'TED-IDCARD'
+          );
 
-      const number =
-        sanitizeFileName(
-          staffNumberInput.value
-          ||
-          'TED-IDCARD'
+
+        saveCard(
+
+          document.getElementById(
+            'idCardFront'
+          ),
+
+          `${number}-FRONT`
+
         );
 
-
-      captureElement(
-        idCardFront,
-        `${number}-FRONT`
-      );
-
-    }
-  );
+      }
+    );
 
 
 
-  /* =========================================
-     DOWNLOAD BACK
-  ========================================= */
+  document
+    .getElementById(
+      'downloadBackBtn'
+    )
+    .addEventListener(
+      'click',
+      () => {
 
-  downloadBackBtn.addEventListener(
-    'click',
-    () => {
+        const number =
+          safeFileName(
+            staffNumberInput.value
+            ||
+            'TED-IDCARD'
+          );
 
-      const number =
-        sanitizeFileName(
-          staffNumberInput.value
-          ||
-          'TED-IDCARD'
+
+        saveCard(
+
+          document.getElementById(
+            'idCardBack'
+          ),
+
+          `${number}-BACK`
+
         );
 
-
-      captureElement(
-        idCardBack,
-        `${number}-BACK`
-      );
-
-    }
-  );
+      }
+    );
 
 
 
-  /* =========================================
-     DOWNLOAD BOTH
-  ========================================= */
+  document
+    .getElementById(
+      'downloadBothBtn'
+    )
+    .addEventListener(
+      'click',
+      () => {
 
-  downloadBothBtn.addEventListener(
-    'click',
-    () => {
+        const number =
+          safeFileName(
+            staffNumberInput.value
+            ||
+            'TED-IDCARD'
+          );
 
-      const number =
-        sanitizeFileName(
-          staffNumberInput.value
-          ||
-          'TED-IDCARD'
+
+        saveCard(
+
+          document.getElementById(
+            'idCardPair'
+          ),
+
+          `${number}-FRONT-BACK`
+
         );
 
-
-      captureElement(
-        idCardPair,
-        `${number}-FRONT-BACK`
-      );
-
-    }
-  );
+      }
+    );
 
 
 
